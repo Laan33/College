@@ -1,0 +1,9 @@
+﻿  Source.c
+C:\Users\catha\source\repos\Assignment20_CathalLawlor_21325456\assignment 20 version 2\assingment 20 2\Source.c(66,12): warning C4013: 'time' undefined; assuming extern returning int
+C:\Users\catha\source\repos\Assignment20_CathalLawlor_21325456\assignment 20 version 2\assingment 20 2\Source.c(83,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\catha\source\repos\Assignment20_CathalLawlor_21325456\assignment 20 version 2\assingment 20 2\Source.c(94,11): warning C4473: 'scanf_s' : not enough arguments passed for format string
+C:\Users\catha\source\repos\Assignment20_CathalLawlor_21325456\assignment 20 version 2\assingment 20 2\Source.c(94,11): message : placeholders and their parameters expect 2 variadic arguments, but 1 were provided
+C:\Users\catha\source\repos\Assignment20_CathalLawlor_21325456\assignment 20 version 2\assingment 20 2\Source.c(94,11): message : the missing variadic argument 2 is required by format string '%c'
+C:\Users\catha\source\repos\Assignment20_CathalLawlor_21325456\assignment 20 version 2\assingment 20 2\Source.c(94,11): message : this argument is used as a buffer size
+C:\Users\catha\source\repos\Assignment20_CathalLawlor_21325456\assignment 20 version 2\assingment 20 2\Source.c(97,21): warning C4018: '<': signed/unsigned mismatch
+  assingment 20 2.vcxproj -> C:\Users\catha\source\repos\Assignment20_CathalLawlor_21325456\assignment 20 version 2\assingment 20 2\Debug\assingment 20 2.exe

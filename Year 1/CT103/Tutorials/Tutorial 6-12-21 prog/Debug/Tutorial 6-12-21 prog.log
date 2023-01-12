@@ -1,0 +1,4 @@
+﻿  Source.c
+C:\Users\catha\source\repos\Tutorial 6-12-21 prog\Source.c(24,18): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\catha\source\repos\Tutorial 6-12-21 prog\Source.c(40,1): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  Tutorial 6-12-21 prog.vcxproj -> C:\Users\catha\source\repos\Tutorial 6-12-21 prog\Debug\Tutorial 6-12-21 prog.exe

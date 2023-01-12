@@ -1,0 +1,5 @@
+﻿  Source.c
+C:\Users\catha\Documents\University\Homework - Assignments\CT103\Assignment10-Lawlor_Cathal-21325456\Source.c(37,1): warning C4244: 'initializing': conversion from 'time_t' to 'long', possible loss of data
+C:\Users\catha\Documents\University\Homework - Assignments\CT103\Assignment10-Lawlor_Cathal-21325456\Source.c(48,1): warning C4244: 'initializing': conversion from 'time_t' to 'long', possible loss of data
+C:\Users\catha\Documents\University\Homework - Assignments\CT103\Assignment10-Lawlor_Cathal-21325456\Source.c(58,36): warning C4029: declared formal parameter list different from definition
+  Assignment10-Lawlor_Cathal-21325456.vcxproj -> C:\Users\catha\Documents\University\Homework - Assignments\CT103\Assignment10-Lawlor_Cathal-21325456\Debug\Assignment10-Lawlor_Cathal-21325456.exe

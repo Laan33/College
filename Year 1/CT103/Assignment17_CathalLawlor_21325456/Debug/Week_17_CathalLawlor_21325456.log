@@ -1,0 +1,13 @@
+﻿  Source.c
+C:\Users\catha\source\repos\Week_17_CathalLawlor_21325456\Source.c(15,18): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\catha\source\repos\Week_17_CathalLawlor_21325456\Source.c(27,24): warning C4047: 'function': 'int *' differs in levels of indirection from 'int'
+C:\Users\catha\source\repos\Week_17_CathalLawlor_21325456\Source.c(27,20): warning C4024: 'swapIntegerValues': different types for formal and actual parameter 1
+C:\Users\catha\source\repos\Week_17_CathalLawlor_21325456\Source.c(27,30): warning C4047: 'function': 'int *' differs in levels of indirection from 'int'
+C:\Users\catha\source\repos\Week_17_CathalLawlor_21325456\Source.c(27,26): warning C4024: 'swapIntegerValues': different types for formal and actual parameter 2
+C:\Users\catha\source\repos\Week_17_CathalLawlor_21325456\Source.c(49,9): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'int *'
+C:\Users\catha\source\repos\Week_17_CathalLawlor_21325456\Source.c(49,9): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 2 has type 'int *'
+C:\Users\catha\source\repos\Week_17_CathalLawlor_21325456\Source.c(50,15): warning C4047: '=': 'int' differs in levels of indirection from 'int *'
+C:\Users\catha\source\repos\Week_17_CathalLawlor_21325456\Source.c(52,15): warning C4047: '=': 'int *' differs in levels of indirection from 'int'
+C:\Users\catha\source\repos\Week_17_CathalLawlor_21325456\Source.c(53,9): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'int *'
+C:\Users\catha\source\repos\Week_17_CathalLawlor_21325456\Source.c(53,9): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 2 has type 'int *'
+  Week_17_CathalLawlor_21325456.vcxproj -> C:\Users\catha\source\repos\Week_17_CathalLawlor_21325456\Debug\Week_17_CathalLawlor_21325456.exe

@@ -1,0 +1,3 @@
+﻿  Source.c
+C:\Users\catha\source\repos\malloc fund\Source.c(5,12): warning C4013: 'time' undefined; assuming extern returning int
+  malloc fund.vcxproj -> C:\Users\catha\source\repos\malloc fund\Debug\malloc fund.exe

@@ -1,0 +1,3 @@
+﻿  Source.c
+C:\Users\catha\source\repos\Project1\Project1\Source.c(17,17): warning C4013: 'abs' undefined; assuming extern returning int
+  Project1.vcxproj -> C:\Users\catha\source\repos\Project1\Debug\Project1.exe
