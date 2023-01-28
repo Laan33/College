@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Address
+comment0.text=\r\n\ Address\ class,\ basic\ in\ that\ it\ holds\ address\ info\ and\ just\ getter\ methods\r\n\r\n\ @Cathal\r\n\ @V1.3\r\n
+comment1.params=street\ town\ county\ country\ eircode
+comment1.target=Address(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ getEircode()
+comment3.params=
+comment3.target=java.lang.String\ getStreet()
+comment4.params=
+comment4.target=java.lang.String\ getTown()
+comment5.params=
+comment5.target=java.lang.String\ getCounty()
+comment6.params=
+comment6.target=java.lang.String\ getCountry()
+numComments=7

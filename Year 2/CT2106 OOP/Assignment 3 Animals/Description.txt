@@ -1,0 +1,14 @@
+We learn about inheritance in this assignment. 
+In this case, the bird and fish extend off of animal, 
+where canary and ostrich extend off the former and trout and shark off the latter.
+
+This stops a lot of duplication of code. 
+
+We have a toString method in each class to print out all the data it stores. 
+There's also an equals method to compare two classes to see if they are the same. 
+
+The test class then just creates two objects which do the following;
+Test1 - creates an array of the animal objects and then prints off their corresponding info.
+Test2 - creates an array of various animals, some duplicates. 
+It then uses the equals method in each class to compare them to other classes to find duplicates. 
+It prints the location, name and class type to the screen then.

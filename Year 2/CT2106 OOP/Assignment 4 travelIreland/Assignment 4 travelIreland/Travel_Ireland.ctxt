@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Travel_Ireland
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=be\ cl\ gb
+comment2.target=void\ group1(BusEireann,\ CityLink,\ GoBus)
+comment3.params=be\ cl\ gb
+comment3.target=void\ group2(BusEireann,\ CityLink,\ GoBus)
+numComments=4

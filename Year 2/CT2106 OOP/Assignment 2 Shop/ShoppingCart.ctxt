@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.target=ShoppingCart
+comment0.text=\r\n\ The\ 'class\ in\ charge'\ at\ the\ start.\ It\ holds\ an\ array\ for\ the\ items\ added\ to\ it\ and\ then\ to\ be\ sent\ to\ order.\r\n\r\n\ @Cathal\r\n\ @V1.3\r\n
+comment1.params=
+comment1.target=ShoppingCart()
+comment10.params=
+comment10.target=void\ emptyCart()
+comment11.params=
+comment11.target=void\ listItems()
+comment2.params=i
+comment2.target=void\ addItem(Item)
+comment3.params=index
+comment3.target=Item\ getItem(int)
+comment4.params=
+comment4.target=void\ closeCart()
+comment5.params=
+comment5.target=void\ confirmCart()
+comment6.params=index
+comment6.target=boolean\ removeItem(int)
+comment7.params=
+comment7.target=long\ getCartId()
+comment8.params=
+comment8.target=int\ numItem()
+comment9.params=
+comment9.target=double\ getTotal()
+numComments=12

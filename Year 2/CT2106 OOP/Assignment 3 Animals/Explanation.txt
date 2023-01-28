@@ -1,0 +1,10 @@
+This whole assignment was to get familiar with inheratince. 
+In this case, the bird and fish class extend from animal.
+Both the bird and fish each have their own two leafs that extend off them; trout, shark, canary, ostrich. 
+
+All of these subclasses inherit methods and fields from the abstract classes above them. 
+For example - the animal class has a method for getName, where any of the animals can call it as they inherit it. 
+
+So even when it's called in ostrich, it still works even if the name is assigned and the method is in animal.
+
+This is the same process for all the various fields / methods.  

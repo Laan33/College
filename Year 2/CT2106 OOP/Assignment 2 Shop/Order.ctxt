@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=Order
+comment0.text=\r\n\ Order\ class,\ holds\ lots\ of\ attributes\ and\ then\ takes\ in\ shopping\ cart\ onto\ a\ new\ arraylist\r\n\ \r\n\r\n\ @Cathal\r\n\ @V1.3\r\n
+comment1.params=cart\ payment
+comment1.target=Order(ShoppingCart,\ Payment)
+comment2.params=
+comment2.target=long\ setOrderId()
+comment3.params=deliveryAddress
+comment3.target=void\ setDelAddress(Address)
+comment4.params=
+comment4.target=void\ printItems()
+comment5.params=
+comment5.target=Payment\ getPayment()
+comment6.params=
+comment6.target=double\ getOrderCost()
+comment7.params=
+comment7.target=long\ getOrderId()
+comment8.params=
+comment8.target=java.lang.String\ getDelAddress()
+numComments=9

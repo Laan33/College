@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=ServiceTemplate
+comment1.params=k
+comment1.target=java.lang.String\ toString(int)
+comment2.params=booking
+comment2.target=boolean\ makeBooking(Booking)
+comment3.params=
+comment3.target=java.lang.String\ getAllJourneys()
+comment4.params=ID
+comment4.target=java.lang.String\ getJourneyPrint(int)
+comment5.params=ID
+comment5.target=Journey\ getJourney(int)
+numComments=6
