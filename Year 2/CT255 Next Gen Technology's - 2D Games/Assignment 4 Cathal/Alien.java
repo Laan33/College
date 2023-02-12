@@ -16,15 +16,12 @@ public class Alien extends Sprite2D {
         }
 
     }
-
-    
-
     public boolean checkCollision() {
-        if ((x + 60) >= 800 || (x - 15) <= 0) {
-            return true;
+        if ((x + 60) >= 800 || (x - 15) <= 0) { //if near a wall in these bounds
+            return true; //return there is a collision
         }
         else {
-            return false;
+            return false; //else return false - no collision
         }
     }
     
