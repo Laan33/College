@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Alien extends Sprite2D {
 
-    
     public Alien(Image i, Image j, Dimension WindowSize) {
         super(i, j, WindowSize);
     }
@@ -19,23 +18,19 @@ public class Alien extends Sprite2D {
         }
     }
 
-    public boolean checkBulletCollision(List<PlayerBullet> bulletList){
-        
-        Iterator<PlayerBullet> iterator = bulletList.iterator(); 
-        yCoord = ((int)y + imgHeight/2);
-        xCoord = ((int)x + imgWidth/2);  
-        while(iterator.hasNext()){
-            PlayerBullet bullet = (PlayerBullet)iterator.next();
-            
-            if ( isAlive() &&
-            ( (x<bullet.x && x+imgWidth>bullet.x) || (bullet.x<x && bullet.x+bullet.imgWidth>x) ) 
-            &&
-            ( (y<bullet.y && y+imgHeight>bullet.y) || (bullet.y<y && bullet.y+bullet.imgHeight>y) )
-            ) {
+    public boolean checkBulletCollision(List<PlayerBullet> bulletList) {
+        //checking if alien has collided with a list of bullets
+        Iterator<PlayerBullet> iterator = bulletList.iterator();
+        while (iterator.hasNext()) {
+            PlayerBullet bullet = (PlayerBullet) iterator.next();
+            if (isAlive() &&
+                    ((x < bullet.x && x + imgWidth > bullet.x) || (bullet.x < x && bullet.x + bullet.imgWidth > x))
+                    &&
+                    ((y < bullet.y && y + imgHeight > bullet.y) || (bullet.y < y && bullet.y + bullet.imgHeight > y))) {
                 iterator.remove();
                 return true;
             }
-        } 
+        }
         return false;
     }
 
