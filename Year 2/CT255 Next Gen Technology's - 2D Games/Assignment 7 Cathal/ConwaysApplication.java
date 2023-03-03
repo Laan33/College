@@ -164,8 +164,8 @@ public class ConwaysApplication extends JFrame implements MouseInputListener, Ru
                 }
 
                 for (int i = 0; i < cells; i++) {
-                    for (int z = 0; z < cells; z++) {
-                        gamePointsBool[i][z][0] = gamePointsBool[i][z][1];
+                    for (int j = 0; j < cells; j++) {
+                        gamePointsBool[i][j][0] = gamePointsBool[i][j][1];
                     }
                 }
             }
