@@ -93,59 +93,46 @@ public class ConwaysApplication extends JFrame implements MouseInputListener, Ru
     }
 
     public void run() {
-        while (1 == 1) {
+        while (true) {
             try {
-                Thread.sleep(400); //repeats every 0.4 seconds
-
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+                Thread.sleep(20);
+            } catch (InterruptedException r) {
+                r.printStackTrace();
             }
-
             if (isGamePlaying) {
                 for (int i = 0; i < cells; i++) {
-                    for (int j = 0; j < cells; j++) { //sets the back array to false
+                    for (int j = 0; j < cells; j++) {
                         gamePointsBool[i][j][1] = false;
                     }
                 }
                 for (int x = 0; x < 40; x++) {
                     for (int y = 0; y < 40; y++) {
-                        int neighbourCount = 0;
                         // count the live neighbours of cell [x][y][0]
+                        int count = 0;
                         for (int xx = -1; xx <= 1; xx++) {
                             for (int yy = -1; yy <= 1; yy++) {
-                                // if x+xx==-1, etc. we use modulus to loop back
-                                // java % 39 on -1 isn't 39, it's still -1..., thats why we use .floorMod
-                                int X = Math.floorMod(x + xx, 39);
-                                int Y = Math.floorMod(y + yy, 39);
-
-                                if (gamePointsBool[X][Y][0]) {
-                                    neighbourCount++;
+                                if (xx != 0 || yy != 0) {
+                                    // check cell [x+xx][y+yy][0]
+                                    // but.. what if x+xx==-1, etc. ?
+                                    int xxx = Math.floorMod(x + xx, 39), yyy = Math.floorMod(y + yy, 39);
+                                    if (gamePointsBool[xxx][yyy][0]) count ++;
                                 }
                             }
                         }
-
-                        if (neighbourCount < 2 && gamePointsBool[x][y][0]) {
-                            gamePointsBool[x][y][1] = false;
-                        } else if (neighbourCount > 3 && gamePointsBool[x][y][0]) {
-                            gamePointsBool[x][y][1] = false;
-                        } else if ((neighbourCount == 3 || neighbourCount == 2) && gamePointsBool[x][y][0]) { 
-                            // if there is 3 neighbours this cells will be kept alive / made alive
-                            gamePointsBool[x][y][1] = true;
-                        } else if (neighbourCount == 3 && !gamePointsBool[x][y][0]) {
-                            gamePointsBool[x][y][1] = true; // if there is two and cell is alive - keep alive
-                        }
+                        if (count < 2 && gamePointsBool[x][y][0]) gamePointsBool[x][y][1] = false;
+                        else if ((count == 2 || count == 3) && gamePointsBool[x][y][0]) gamePointsBool[x][y][1] = true;
+                        else if (count > 3 && gamePointsBool[x][y][0]) gamePointsBool[x][y][1] = false;
+                        else if (!gamePointsBool[x][y][0] && count == 3) gamePointsBool[x][y][1] = true;
                     }
                 }
-
                 for (int i = 0; i < cells; i++) {
-                    for (int j = 0; j < cells; j++) { //setting front cells to the new calculated cells
+                    for (int j = 0; j < cells; j++) {
                         gamePointsBool[i][j][0] = gamePointsBool[i][j][1];
                     }
                 }
             }
             this.repaint();
         }
-
     }
 
     public void mousePressed(MouseEvent e) {
