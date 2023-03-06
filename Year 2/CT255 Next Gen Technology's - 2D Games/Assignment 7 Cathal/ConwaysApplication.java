@@ -112,8 +112,7 @@ public class ConwaysApplication extends JFrame implements MouseInputListener, Ru
                         for (int xx = -1; xx <= 1; xx++) {
                             for (int yy = -1; yy <= 1; yy++) {
                                 if (xx != 0 || yy != 0) {
-                                    // check cell [x+xx][y+yy][0]
-                                    // but.. what if x+xx==-1, etc. ?
+                                    // check cell [x+xx][y+yy][0] - rolls over if xxx = -1 using modulus
                                     int xxx = Math.floorMod(x + xx, 39), yyy = Math.floorMod(y + yy, 39);
                                     if (gamePointsBool[xxx][yyy][0]) count ++;
                                 }
