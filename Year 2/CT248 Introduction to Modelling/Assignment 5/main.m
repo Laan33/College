@@ -1,4 +1,4 @@
-%Shark - S(t) Product ST - average prob it makes a meal of the tuna at rate
+%Shark - S(t) Product ST - average probability it makes a meal of the tuna at rate
 %k1ST - average prob of encounter k1 is average prob per unit time the
 %encounter results in a meal
 % represents the rate shark population grows 
@@ -9,13 +9,10 @@
 %k3S - they disappear in proportion to the product of encounters with
 %sharks at k4ST, not necessarily equal to growth rate of sharks
 
-global  k = [0.015, 0.7, 0.5, 0.01]^T;
+global k;
+global population0;
+k = [0.015; 0.7; 0.5; 0.01];
+population0 = 100;
 
-
-S = k1ST - k2S;
-T = k3T - k4ST;
-
-k = [0.015, 0.7, 0.5, 0.01]^T;
-%initial conditions are
-S(0) = T(0) = 100;
+predatorPreySys();
 
