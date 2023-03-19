@@ -43,7 +43,7 @@ public class AStarMaze extends JFrame implements Runnable, MouseListener, MouseM
 
 		icon = new ImageIcon(FilePath+"badguy.png");
 		img = icon.getImage();
-    	badguy = new BadGuy(img, map, player.x, player.y);
+    	badguy = new BadGuy(img);
     	
 
         // create and start our animation thread
@@ -67,7 +67,7 @@ public class AStarMaze extends JFrame implements Runnable, MouseListener, MouseM
         	}
         }
 		
-		badguy.initNodes(map, player.x, player.y);
+		//badguy.initNodes(map, player.x, player.y);
 		//badguy.initNodes()
 		//badguy.reCalcPath(map, player.x, player.y);
 		
@@ -89,11 +89,12 @@ public class AStarMaze extends JFrame implements Runnable, MouseListener, MouseM
 				loops++;
 				player.move(map); // player moves every frame
 				//System.out.println(loops);
-				badguy.reCalcPath(map, player.x, player.y);
-				if (loops%3==0) // badguy moves once every 3 frames
+				
+				if (loops%3==0) {// badguy moves once every 3 frames
 					//System.out.println(loops + " you shouldn't see this");
 					//badguy.reCalcPath(map, player.x, player.y);
 					badguy.move(map,player.x,player.y); 
+				}
 			}
 			
 			// 3: force an application repaint
