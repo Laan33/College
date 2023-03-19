@@ -29,23 +29,17 @@ public class AStarMaze extends JFrame implements Runnable, MouseListener, MouseM
         setVisible(true);
     	this.setTitle("A* Pathfinding Demo");
     	
-    	
-		FilePath = "C:\\Users\\catha\\Documents\\GitHub\\College\\Year 2\\CT255 Next Gen Technology's - 2D Games\\Assignment 9 Cathal A star\\";
+    	FilePath = System.getProperty("user.dir") + "\\";
     	System.out.println("Working Directory = " + FilePath);
     	
     	// load raster graphics and instantiate game objects
-		
-    	ImageIcon icon = new ImageIcon(FilePath+"player.png");
+    	ImageIcon icon = new ImageIcon(FilePath+"badguy.png");
     	Image img = icon.getImage();
+    	badguy = new BadGuy(img);
+    	icon = new ImageIcon(FilePath+"player.png");
+    	img = icon.getImage();
     	player = new Player(img);
-		
     	
-
-		icon = new ImageIcon(FilePath+"badguy.png");
-		img = icon.getImage();
-    	badguy = new BadGuy(img, map, player.x, player.y);
-    	
-
         // create and start our animation thread
         Thread t = new Thread(this);
         t.start();
@@ -66,11 +60,6 @@ public class AStarMaze extends JFrame implements Runnable, MouseListener, MouseM
         		map[x][y]=false;
         	}
         }
-		
-		badguy.initNodes(map, player.x, player.y);
-		//badguy.initNodes()
-		//badguy.reCalcPath(map, player.x, player.y);
-		
         
         isInitialised = true;
 	}
@@ -88,11 +77,8 @@ public class AStarMaze extends JFrame implements Runnable, MouseListener, MouseM
 			if (isGameRunning) {
 				loops++;
 				player.move(map); // player moves every frame
-				//System.out.println(loops);
-				badguy.reCalcPath(map, player.x, player.y);
 				if (loops%3==0) // badguy moves once every 3 frames
-					//System.out.println(loops + " you shouldn't see this");
-					//badguy.reCalcPath(map, player.x, player.y);
+				//System.out.println(loops + " you shouldn't see this");
 					badguy.move(map,player.x,player.y); 
 			}
 			
