@@ -1,0 +1,164 @@
+{
+  "main": {
+    "id": "1dfc79df4cd4b19b",
+    "type": "split",
+    "children": [
+      {
+        "id": "4ea0a944f3009984",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f6a3899bf994b76f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CT5106 Software Engineering 2/Notes/Class 1.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "a163d507b198605e",
+    "type": "split",
+    "children": [
+      {
+        "id": "7c8b9ef9553cc401",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cae315f6eed963d8",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "6183c610224ec2d3",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "0da1225be1fa6ee4",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "5a8a105b5a3251a4",
+    "type": "split",
+    "children": [
+      {
+        "id": "c04778bbbc1638fc",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3933fa7ca9e96200",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "CT5106 Software Engineering 2/Notes/Class 1.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "3ad6ed28b17868e4",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "CT5106 Software Engineering 2/Notes/Class 1.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "a0b2a66e5ce85bc3",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "878cb36a69ba0b5c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "CT5106 Software Engineering 2/Notes/Class 1.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "f6a3899bf994b76f",
+  "lastOpenFiles": [
+    "CT326 Programming III/Notes/Class 0.md",
+    "CT5106 Software Engineering 2/Notes/Class 1.md",
+    "CT326 Programming III/Slides/CT326 - Lecture 2 (command line programming and common problems)_S.pdf",
+    "CT326 Programming III/Slides/CT326 - Lecture 3 (Testing I)_S.pdf",
+    "CT326 Programming III/Slides/CT326 - Lecture 1 (overloading constructors and polymophism)_S.pdf",
+    "CT3531 Networks & Data Communications 2/Slides",
+    "CT3532 Database Systems 2/Slides",
+    "CT3534 Professional Experience/Slides",
+    "CT3536 Games Programming/Slides",
+    "CT5106 Software Engineering 2/Slides",
+    "CT331 Programming Paradigms/Slides",
+    "CT326 Programming III/Slides"
+  ]
+}
