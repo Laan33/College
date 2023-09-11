@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "4ea0a944f3009984",
+        "id": "0b64a9401e1873be",
         "type": "tabs",
         "children": [
           {
-            "id": "f6a3899bf994b76f",
+            "id": "0159441acd181a5c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CT5106 Software Engineering 2/Notes/Class 1.md",
+                "file": "CT331 Programming Paradigms/Notes/Class 1.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CT5106 Software Engineering 2/Notes/Class 1.md",
+                "file": "CT331 Programming Paradigms/Notes/Class 1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CT5106 Software Engineering 2/Notes/Class 1.md",
+                "file": "CT331 Programming Paradigms/Notes/Class 1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CT5106 Software Engineering 2/Notes/Class 1.md"
+                "file": "CT331 Programming Paradigms/Notes/Class 1.md"
               }
             }
           }
@@ -146,19 +146,24 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "f6a3899bf994b76f",
+  "active": "0159441acd181a5c",
   "lastOpenFiles": [
+    "CT3531 Networks & Data Communications 2/Notes/VLANS.md",
+    "CT331 Programming Paradigms/Notes/Class 1.md",
+    "CT326 Programming III/Notes/Class 2.md",
+    "Pasted image 20230906151004.png",
+    "CT3532 Database Systems 2/Notes/Class 1 A.md",
+    "CT3531 Networks & Data Communications 2/Slides/LAN Design.pdf",
+    "CT3531 Networks & Data Communications 2/Slides/CT3531-Intro-2023.pdf",
+    "CT3532 Database Systems 2/Slides/Lecture1.pdf",
     "CT326 Programming III/Notes/Class 0.md",
     "CT5106 Software Engineering 2/Notes/Class 1.md",
+    "CT5106 Software Engineering 2/Slides/1 introduction and getting started.pdf",
     "CT326 Programming III/Slides/CT326 - Lecture 2 (command line programming and common problems)_S.pdf",
     "CT326 Programming III/Slides/CT326 - Lecture 3 (Testing I)_S.pdf",
     "CT326 Programming III/Slides/CT326 - Lecture 1 (overloading constructors and polymophism)_S.pdf",
     "CT3531 Networks & Data Communications 2/Slides",
     "CT3532 Database Systems 2/Slides",
-    "CT3534 Professional Experience/Slides",
-    "CT3536 Games Programming/Slides",
-    "CT5106 Software Engineering 2/Slides",
-    "CT331 Programming Paradigms/Slides",
-    "CT326 Programming III/Slides"
+    "CT3534 Professional Experience/Slides"
   ]
 }
