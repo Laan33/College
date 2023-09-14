@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CT331 Programming Paradigms/Notes/Class 1.md",
+                "file": "CT318 Human Computer Interaction/Notes/Class 4.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CT331 Programming Paradigms/Notes/Class 1.md",
+                "file": "CT318 Human Computer Interaction/Notes/Class 4.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CT331 Programming Paradigms/Notes/Class 1.md",
+                "file": "CT318 Human Computer Interaction/Notes/Class 4.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CT331 Programming Paradigms/Notes/Class 1.md"
+                "file": "CT318 Human Computer Interaction/Notes/Class 4.md"
               }
             }
           }
@@ -148,22 +148,24 @@
   },
   "active": "0159441acd181a5c",
   "lastOpenFiles": [
-    "CT3531 Networks & Data Communications 2/Notes/VLANS.md",
+    "CT326 Programming III/Notes/Class 3.md",
+    "CT318 Human Computer Interaction/Notes/Class 4.md",
+    "CT326 Programming III/Notes/testing notes/untitled/untitled.iml",
+    "CT326 Programming III/Notes/testing notes/untitled/src/Main.java",
+    "CT326 Programming III/Notes/testing notes/untitled/src",
+    "CT326 Programming III/Notes/testing notes/untitled",
+    "CT326 Programming III/Slides/CT326 - Lecture 5 (Testing II)_S.pdf",
+    "CT326 Programming III/Slides/CT326 - Lecture 4 (throwing and handling exceptions)_S.pdf",
+    "CT326 Programming III/Notes/testing notes/Account.java",
+    "CT326 Programming III/Notes/testing notes/testingSample.java",
+    "CT326 Programming III/Notes/testing notes",
+    "CT326 Programming III/Notes/New folder",
     "CT331 Programming Paradigms/Notes/Class 1.md",
+    "CT3531 Networks & Data Communications 2/Notes/VLANS.md",
     "CT326 Programming III/Notes/Class 2.md",
     "Pasted image 20230906151004.png",
     "CT3532 Database Systems 2/Notes/Class 1 A.md",
-    "CT3531 Networks & Data Communications 2/Slides/LAN Design.pdf",
-    "CT3531 Networks & Data Communications 2/Slides/CT3531-Intro-2023.pdf",
-    "CT3532 Database Systems 2/Slides/Lecture1.pdf",
     "CT326 Programming III/Notes/Class 0.md",
-    "CT5106 Software Engineering 2/Notes/Class 1.md",
-    "CT5106 Software Engineering 2/Slides/1 introduction and getting started.pdf",
-    "CT326 Programming III/Slides/CT326 - Lecture 2 (command line programming and common problems)_S.pdf",
-    "CT326 Programming III/Slides/CT326 - Lecture 3 (Testing I)_S.pdf",
-    "CT326 Programming III/Slides/CT326 - Lecture 1 (overloading constructors and polymophism)_S.pdf",
-    "CT3531 Networks & Data Communications 2/Slides",
-    "CT3532 Database Systems 2/Slides",
-    "CT3534 Professional Experience/Slides"
+    "CT5106 Software Engineering 2/Notes/Class 1.md"
   ]
 }
