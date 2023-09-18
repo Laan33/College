@@ -35,28 +35,16 @@ public class GetToDoListServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");        
         
-        HttpSession session = request.getSession(); 
-        System.out.println("Requesting list");       
+        HttpSession session = request.getSession(); //retrieving list     
         ArrayList<ToDo> todoList = (ArrayList<ToDo>) session.getAttribute("todoList");
         
-        if (todoList == null ) {
-            System.out.println("List NULL - redirecting to AddToDoSerlvet");
+        if (todoList == null || todoList.isEmpty()) { //List NULL or Empty - redirecting to AddToDoSerlvet            
             request.getRequestDispatcher("/addToDo.html").forward(request, response);
             return;
         } 
-        if (todoList.isEmpty()) {
-            System.out.println("List empty - redirecting to AddToDoSerlvet");
-            request.getRequestDispatcher("/addToDo.html").forward(request, response);
-            return;
-        }
-        System.out.println("List not empty, printing list");
-        for (ToDo task : todoList) {
-                System.out.println(task.getTaskSubject() + "</b></td><td>" + task.getTaskDetails());
-            }
-        System.out.println("List FINISH");
-
+        
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+            /* Page output  */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -65,7 +53,7 @@ public class GetToDoListServlet extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Todo Tasks</h1>");
             out.println("<table><tr><th>Subject</th><th>Details</th></tr>");
-            for (ToDo task : todoList) {
+            for (ToDo task : todoList) { //printing table
                 out.println("<tr><td><b>" + task.getTaskSubject() + "</b></td><td>" + task.getTaskDetails() + "</td></tr><br>");
             }
             out.println("<table>");

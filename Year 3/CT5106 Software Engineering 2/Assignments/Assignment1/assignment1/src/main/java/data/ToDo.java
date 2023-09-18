@@ -13,7 +13,7 @@ public class ToDo {
     private String taskSubject;
     private String taskDetails;
     
-    public ToDo(String taskSubject, String taskDetails) {
+    public ToDo(String taskSubject, String taskDetails) { //task constructor 
         this.taskSubject = taskSubject;
         this.taskDetails = taskDetails;
     }

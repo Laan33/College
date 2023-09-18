@@ -39,17 +39,16 @@ public class LoginServlet extends HttpServlet {
 
         
 
-        if (username.equals("cathal")
-                && pwd.equals("51015")) {
-            System.out.println("Correct login");
+        if (username.equals("cathal") //login detail check 
+                && pwd.equals("51015")) 
+        {   //Correct login            
             HttpSession session = request.getSession();
             session.setAttribute("username", username);
             response.sendRedirect("GetToDoListServlet");            
             return;
-        } else {
-            
+        } else { //incorrect details            
             System.out.println("Incorrect login");
-            request.getRequestDispatcher("/index.html").forward(request, response);
+            request.getRequestDispatcher("/index.html").forward(request, response); //returns to index.html
             return;
         }
     }

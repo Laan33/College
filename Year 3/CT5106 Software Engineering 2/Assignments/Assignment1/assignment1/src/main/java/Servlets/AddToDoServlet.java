@@ -34,35 +34,31 @@ public class AddToDoServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-        System.out.println("List NULL");
-        /*
+       
         HttpSession session = request.getSession();
         ArrayList<ToDo> todoList = (ArrayList<ToDo>) session.getAttribute("todoList");
-        if (todoList == null) {
-            System.out.println("List NULL");
+        if (todoList == null) { //creating a list if none found
             todoList = new ArrayList<>();
         }
 
         String subject = request.getParameter("subject");
         String details = request.getParameter("details");
 
-        if (subject != null && details != null) {
+        //if both subject & details NOTNULL + not empty add task
+        if ((subject != null && details != null) 
+                && (!subject.isEmpty() && !details.isEmpty())) 
+        {            
             ToDo newToDo = new ToDo(subject, details);
-            System.out.println("Task subject " + subject + " details " + details);
             todoList.add(newToDo);
 
             session.setAttribute("todoList", todoList);
-
-            System.out.println("Task added to list - redirecting to GetToDoListSerlvet");
-            response.sendRedirect("GetToDoListServlet");
+            response.sendRedirect("GetToDoListServlet"); //return to todo list page
             return;
-        } else {
-            System.out.println("Task info null - redirecting to AddToDoServlet");
-            response.sendRedirect("AddToDoServlet");
+        } else { //not valid input, returning to AddToDoServlet
+            request.getRequestDispatcher("/addToDo.html").forward(request, response);
             return;
         }
-        */
+        
 
     }
 
