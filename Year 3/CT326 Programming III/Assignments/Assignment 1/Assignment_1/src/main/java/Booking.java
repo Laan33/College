@@ -1,6 +1,5 @@
-import java.time;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.*;
+
 
 public class Booking {
 
@@ -18,7 +17,11 @@ public class Booking {
 
     }
 
-    public class TestCentre {
+    public TestCentre getTestCentre() {
+        return testCenter;
+    }
+
+    public static class TestCentre {
         private String centreName;
         private String centreAddress;
 
@@ -47,5 +50,9 @@ public class Booking {
         public String toString() {
             return "Centre: " + centreName + " Address: " + centreAddress;
         }
+    }
+
+    public interface NCTBookingSlotWebservice {
+        public LocalDateTime getBookingDateTime(TestCentre testCentre);
     }
 }
