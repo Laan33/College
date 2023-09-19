@@ -5,20 +5,18 @@ public class Booking {
 
     String vehicleReg;
     double bookingID;
-    TestCentre testCenter;
-    LocalDate bookingDate;
-    LocalTime bookingTime;
-    private static NCTBookingSlotWebservice webService = new NCTBookingSlotWebservice() {
-        @Override
-        public LocalDateTime getBookingDateTime(TestCentre testCentre) {
-            return LocalDateTime.of(2026, 2, 12, 12, 30);
-        }
-    };
+    private static double nextBookingID = 11111111; // Initialize with the minimum ID
 
+    private final TestCentre testCenter;
+    private LocalDate bookingDate;
+    private LocalTime bookingTime;
+    private static NCTBookingSlotWebservice webService = testCentre -> LocalDateTime.of(2026, 2, 12, 12, 30);
 
+    //Booking constructor with no date or time
     public Booking(String vehicleReg, TestCentre testCentre) {
         setWebService(webService);
 
+        //checking if vehicle registration is null
         if (vehicleReg == null) {
             throw new IllegalArgumentException("Vehicle registration cannot be null");
         }
@@ -31,12 +29,11 @@ public class Booking {
 
         //setting booking date and time with web service
         LocalDateTime bookingDateTime = webService.getBookingDateTime(testCentre);
-        System.out.println(bookingDateTime + "hi");
-        //This is a messy way but I had date and time as separate variables
+        //This is a messy way, but I had date and time as separate variables as I had taken that from brief
         this.bookingDate = bookingDateTime.toLocalDate();
         this.bookingTime = bookingDateTime.toLocalTime();
 
-        bookingID = setBookingID();
+        bookingID = getNextBookingID();
     }
 
     public Booking(String vehicleReg, TestCentre testCentre, LocalDate bookingDate, LocalTime bookingTime) {
@@ -54,20 +51,15 @@ public class Booking {
         //checking if booking date or time is in the past
         setBookingDateTime(bookingDate, bookingTime);
 
-/*
-        this.bookingDate = bookingDate;
-        this.bookingTime = bookingTime;*/
-
-        bookingID = setBookingID();
+        bookingID = getNextBookingID();
     }
 
-    public TestCentre getTestCentre() {
-        return testCenter;
-    }
-
-    public double setBookingID() {
-        //randomly generate a booking ID is between 11111111 and 99999999
-        return Math.floor(Math.random() * (99999999 - 11111111) + 11111111);
+    // Method to get the next unique booking ID
+    private static synchronized double getNextBookingID() {
+        double uniqueID = nextBookingID;
+        // Increment the nextBookingID for the next booking
+        nextBookingID++;
+        return uniqueID;
     }
 
     public LocalDate getBookingDate() {
@@ -86,14 +78,14 @@ public class Booking {
     }
 
     public void setWebService(NCTBookingSlotWebservice webService) {
-        this.webService = webService;
+        Booking.webService = webService;
     }
 
     public String getVehicleReg() {
         return vehicleReg;
     }
 
-    public boolean setBookingDateTime(LocalDate bookingDate, LocalTime bookingTime) {
+    public void setBookingDateTime(LocalDate bookingDate, LocalTime bookingTime) {
         //checking if booking date or time is in the past
         if (bookingDate == null) {
             throw new IllegalArgumentException("Booking date cannot be null");
@@ -103,8 +95,6 @@ public class Booking {
 
         try {
             this.bookingDate = bookingDate;
-            // Attempt to create a valid date; if it's invalid, this will throw an exception
-            //LocalDate testDate = LocalDate.of(bookingDate.getYear(), bookingDate.getMonth(), bookingDate.getDayOfMonth());
         } catch (DateTimeException e) {
             throw new IllegalArgumentException("Booking date is not valid");
         }
@@ -115,8 +105,24 @@ public class Booking {
             throw new IllegalArgumentException("Booking time cannot be in the past");
         }
 
+        try {
+            this.bookingTime = bookingTime;
+        } catch (DateTimeException e) {
+            throw new IllegalArgumentException("Booking time is not valid");
+        }
+    }
 
-        this.bookingTime = bookingTime;
-        return true;
+    public String getTestCentre() {
+        return testCenter.toString();
+    }
+
+    public double getBookingID() {
+        return bookingID;
+    }
+
+    @Override
+    public String toString() {
+        return "Booking ID: " + bookingID + "\n Registration Number: " + vehicleReg + "\n" + testCenter.toString() +
+                "\nDate & Time: On" + bookingDate.getDayOfWeek().toString() + ", " + bookingDate.toString() + " at " + bookingTime.toString();
     }
 }
