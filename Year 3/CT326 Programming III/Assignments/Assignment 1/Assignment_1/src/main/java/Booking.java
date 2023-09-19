@@ -4,6 +4,7 @@ import java.time.*;
 public class Booking {
 
     String vehicleReg;
+    double bookingID;
     TestCentre testCenter;
     LocalDate bookingDate;
     LocalTime bookingTime;
@@ -11,9 +12,14 @@ public class Booking {
 
     public Booking(String vehicleReg, TestCentre testCentre) {
 
+        bookingID = setBookingID();
     }
 
     public Booking(String vehicleReg, TestCentre testCentre, LocalDate bookingDate, LocalTime bookingTime) {
+
+
+        bookingID = setBookingID();
+
 
     }
 
@@ -21,35 +27,21 @@ public class Booking {
         return testCenter;
     }
 
-    public static class TestCentre {
-        private String centreName;
-        private String centreAddress;
+    public double setBookingID() {
+        //randomly generate a booking ID is between 11111111 and 99999999
+        return Math.floor(Math.random() * (99999999 - 11111111) + 11111111);
+    }
 
-        public TestCentre(String centreName, String centreAddress) {
-            this.centreName = centreName;
-            this.centreAddress = centreAddress;
-        }
+    public LocalDate getBookingDate() {
+        return bookingDate;
+    }
 
-        public String getCentreName() {
-            return centreName;
-        }
+    public LocalTime getBookingTime() {
+        return bookingTime;
+    }
 
-        public void setCentreName(String centreName) {
-            this.centreName = centreName;
-        }
-
-        public String getCentreAddress() {
-            return centreAddress;
-        }
-
-        public void setCentreAddress(String centreAddress) {
-            this.centreAddress = centreAddress;
-        }
-
-        @Override
-        public String toString() {
-            return "Centre: " + centreName + " Address: " + centreAddress;
-        }
+    public void setVehicleReg(String vehicleReg) {
+        this.vehicleReg = vehicleReg;
     }
 
     public interface NCTBookingSlotWebservice {
