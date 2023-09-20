@@ -3,6 +3,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.*;
+import java.time.temporal.TemporalAdjusters;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -73,7 +74,7 @@ public class BookingTest {
         booking = null;
         booking = new Booking("09-G-13921", testCentre);
 
-        assertEquals(booking.getBookingDate(), LocalDate.of(2026, 2, 12));
+        assertEquals(booking.getBookingDate(), LocalDate.now().plusDays(7).with(TemporalAdjusters.next(DayOfWeek.MONDAY)));
     }
 
     @Test
@@ -81,7 +82,7 @@ public class BookingTest {
         booking = null;
         booking = new Booking("09-G-13921", testCentre);
 
-        assertEquals(booking.getBookingTime(), LocalTime.of(12, 30));
+        assertEquals(booking.getBookingTime(), LocalTime.of(9, 30));
     }
 
     @Test
@@ -98,6 +99,12 @@ public class BookingTest {
     void testMakeInvalidVehicleRegEdit() {
         try {
             booking.setVehicleReg(null);
+            assertThrows(Exception.class, () -> booking.setVehicleReg(null));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            booking.setVehicleReg("");
             assertThrows(Exception.class, () -> booking.setVehicleReg(null));
         } catch (Exception e) {
             e.printStackTrace();

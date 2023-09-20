@@ -1,4 +1,5 @@
 import java.time.*;
+import java.time.temporal.TemporalAdjusters;
 
 
 public class Booking {
@@ -10,7 +11,10 @@ public class Booking {
     private final TestCentre testCenter;
     private LocalDate bookingDate;
     private LocalTime bookingTime;
-    private static NCTBookingSlotWebservice webService = testCentre -> LocalDateTime.of(2026, 2, 12, 12, 30);
+    //plus 7 days and the next monday at 9:30
+
+    private static NCTBookingSlotWebservice webService = testCentre ->
+            LocalDateTime.now().plusDays(7).with(TemporalAdjusters.next(DayOfWeek.MONDAY)).with(LocalTime.of(9, 30));
 
     //Booking constructor with no date or time
     public Booking(String vehicleReg, TestCentre testCentre) {
@@ -73,6 +77,8 @@ public class Booking {
     public void setVehicleReg(String vehicleReg) {
         if (vehicleReg == null) {
             throw new IllegalArgumentException("Vehicle registration cannot be null");
+        } else if (vehicleReg.isEmpty()) {
+            throw new IllegalArgumentException("Vehicle registration cannot be empty");
         }
         this.vehicleReg = vehicleReg;
     }
