@@ -1,0 +1,6 @@
+data\NewArtistsCreation.class
+com\mycompany\assignment1\JakartaRestConfiguration.class
+Servlets\GetArtistsServlet.class
+data\Artist.class
+Servlets\AddArtistServlet.class
+com\mycompany\assignment1\resources\JakartaEE10Resource.class
