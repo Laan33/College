@@ -18,7 +18,7 @@
         <dependency>
             <groupId>org.joda</groupId>
             <artifactId>joda-money</artifactId>
-            <version>1.0.1</version> <!-- Use the latest version if available -->
+            <version>1.0.1</version>
         </dependency>
 
     </dependencies>

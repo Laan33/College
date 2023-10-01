@@ -9,15 +9,6 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
-maintains a list of expenses and provides a means
-for submitting a new expense. It should also have a method called printExpenses with
-the following signature:
-public void printExpenses(ExpensePrinter printer)
-ExpensePrinter is an interface that you must define with a single method called print
-that takes a list of expenses as a parameter and prints the expenses to the console in a
-particular format.
- */
 public class ExpensesPortal {
     //List of expenses
     List<Expense> expenses = new ArrayList<>();
@@ -39,23 +30,15 @@ public class ExpensesPortal {
         BigDecimal conversionRate = new BigDecimal("0.94");  // obtained from code outside Joda-Money
            
         for (Expense expense : expenses) {
-            /*
-            System.out.println("Expense: " + expense + " is " + total);
-            if (expense.getCost().getCurrencyUnit() == CurrencyUnit.EUR) {
-                //expense.getCost()
-                total.plus(2);
-            } */
-
-            // convert to EUR using a supplied rate
+            // if neither USD nor EUR, throw exception
             if (expense.getCost().getCurrencyUnit() != CurrencyUnit.EUR && expense.getCost().getCurrencyUnit() != CurrencyUnit.USD) {
                 throw new IllegalArgumentException("Currency not supported");
             }
-            else
-            if (expense.getCost().getCurrencyUnit() == CurrencyUnit.USD) {
+            else if (expense.getCost().getCurrencyUnit() == CurrencyUnit.USD) { //converting if it is USD
                 total = total.plus(expense.getCost().
                 convertedTo(CurrencyUnit.EUR, conversionRate, RoundingMode.HALF_UP)
                 );
-            } else {
+            } else { //Add euro to total
                 total = total.plus(expense.getCost());
             }
         }

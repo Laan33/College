@@ -28,7 +28,7 @@ public class SampleMain {
         expenseTemp = new Expense(LocalDate.of(2021,12,8), "Server", ExpenseCategory.EQUIPMENT, (Money.of(CurrencyUnit.EUR, 13000)));
         expensesPortal.submitExpense(expenseTemp);
 
-        //Sample Supplies expense
+        //Sample Supplies expenses
         expenseTemp = new Expense(LocalDate.of(2022,8,12), "Office supplies", ExpenseCategory.SUPPLIES, (Money.of(CurrencyUnit.EUR, 47)));
         expensesPortal.submitExpense(expenseTemp);
         expenseTemp = new Expense(LocalDate.of(2022,3,29), "Coffee dock supplies", ExpenseCategory.SUPPLIES, (Money.of(CurrencyUnit.EUR, 100)));
@@ -37,9 +37,6 @@ public class SampleMain {
         System.out.println("--------------");
         System.out.println("Part one: ");
         System.out.println("--------------\n");
-
-
-
 
         expensesPortal.printExpenses(expenses -> {
             for (Expense expense : expenses) {
