@@ -42,10 +42,10 @@
             </table>
             <br>
 
-            <h2><a href="addCustomer.html">Add Customers</a></h2>
+            <h2><a href="addCustomer.html">Add Customers</a>&emsp;<a href="index.html">Go home</a></h2>
 
 
-            <h2><a href="index.html">Go home</a></h2>
+            <h2></h2>
 
         </body>
 
