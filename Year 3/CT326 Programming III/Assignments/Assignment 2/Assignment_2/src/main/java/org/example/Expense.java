@@ -1,5 +1,4 @@
 package org.example;
-import org.joda.money.CurrencyUnit;
 import org.joda.money.Money;
 import java.time.LocalDate;
 

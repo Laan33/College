@@ -4,6 +4,7 @@ import org.joda.money.CurrencyUnit;
 import org.joda.money.Money;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class SampleMain {
     public static void main(String[] args) {
@@ -27,34 +28,36 @@ public class SampleMain {
         Expense expense5 = new Expense(LocalDate.of(2022,8,12), "Office supplies", ExpenseCategory.SUPPLIES, (Money.of(CurrencyUnit.EUR, 47)));
         expensesPortal.submitExpense(expense5);
 
-        /* Call the printExpenses method using a lambda expression to implement the
-ExpensePrinter parameter. The implementation should print a list of expenses to the
-console as follows:
-Sample output:
-2022-09-23: Flight to Glasgow - TRAVEL_AND_SUBSISTENCE - EUR 270.59
-2022-09-20: Dell 17-inch monitor - EQUIPMENT - USD 540.00
-2022-09-21: Java for Dummies - OTHER - EUR 17.99 */
+        System.out.println("--------------");
+        System.out.println("Part one: ");
+        System.out.println("--------------\n");
+
+
+
+
         expensesPortal.printExpenses(expenses -> {
             for (Expense expense : expenses) {
                 System.out.println(expense.getDate() + ": " + expense.getDescription() + " - " + expense.getCategory() + " - " + expense.getCost());
             }
         });
 
-        /*
-        Call the printExpenses method using an anonymous inner class to implement the
-ExpensePrinter parameter. The implementation should print a summary of expenses to
-the console as follows:
-Sample output:
-There are 3 expenses in the system totalling to a value of EUR 769.18.
-Hint: create a static method in ExpensesPortal for summing the expenses. The method
-should support expenses in two currencies (EUR and USD). The return type should be of type
-joda.org.Money and should be in EUR, so you’ll need to convert from USD to EUR to
-support USD expenses. See the joda.org link above for examples of how to do this.
-         */
+        System.out.println("\n--------------");
+        System.out.println("Part two: ");
+        System.out.println("--------------\n");
 
+        expensesPortal.printExpenses(new ExpensePrinter() {
+            @Override
+            public void print(List<Expense> expenses) {
+                System.out.println("There are " + expenses.size() + " expenses in the system totalling to a value of " + ExpensesPortal.sumExpenses(expenses));
+            }
+        });
 
+        System.out.println("\n--------------");
+        System.out.println("Part three: ");
+        System.out.println("--------------\n");
 
-
+        //Call the printExpenses method using a PrinterByLabel instance as a parameter
+        expensesPortal.printExpenses(new PrinterByLabel());
 
 
     }
