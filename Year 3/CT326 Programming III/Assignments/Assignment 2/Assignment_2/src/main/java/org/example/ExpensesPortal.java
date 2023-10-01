@@ -5,6 +5,7 @@ import org.joda.money.CurrencyUnit;
 import org.joda.money.Money;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 
 /*
@@ -33,11 +34,20 @@ public class ExpensesPortal {
     //Method to sum expenses
     public static Money sumExpenses(List<Expense> expenses) {
         Money total = Money.zero(CurrencyUnit.EUR);
+        BigDecimal conversionRate = new BigDecimal("0.94");  // obtained from code outside Joda-Money
+           
         for (Expense expense : expenses) {
-            if (expense.getCost() == Money)
             // convert to EUR using a supplied rate
-            BigDecimal conversionRate = 0.94;  // obtained from code outside Joda-Money
-            Money moneyEUR = total.convertedTo(CurrencyUnit.GBP, conversionRate, RoundingMode.HALF_UP);
+            if (expense.getCost().getCurrencyUnit() != CurrencyUnit.EUR && expense.getCost().getCurrencyUnit() != CurrencyUnit.USD) {
+                throw new IllegalArgumentException("Currency not supported");
+            }
+            else if (expense.getCost().getCurrencyUnit() == CurrencyUnit.USD) {
+                total.plus(expense.getCost().
+                convertedTo(CurrencyUnit.EUR, conversionRate, RoundingMode.HALF_UP)
+                );
+            } else {
+                total.plus(expense.getCost());
+            }         
         }
         return total;
     }
