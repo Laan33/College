@@ -13,20 +13,26 @@ public class SampleMain {
 
         //Sample expenses for ExpensesPortal instance
         //Sample Insurance expense
-        Expense expense1 = new Expense(LocalDate.of(2021,5,1), "Fire Insurance", ExpenseCategory.OTHER, (Money.of(CurrencyUnit.EUR, 1000)));
-        expensesPortal.submitExpense(expense1);
+        Expense expenseTemp = new Expense(LocalDate.of(2021,5,1), "Fire Insurance", ExpenseCategory.OTHER, (Money.of(CurrencyUnit.EUR, 1000)));
+        expensesPortal.submitExpense(expenseTemp);
+
         //Sample Travel expense
-        Expense expense2 = new Expense(LocalDate.of(2023,3,27), "Flight", ExpenseCategory.TRAVEL_AND_SUBSISTENCE, (Money.of(CurrencyUnit.USD, 239)));
-        expensesPortal.submitExpense(expense2);
+        expenseTemp = new Expense(LocalDate.of(2023,3,27), "Flight", ExpenseCategory.TRAVEL_AND_SUBSISTENCE, (Money.of(CurrencyUnit.USD, 239)));
+        expensesPortal.submitExpense(expenseTemp);
+
         //Sample Entertainment expense
-        Expense expense3 = new Expense(LocalDate.of(2022,2,23), "Film tickets", ExpenseCategory.ENTERTAINMENT, (Money.of(CurrencyUnit.USD, 25)));
-        expensesPortal.submitExpense(expense3);
+        expenseTemp = new Expense(LocalDate.of(2022,2,23), "Film tickets", ExpenseCategory.ENTERTAINMENT, (Money.of(CurrencyUnit.USD, 25)));
+        expensesPortal.submitExpense(expenseTemp);
+
         //Sample Equipment expense
-        Expense expense4 = new Expense(LocalDate.of(2021,12,8), "Server", ExpenseCategory.EQUIPMENT, (Money.of(CurrencyUnit.EUR, 13000)));
-        expensesPortal.submitExpense(expense4);
+        expenseTemp = new Expense(LocalDate.of(2021,12,8), "Server", ExpenseCategory.EQUIPMENT, (Money.of(CurrencyUnit.EUR, 13000)));
+        expensesPortal.submitExpense(expenseTemp);
+
         //Sample Supplies expense
-        Expense expense5 = new Expense(LocalDate.of(2022,8,12), "Office supplies", ExpenseCategory.SUPPLIES, (Money.of(CurrencyUnit.EUR, 47)));
-        expensesPortal.submitExpense(expense5);
+        expenseTemp = new Expense(LocalDate.of(2022,8,12), "Office supplies", ExpenseCategory.SUPPLIES, (Money.of(CurrencyUnit.EUR, 47)));
+        expensesPortal.submitExpense(expenseTemp);
+        expenseTemp = new Expense(LocalDate.of(2022,3,29), "Coffee dock supplies", ExpenseCategory.SUPPLIES, (Money.of(CurrencyUnit.EUR, 100)));
+        expensesPortal.submitExpense(expenseTemp);
 
         System.out.println("--------------");
         System.out.println("Part one: ");
