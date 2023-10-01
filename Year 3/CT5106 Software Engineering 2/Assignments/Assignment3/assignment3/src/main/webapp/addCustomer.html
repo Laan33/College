@@ -24,21 +24,23 @@ private int id;
         <link href="style.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+        
         <h2>Add the new Customer!</h2>
-        <form action="CreateCustomer" method="POST">
+        <form action="AddCustomer" method="POST">
             ID: <input type="number" name="id" value="" /><br><br>
             Name: <input type="text" name="name" value="" /><br><br>
             Address: <input type="text" name="address" value="" /><br><br>
-            Phone: <input type="text" name="phone" value="" /><br><br>
+            Phone: <input type="number" name="phone" value="" /><br><br>
             Email: <input type="text" name="email" value="" /><br><br>
             Country: <input type="text" name="country" value="" /><br><br>
             Post Code: <input type="text" name="postCode" value="" /><br><br>
-            Credit Limit: <input type="number" name="creditLimit" value="" /><br><br>
+            Credit Limit: <input type="text" name="creditLimit" pattern="[0-9]+(\.[0-9]+)?" value="" /><br><br>
             
 
             <input type="submit" value="Add" />
         </form>
-
+        <br><br>
+        <a href="index.html">Go home</a>
     </body>
 </html>
 

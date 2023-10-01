@@ -20,7 +20,7 @@ public class Customer implements Serializable {
 
     @Id
     @Column(name = "id")
-    private int customerID;
+    private int id;
     @Column(name = "name")
     private String name;
     @Column(name = "address")
@@ -40,7 +40,7 @@ public class Customer implements Serializable {
     }
 
     public Customer(int customerID, String name, String address, String phone, String email, String country, String postCode, float creditLimit) {
-        this.customerID = customerID;
+        this.id = customerID;
         this.name = name;
         this.address = address;
         this.phone = phone;
@@ -50,13 +50,13 @@ public class Customer implements Serializable {
         this.creditLimit = creditLimit;
     }
     
-    public int getCustomerID() {
-        return customerID;
+    public int getId() {
+        return id;
     }
 
-    public void setCustomerID(int id) {
+    public void setId(int id) {
         if(id > 0) {
-            this.customerID = id;
+            this.id = id;
         }
     }
 

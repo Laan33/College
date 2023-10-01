@@ -4,7 +4,8 @@ root {
 body{
     font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
     font-size:24px;
-    background: bisque;
+    background: rgb(44, 75, 75);
+    color: white; 
 }
  
 .spacer{clear:both; height:1px;}
@@ -35,7 +36,7 @@ table, tr, td{
     border:solid 1px burlywood;
     padding: 15px;    
     width: max-content;
-    background-color: bisque;
+    background: rgb(44, 75, 75);
  
 }
  
@@ -48,7 +49,7 @@ padding:14px;
  
 #mystyle{
 border:solid 2px burlywood;
-background: bisque;
+background: rgb(44, 75, 75);
 border-radius: 5px;
 }
 a {
@@ -59,8 +60,9 @@ line-height: 70px;
 
 p{
 font-size:30px;
-color:#666666;
+color: white;
 margin-bottom:20px;
+border-top:solid 1px burlywood;
 border-bottom:solid 1px burlywood;
 padding-bottom:10px;
 }
@@ -98,3 +100,6 @@ font-size:28px;
 font-weight:bold;
 border-radius: 5px;
 }
+
+a:link    {color: white;}
+a:visited {color: white;}

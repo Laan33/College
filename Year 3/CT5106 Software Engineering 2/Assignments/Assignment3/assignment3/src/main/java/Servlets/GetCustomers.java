@@ -47,7 +47,7 @@ public class GetCustomers extends HttpServlet {
         List<Customer> customers = new ArrayList<>();
 
         //userTransaction.begin();
-        Query q = em.createQuery("select c from Employee c");
+        Query q = em.createQuery("select c from Customer c");
 
         customers = q.getResultList();
 

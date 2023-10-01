@@ -75,9 +75,9 @@ public class AddCustomer extends HttpServlet {
 
         System.out.println("Customer persisted");
       
-        
-        RequestDispatcher dispatcher = request.getRequestDispatcher("GetEmployees");
-        dispatcher.forward(request, response);
+        //send the user back to the list of customers jsp page
+        response.sendRedirect("GetCustomers");
+
 
     }
 
