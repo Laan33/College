@@ -1,0 +1,47 @@
+package org.example;
+
+
+import org.joda.money.CurrencyUnit;
+import org.joda.money.Money;
+
+import java.math.BigDecimal;
+import java.util.List;
+
+/*
+maintains a list of expenses and provides a means
+for submitting a new expense. It should also have a method called printExpenses with
+the following signature:
+public void printExpenses(ExpensePrinter printer)
+ExpensePrinter is an interface that you must define with a single method called print
+that takes a list of expenses as a parameter and prints the expenses to the console in a
+particular format.
+ */
+public class ExpensesPortal {
+    //List of expenses
+    List<Expense> expenses;
+
+    //Method to submit a new expense
+    public void submitExpense(Expense expense) {
+        expenses.add(expense);
+    }
+
+    //Method to print expenses
+    public void printExpenses(ExpensePrinter printer) {
+        printer.print(expenses);
+    }
+
+    //Method to sum expenses
+    public static Money sumExpenses(List<Expense> expenses) {
+        Money total = Money.zero(CurrencyUnit.EUR);
+        for (Expense expense : expenses) {
+            if (expense.getCost() == Money)
+            // convert to EUR using a supplied rate
+            BigDecimal conversionRate = 0.94;  // obtained from code outside Joda-Money
+            Money moneyEUR = total.convertedTo(CurrencyUnit.GBP, conversionRate, RoundingMode.HALF_UP);
+        }
+        return total;
+    }
+
+
+
+}

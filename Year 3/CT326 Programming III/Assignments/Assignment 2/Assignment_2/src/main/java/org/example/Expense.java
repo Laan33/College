@@ -4,10 +4,10 @@ import org.joda.money.Money;
 import java.time.LocalDate;
 
 public class Expense {
-    private LocalDate date;
-    private String description;
-    private ExpenseCategory category;
-    private Money cost;
+    private final LocalDate date;
+    private final String description;
+    private final ExpenseCategory category;
+    private final Money cost;
 
 
     public Expense(LocalDate date, String description, ExpenseCategory category, Money cost) {
@@ -34,23 +34,12 @@ public class Expense {
         return cost;
     }
 
-//Sample expense format:
+//Sample expense format - using a formatted string
 //2022-09-20: Dell 17-inch monitor - EQUIPMENT - USD 540.00
     @Override
     public String toString() {
-        return date + ": " + description + " - " + category + " - " + cost;
+        return String.format("%s: %s - %s - %s", date, description, category, cost);
     }
-
-
-    /*
-    @Override
-    public String toString() {
-        return date + ": " + description + " - " + category + " - " +
-                ", description='" + description + '\'' +
-                ", category=" + category +
-                ", cost=" + cost +
-                '}';
-    } */
 
 
 }
