@@ -30,12 +30,6 @@ th {
        font-size: 26px;
 }
 
-
-table,
-tr {
-       width: max-content;
-}
-
 table,
 tr,
 td {
@@ -43,15 +37,11 @@ td {
        border-radius: 5px;
        border: solid 1px burlywood;
        padding: 15px;
-
+       width: max-content;
        background: rgb(44, 75, 75);
-
 }
 
-td {
-       width: 200px;
 
-}
 
 .myform {
        margin: 0 auto;
