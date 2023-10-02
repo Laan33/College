@@ -9,22 +9,49 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class to represent an expense portal
+ * Holds a list of expenses, allows submitting of expenses*
+ * Method to print out expenses with summaries for the expense categories @see ExpenseCategory
+ * Including summing expenses
+ *
+ * @author catha
+ * @version 1.0
+ */
 public class ExpensesPortal {
-    //List of expenses
+    /**
+     * List for holding the expenses
+     */
     List<Expense> expenses = new ArrayList<>();
 
 
-    //Method to submit a new expense
+    /**
+     * Method for submitting expenses to the list
+     *
+     * @param expense - Expense to be submitted
+     */
     public void submitExpense(Expense expense) {
         expenses.add(expense);
     }
 
-    //Method to print expenses
+    /**
+     * Method to print out expenses
+     * Takes an ExpensePrinter as a parameter
+     *
+     * @param printer - ExpensePrinter to print out expenses
+     */
     public void printExpenses(ExpensePrinter printer) {
         printer.print(expenses);
     }
 
-    //Method to sum expenses
+    /**
+     * Sums all expenses
+     * Only permitted currencies are USD & EUR
+     * Will throw an exception if any other currency is submitted
+     *
+     * @param expenses - List of expenses to be summed
+     * @return a total in joda.org.Money with the currency being euro
+     */
     public static Money sumExpenses(List<Expense> expenses) {
         Money total = Money.zero(CurrencyUnit.EUR);
         BigDecimal conversionRate = new BigDecimal("0.94");  // obtained from code outside Joda-Money
