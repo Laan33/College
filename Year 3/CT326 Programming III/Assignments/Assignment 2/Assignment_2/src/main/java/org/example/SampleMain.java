@@ -1,14 +1,3 @@
-/**
- *
- * Main class to test the ExpensesPortal class
- *
- * @see ExpensesPortal
- * @see Expense
- *
- * @version 1.0
- * @autor catha
- *
- */
 package org.example;
 
 import org.joda.money.CurrencyUnit;
@@ -17,6 +6,17 @@ import org.joda.money.Money;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ *
+ * Main class to test the ExpensesPortal class
+ *
+ * @see ExpensesPortal
+ * @see Expense
+ *
+ * @version 1.0
+ * @author catha
+ *
+ */
 public class SampleMain {
     public static void main(String[] args) {
         //Create ExpensesPortal instance

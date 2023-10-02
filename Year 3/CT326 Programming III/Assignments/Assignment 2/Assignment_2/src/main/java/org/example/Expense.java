@@ -4,6 +4,20 @@ import java.time.LocalDate;
 
 /**
  * Class to represent an expense
+ * Holds a date, description, category and cost
+ * @see ExpenseCategory
+ * @see Money
+ * @see LocalDate
+ * Has a toString method to print out the expense
+ * @see ExpensePrinter
+ * @see PrinterByLabel
+ *
+ * Has accessor methods for all fields
+ * Has a constructor to create an expense
+ *
+ * @see ExpensesPortal
+ * @see SampleMain
+
  *
  * @author catha
  *
