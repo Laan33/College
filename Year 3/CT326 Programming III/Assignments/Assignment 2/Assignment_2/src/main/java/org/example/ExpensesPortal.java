@@ -15,8 +15,7 @@ import java.util.List;
 
 /**
  * Class to represent an expense portal
- * Holds a list of expenses, allows submitting of expenses
- *
+ * Holds a list of expenses, allows submitting of expenses*
  * Method to print out expenses with summaries for the expense categories @see ExpenseCategory
  * Including summing expenses
  *
@@ -33,7 +32,7 @@ public class ExpensesPortal {
     /**
      * Method for submitting expenses to the list
      *
-     * @param expense
+     * @param expense - Expense to be submitted
      */
     public void submitExpense(Expense expense) {
         expenses.add(expense);
@@ -43,7 +42,7 @@ public class ExpensesPortal {
      * Method to print out expenses
      * Takes an ExpensePrinter as a parameter
      *
-     * @param printer
+     * @param printer - ExpensePrinter to print out expenses
      */
     public void printExpenses(ExpensePrinter printer) {
         printer.print(expenses);
@@ -54,7 +53,7 @@ public class ExpensesPortal {
      * Only permitted currencies are USD & EUR
      * Will throw an exception if any other currency is submitted
      *
-     * @param expenses
+     * @param expenses - List of expenses to be summed
      * @return a total in joda.org.Money with the currency being euro
      */
     public static Money sumExpenses(List<Expense> expenses) {
