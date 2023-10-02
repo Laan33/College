@@ -1,3 +1,14 @@
+/**
+ *
+ * Main class to test the ExpensesPortal class
+ *
+ * @see ExpensesPortal
+ * @see Expense
+ *
+ * @version 1.0
+ * @autor catha
+ *
+ */
 package org.example;
 
 import org.joda.money.CurrencyUnit;
