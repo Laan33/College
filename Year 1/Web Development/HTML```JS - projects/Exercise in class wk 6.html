@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+        //var str = prompt("Number 1");
+
+    	function test() {
+    		var str = prompt("Please type a whole number between 1 and a 100", "");
+    		if (isNaN(str)) {
+    			alert("That's not a number");
+			}
+            else if (str < 1 || str > 100) {
+                alert("That number is outside the allowable range of 1 - 100");
+            }
+    		else {
+    			var number = parseInt(str);
+				alert("Thank you");
+			}
+    	}
+
+       
+    </script>
+  </head>
+  <body onload = 'test();'>
+  </body>
+</html>
