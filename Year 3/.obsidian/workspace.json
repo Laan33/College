@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CT3532 Database Systems 2/Notes/Class 3 B.md",
+                "file": "CT3532 Database Systems 2/Notes/Class 5 A - Linear Hashing.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CT3532 Database Systems 2/Notes/Class 3 B.md",
+                "file": "CT3532 Database Systems 2/Notes/Class 5 A - Linear Hashing.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CT3532 Database Systems 2/Notes/Class 3 B.md",
+                "file": "CT3532 Database Systems 2/Notes/Class 5 A - Linear Hashing.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CT3532 Database Systems 2/Notes/Class 3 B.md"
+                "file": "CT3532 Database Systems 2/Notes/Class 5 A - Linear Hashing.md"
               }
             }
           },
@@ -158,6 +158,8 @@
   },
   "active": "a40d8b917fc23d3a",
   "lastOpenFiles": [
+    "CT3532 Database Systems 2/Notes/Class 3 B.md",
+    "CT3532 Database Systems 2/Notes/Class 5 A - Linear Hashing.md",
     "CT5106 Software Engineering 2/Assignments/Assignment1/assignment1/target/test-classes",
     "CT5106 Software Engineering 2/Assignments/Assignment2/assignment2.zip",
     "CT5106 Software Engineering 2/Assignments/Assignment2/assignment2/target/assignment1-1.0-SNAPSHOT.war",
@@ -168,10 +170,8 @@
     "CT5106 Software Engineering 2/Assignments/Assignment2/assignment2/target/assignment1-1.0-SNAPSHOT/addArtist.jsp",
     "CT5106 Software Engineering 2/Assignments/Assignment2/assignment2/target/assignment1-1.0-SNAPSHOT/META-INF",
     "CT5106 Software Engineering 2/Assignments/Assignment2/assignment2/target/assignment1-1.0-SNAPSHOT/WEB-INF",
-    "CT5106 Software Engineering 2/Assignments/Assignment2/assignment2/target/assignment1-1.0-SNAPSHOT",
     "CT326 Programming III/Assignments/Assignment 1/Assignment_1/test results.png",
     "CT326 Programming III/Assignments/Assignment 1/Reqs & Process Flow.md",
-    "CT3532 Database Systems 2/Notes/Class 3 B.md",
     "CT3536 Games Programming/Assignments/Assignment 2/Assignment 2/Assets/marsmodel/mars_1k_color.jpg",
     "CT3536 Games Programming/Assignments/Assignment 2/Assignment 2/Library/PackageCache/com.unity.timeline@1.6.4/Samples~/Customization/Annotation/Editor/Resources/light/timeline_annotation_selected.png",
     "CT3536 Games Programming/Assignments/Assignment 2/Assignment 2/Library/PackageCache/com.unity.timeline@1.6.4/Samples~/Customization/Annotation/Editor/Resources/light/timeline_annotation_collapsed.png",
