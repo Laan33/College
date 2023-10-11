@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "ba689339455ac621",
+        "id": "c00a519ec22a1c78",
         "type": "tabs",
         "children": [
           {
-            "id": "a40d8b917fc23d3a",
+            "id": "5a942426fa82bdf2",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CT3532 Database Systems 2/Notes/Class 5 A - Linear Hashing.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CT3532 Database Systems 2/Notes/Class 5 A - Linear Hashing.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CT3532 Database Systems 2/Notes/Class 5 A - Linear Hashing.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "CT3532 Database Systems 2/Notes/Class 5 A - Linear Hashing.md"
-              }
+              "state": {}
             }
           },
           {
@@ -156,10 +148,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "a40d8b917fc23d3a",
+  "active": "5a942426fa82bdf2",
   "lastOpenFiles": [
-    "CT3532 Database Systems 2/Notes/Class 3 B.md",
     "CT3532 Database Systems 2/Notes/Class 5 A - Linear Hashing.md",
+    "CT3532 Database Systems 2/Notes/Class 3 B.md",
     "CT5106 Software Engineering 2/Assignments/Assignment1/assignment1/target/test-classes",
     "CT5106 Software Engineering 2/Assignments/Assignment2/assignment2.zip",
     "CT5106 Software Engineering 2/Assignments/Assignment2/assignment2/target/assignment1-1.0-SNAPSHOT.war",

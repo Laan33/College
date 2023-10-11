@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b5835545f1abc184db49ba48286f4f62
+guid: 447501ef44b3ba346b3da4f0339f33ff
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - asteroidObject: {fileID: 2937256257064297503, guid: d3a729f0869abe5498ad0a5d5f0dde00, type: 3}
+  - spaceship: {fileID: 1922290240265948794, guid: fbba85dc4fc1e6f4087057bc558a109a, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
