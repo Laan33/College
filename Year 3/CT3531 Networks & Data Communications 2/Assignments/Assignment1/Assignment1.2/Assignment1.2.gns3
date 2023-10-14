@@ -39,8 +39,8 @@
                             "rotation": 0,
                             "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
                             "text": "e7",
-                            "x": 44,
-                            "y": 54
+                            "x": 80,
+                            "y": -1
                         },
                         "node_id": "511a54a8-9c8f-4bb1-beb9-08e44d1e4ce4",
                         "port_number": 7
@@ -51,8 +51,8 @@
                             "rotation": 0,
                             "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
                             "text": "e7",
-                            "x": -7,
-                            "y": -27
+                            "x": -51,
+                            "y": 21
                         },
                         "node_id": "680c151f-40c8-442a-b972-6687c40186e5",
                         "port_number": 7
@@ -71,8 +71,8 @@
                             "rotation": 0,
                             "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
                             "text": "e0",
-                            "x": -1,
-                            "y": 30
+                            "x": -27,
+                            "y": -48
                         },
                         "node_id": "680c151f-40c8-442a-b972-6687c40186e5",
                         "port_number": 0
@@ -103,8 +103,8 @@
                             "rotation": 0,
                             "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
                             "text": "e2",
-                            "x": 74,
-                            "y": 23
+                            "x": 70,
+                            "y": -28
                         },
                         "node_id": "680c151f-40c8-442a-b972-6687c40186e5",
                         "port_number": 2
@@ -275,8 +275,8 @@
                             "rotation": 0,
                             "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
                             "text": "e6",
-                            "x": 1,
-                            "y": -4
+                            "x": -33,
+                            "y": -20
                         },
                         "node_id": "511a54a8-9c8f-4bb1-beb9-08e44d1e4ce4",
                         "port_number": 6
@@ -403,8 +403,8 @@
                             "rotation": 0,
                             "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
                             "text": "e4",
-                            "x": 65,
-                            "y": 42
+                            "x": 70,
+                            "y": -260
                         },
                         "node_id": "680c151f-40c8-442a-b972-6687c40186e5",
                         "port_number": 4
@@ -471,8 +471,8 @@
                 "symbol": ":/symbols/vpcs_guest.svg",
                 "template_id": "19021f99-e36f-394d-b4a1-8aaa902ab9cc",
                 "width": 65,
-                "x": -265,
-                "y": 178,
+                "x": 539,
+                "y": 1,
                 "z": 1
             },
             {
@@ -500,8 +500,8 @@
                 "symbol": ":/symbols/vpcs_guest.svg",
                 "template_id": "19021f99-e36f-394d-b4a1-8aaa902ab9cc",
                 "width": 65,
-                "x": -452,
-                "y": -247,
+                "x": 214,
+                "y": 311,
                 "z": 1
             },
             {
@@ -529,8 +529,8 @@
                 "symbol": ":/symbols/vpcs_guest.svg",
                 "template_id": "19021f99-e36f-394d-b4a1-8aaa902ab9cc",
                 "width": 65,
-                "x": -494,
-                "y": -152,
+                "x": -90,
+                "y": 286,
                 "z": 1
             },
             {
@@ -558,8 +558,8 @@
                 "symbol": ":/symbols/vpcs_guest.svg",
                 "template_id": "19021f99-e36f-394d-b4a1-8aaa902ab9cc",
                 "width": 65,
-                "x": -378,
-                "y": 139,
+                "x": 429,
+                "y": 4,
                 "z": 1
             },
             {
@@ -645,8 +645,8 @@
                 "symbol": ":/symbols/ethernet_switch.svg",
                 "template_id": "1966b864-93e7-32d5-965f-001384eec461",
                 "width": 72,
-                "x": -270,
-                "y": -138,
+                "x": 84,
+                "y": 183,
                 "z": 1
             },
             {
@@ -661,8 +661,8 @@
                     "rotation": 0,
                     "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
                     "text": "Switch1",
-                    "x": 53,
-                    "y": -20
+                    "x": 44,
+                    "y": 39
                 },
                 "locked": false,
                 "name": "Switch1",
@@ -729,8 +729,8 @@
                 "symbol": ":/symbols/ethernet_switch.svg",
                 "template_id": "1966b864-93e7-32d5-965f-001384eec461",
                 "width": 72,
-                "x": -270,
-                "y": 39,
+                "x": 533,
+                "y": 207,
                 "z": 1
             },
             {
@@ -799,8 +799,8 @@
                 "symbol": ":/symbols/classic/router.svg",
                 "template_id": "808236e9-3c14-48b0-93b5-3cc5ec4ee225",
                 "width": 66,
-                "x": -13,
-                "y": -135,
+                "x": 87,
+                "y": -119,
                 "z": 1
             },
             {
@@ -879,8 +879,8 @@
                 "symbol": ":/symbols/cloud.svg",
                 "template_id": "39e257dc-8412-3174-b6b3-0ee3ed6a43e9",
                 "width": 159,
-                "x": 224,
-                "y": -153,
+                "x": 35,
+                "y": -254,
                 "z": 1
             },
             {
@@ -963,8 +963,8 @@
                 "symbol": ":/symbols/ethernet_switch.svg",
                 "template_id": "1966b864-93e7-32d5-965f-001384eec461",
                 "width": 72,
-                "x": -277,
-                "y": -300,
+                "x": -245,
+                "y": 175,
                 "z": 1
             },
             {
@@ -992,8 +992,8 @@
                 "symbol": ":/symbols/vpcs_guest.svg",
                 "template_id": "19021f99-e36f-394d-b4a1-8aaa902ab9cc",
                 "width": 65,
-                "x": -151,
-                "y": -441,
+                "x": -119,
+                "y": 34,
                 "z": 1
             },
             {
@@ -1021,8 +1021,8 @@
                 "symbol": ":/symbols/vpcs_guest.svg",
                 "template_id": "19021f99-e36f-394d-b4a1-8aaa902ab9cc",
                 "width": 65,
-                "x": -273,
-                "y": -468,
+                "x": -241,
+                "y": 7,
                 "z": 1
             },
             {
@@ -1050,8 +1050,8 @@
                 "symbol": ":/symbols/vpcs_guest.svg",
                 "template_id": "19021f99-e36f-394d-b4a1-8aaa902ab9cc",
                 "width": 65,
-                "x": -404,
-                "y": -427,
+                "x": -372,
+                "y": 48,
                 "z": 1
             },
             {
@@ -1079,8 +1079,8 @@
                 "symbol": ":/symbols/vpcs_guest.svg",
                 "template_id": "19021f99-e36f-394d-b4a1-8aaa902ab9cc",
                 "width": 65,
-                "x": -462,
-                "y": -62,
+                "x": 64,
+                "y": 315,
                 "z": 1
             },
             {
@@ -1108,8 +1108,8 @@
                 "symbol": ":/symbols/vpcs_guest.svg",
                 "template_id": "19021f99-e36f-394d-b4a1-8aaa902ab9cc",
                 "width": 65,
-                "x": -151,
-                "y": 126,
+                "x": 643,
+                "y": 6,
                 "z": 1
             }
         ]
@@ -1117,5 +1117,5 @@
     "type": "topology",
     "variables": null,
     "version": "2.2.42",
-    "zoom": 60
+    "zoom": 83
 }
