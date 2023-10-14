@@ -4,6 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 
 import java.util.ArrayList;
@@ -38,10 +40,14 @@ public class PlayerTesting {
     ArrayList<Player> playerList;
 
     @BeforeEach
-    void setUp() {
-        playerList = null;
+    void setUp() throws IOException {
+        playerList = new ArrayList<>();
 
-        ArrayList<Achievement> achievements = null;
+        Files.deleteIfExists(Paths.get("achievements.csv"));
+        
+        ArrayList<Achievement> achievements = new ArrayList<>();
+        
+
         achievements.add(new Achievement("Gaisce", "Bronze", LocalDate.of(2019, 5, 2)));
         achievements.add(new Achievement("Volunteer of the month",
                 "Rowing Ireland Volunteer of the month - October", LocalDate.of(2020, 11, 1)));
@@ -49,7 +55,7 @@ public class PlayerTesting {
         playerList.add(new Player("10", "Cathal", Country.SPAIN, LocalDate.of(2021, 4, 12), achievements));
 
         for (int i = 0; i < 3; i++) {
-            achievements = null;
+            achievements = new ArrayList<>();
             achievements.add(new Achievement("Achievement num: " + i, "Level: " + i + 2, LocalDate.of(2019, 5, 2)));
             achievements.add(new Achievement("Volunteer of the month",
                     "Rowing Ireland Volunteer of the month - October", LocalDate.of(2020, 11, 1)));
@@ -59,7 +65,7 @@ public class PlayerTesting {
                     achievements));
         }
 
-        achievements = null;
+        achievements = new ArrayList<>();
         achievements.add(new Achievement("Achievement 7", "Gold", LocalDate.of(2012, 5, 9)));
         achievements.add(new Achievement("Achieve everything", "Well done", LocalDate.of(2019, 2, 18)));
 
@@ -92,9 +98,7 @@ public class PlayerTesting {
             ArrayList<Player> playersIn = (ArrayList<Player>) is.readObject();
 
             for(int i = 0; i < playersIn.size(); i++) {
-                assertEquals(playersIn.get(i) , playerList.get(i));
-                assertEquals(playersIn.get(i).achievements.toString() , playerList.get(i).achievements.toString());
-            }
+                assertEquals(playersIn.get(i) , playerList.get(i));}
 
         } catch (NotSerializableException e) {
             fail("Some object isn't serializable.");
@@ -116,43 +120,6 @@ public class PlayerTesting {
                 e.printStackTrace();
             }
         }
-
-/*
-        try {
-            FileOutputStream out = new FileOutputStream("players.ser");
-            ObjectOutputStream s = new ObjectOutputStream(out);
-
-
-            for (Player player : playerList) {
-                s.writeObject(player);
-            }
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-
-        FileInputStream in = null;
-
-        try {
-            in = new FileInputStream("players.ser");
-            ObjectInputStream s = new ObjectInputStream(in);
-            for (
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }*/
-
-
-
-
-    }
-
-    @Test
-    void testSerialisationInvalid() {
 
     }
 

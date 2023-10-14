@@ -36,9 +36,9 @@ public class Player implements Serializable {
     private void writeObject(ObjectOutputStream os) throws IOException {
         os.defaultWriteObject();
 
-        FileWriter writer = new FileWriter("achievements.csv");
+        FileWriter writer = new FileWriter("achievements.csv", true);
         for (Achievement achievement : achievements) {
-            writer.write(id + "," + achievement.getAchievementName() + "," + achievement.getDescription() + "\n");
+            writer.append(id + "," + achievement.getAchievementName() + "," + achievement.getDescription() + "," + achievement.getDateOfAward() + "\n");
         }
         writer.close();
     }
@@ -53,6 +53,7 @@ public class Player implements Serializable {
         achievements = new ArrayList<>();
         String playerId = getId();
         Scanner scanner = new Scanner(new File("achievements.csv"));
+
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
             String[] parts = line.split(",");
@@ -65,8 +66,35 @@ public class Player implements Serializable {
             }
         }
         scanner.close();
+
+        setAchievements(achievements);
     }
 
+    private void setAchievements(List<Achievement> achievements) {
+        this.achievements = achievements;
+    }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Player otherPlayer = (Player) obj;
+
+        if (!id.equals(otherPlayer.id)) {
+            return false;
+        }
+        if (!username.equals(otherPlayer.username)) {
+            return false;
+        }
+        if (!achievements.equals(otherPlayer.achievements)) {
+            return false;
+        }
+        return joinDate.equals(otherPlayer.joinDate);
+    }
 
 }
