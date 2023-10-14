@@ -77,11 +77,6 @@ public class PlayerTesting {
     void tearDown() {
     }
 
-    /*
-     * Testing if null, valid, change, invalid
-     *
-     */
-
 
     @Test
     void testSerialisationValid() {
