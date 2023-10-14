@@ -12,41 +12,29 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * The PlayerTesting class tests the serialisation and deserialisation of the Player class.
+ */
 public class PlayerTesting {
 
 
 
-    /*
-     * Use a test-driven development approach to implement the serialisation of
-     * Player
-     * objects. Write a unit test that creates a list of five Player objects, each
-     * Player
-     * object should be also populated with a list of Achievement objects. The
-     * program
-     * should then write out the list of Player objects, using Object Serialisation,
-     * to a file
-     * called “players.ser”.
-     *
-     * To test the serialisation functionality, you’ll need to deserialise the
-     * written objects and
-     * compare them to the ones that you previously serialised. To do this, in your
-     * unit test,
-     * load up the Player objects from the file using Object Serialisation and
-     * compare the
-     * Player objects that you serialised with those that you deserialised,
-     * appropriately
-     */
-
     ArrayList<Player> playerList;
 
+    /**
+     * Set up the test data - create a list of players, list of achievements, add achievements to players, add players to player list.
+     * Delete achievements.csv if it exists.
+     *
+     * @throws IOException
+     */
     @BeforeEach
     void setUp() throws IOException {
-        playerList = new ArrayList<>();
+        playerList = new ArrayList<>(); // Create list of players
 
-        Files.deleteIfExists(Paths.get("achievements.csv"));
-        
-        ArrayList<Achievement> achievements = new ArrayList<>();
-        
+        Files.deleteIfExists(Paths.get("achievements.csv")); // Delete achievements.csv if it exists
+
+        ArrayList<Achievement> achievements = new ArrayList<>(); // Create list of achievements
+
 
         achievements.add(new Achievement("Gaisce", "Bronze", LocalDate.of(2019, 5, 2)));
         achievements.add(new Achievement("Volunteer of the month",
@@ -73,6 +61,10 @@ public class PlayerTesting {
 
     }
 
+    /**
+     * Tear down the test data.
+     *
+     */
     @AfterEach
     void tearDown() {
         try {
@@ -82,21 +74,32 @@ public class PlayerTesting {
         }
     }
 
-
-    @Test
+    /**
+     * Test the serialisation and deserialisation of the Player class.
+     *
+     * Create file writer for players.ser, write players to file, close file writer, create file reader for players.ser, read players from file, close file reader,
+     *
+     * Check that players read from file are the same as players in player list.     *
+     * Delete achievements.csv and players.ser files.     *
+     * If an exception is thrown, fail the test.
+     *
+     **/
+     @Test
     void testSerialisationValid() {
         ObjectOutputStream os = null;
         ObjectInputStream is = null;
 
+        // Write the objects to a file
         try {
             os = new ObjectOutputStream(new FileOutputStream("players.ser"));
             is = new ObjectInputStream(new FileInputStream("players.ser"));
 
             os.writeObject(playerList);
 
-
+            // Read the objects back in
             ArrayList<Player> playersIn = (ArrayList<Player>) is.readObject();
 
+            // Check that the objects are the same
             for(int i = 0; i < playersIn.size(); i++) {
                 assertEquals(playersIn.get(i) , playerList.get(i));}
 
@@ -111,6 +114,7 @@ public class PlayerTesting {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } finally {
+            // Close the streams
             try {
                 if(os != null)
                     os.close();
@@ -120,7 +124,5 @@ public class PlayerTesting {
                 e.printStackTrace();
             }
         }
-
     }
-
 }

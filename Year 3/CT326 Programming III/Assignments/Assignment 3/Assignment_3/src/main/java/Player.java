@@ -12,6 +12,9 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
+ * The Player class represents a player in the system.
+ *
+ * Has a unique id, username, country, join date and achievements.
  *
  */
 public class Player implements Serializable {
@@ -21,6 +24,15 @@ public class Player implements Serializable {
     transient List<Achievement> achievements;
 
 
+    /**
+     * Constructor for the Player class.
+     *
+     * @param id
+     * @param username
+     * @param country
+     * @param joinDate
+     * @param achievements
+     */
     public Player(String id, String username, Country country, LocalDate joinDate, List<Achievement> achievements) {
         this.id = id;
         this.username = username;
@@ -28,10 +40,22 @@ public class Player implements Serializable {
         this.achievements = achievements;
     }
 
+    /**
+     * Return the id of the player.
+     * @return Id
+     */
     public String getId() {
         return id;
     }
 
+    /**
+     * Using default serialization, write the object to the object output stream.
+     * Write the default fields, then write the achievements to the achievements.csv file.
+     * Close the file writer.
+     *
+     * @param os
+     * @throws IOException
+     */
     @Serial
     private void writeObject(ObjectOutputStream os) throws IOException {
         os.defaultWriteObject();
@@ -44,7 +68,17 @@ public class Player implements Serializable {
     }
 
 
-
+    /**
+     * Using the achievements.csv file, read in the achievements of the player.
+     * Split the line by the comma, and check that the line is valid.
+     * If it is, create a new achievement and add it to the list.
+     * Close the scanner.
+     * Set the achievements field.
+     *
+     * @param is
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     @Serial
     private void readObject(ObjectInputStream is) throws IOException, ClassNotFoundException {
         is.defaultReadObject(); // Read in all non-transient, non-static fields
@@ -54,26 +88,44 @@ public class Player implements Serializable {
         String playerId = getId();
         Scanner scanner = new Scanner(new File("achievements.csv"));
 
+        // Read in the achievements from the file
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
             String[] parts = line.split(",");
+
+            // Check that the line is valid - assign the values to the achievement
             if (parts.length == 4 && parts[0].equals(playerId)) {
                 String achievementName = parts[1];
                 String description = parts[2];
                 LocalDate dateOfAward = LocalDate.parse(parts[3]);
                 Achievement achievement = new Achievement(achievementName, description, dateOfAward);
-                achievements.add(achievement);
+                achievements.add(achievement); // Add the achievement to the list
             }
         }
-        scanner.close();
+        scanner.close(); // Close the scanner
 
+        // Set the achievements field
         setAchievements(achievements);
     }
 
+    /**
+     * Set the achievements of the player.
+     * @param achievements
+     */
     private void setAchievements(List<Achievement> achievements) {
         this.achievements = achievements;
     }
 
+    /**
+     * Equals method for the Player class.
+     * First checks if the objects are the same, then checks if the classes are the same.
+     * Then checks if the id, username, achievements and join date are the same.
+     * If all of these are the same, then the objects are equal.
+     *
+     *
+     * @param obj
+     * @return
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

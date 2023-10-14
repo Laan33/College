@@ -7,6 +7,10 @@ import java.time.temporal.TemporalAdjusters;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
+/**
+ *
+ */
 public class BookingTest {
     Booking booking;
     TestCentre testCentre;

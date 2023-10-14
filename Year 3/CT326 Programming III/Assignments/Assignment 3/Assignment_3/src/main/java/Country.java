@@ -1,5 +1,7 @@
-//Countries enum
-
+/**
+ * Enumerates all countries in the world.
+ *
+ */
 public enum Country {
     AFGHANISTAN("Afghanistan"),
     ALBANIA("Albania"),
@@ -198,12 +200,25 @@ public enum Country {
     ZAMBIA("Zambia"),
     ZIMBABWE("Zimbabwe");
 
+    /**
+     * The display name of the country.
+     */
     private final String displayName;
 
+    /**
+     * Constructor for the Country enum.
+     *
+     * @param displayName The name of the country.
+     */
     Country(String displayName) {
         this.displayName = displayName;
     }
 
+    /**
+     * Get the display name of the country.
+     *
+     * @return The display name of the country.
+     */
     public String getDisplayName() {
         return displayName;
     }
