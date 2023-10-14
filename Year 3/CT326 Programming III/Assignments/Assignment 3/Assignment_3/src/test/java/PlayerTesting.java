@@ -75,6 +75,11 @@ public class PlayerTesting {
 
     @AfterEach
     void tearDown() {
+        try {
+            Files.deleteIfExists(Paths.get("players.ser"));
+        } catch (IOException e) {
+            System.err.println("An error occurred while deleting the file: " + e.getMessage());
+        }
     }
 
 
