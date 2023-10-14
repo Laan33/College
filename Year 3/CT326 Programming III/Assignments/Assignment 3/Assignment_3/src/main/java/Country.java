@@ -1,4 +1,6 @@
 /**
+ * @author Cathal Lawlor - 21325456
+ *
  * Enumerates all countries in the world.
  *
  */

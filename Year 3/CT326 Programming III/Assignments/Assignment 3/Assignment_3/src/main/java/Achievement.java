@@ -2,6 +2,8 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
+ * @author Cathal Lawlor - 21325456
+ *
  * The Achievement class represents an achievement in the players' system.
  */
 public class Achievement implements Serializable {

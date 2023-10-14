@@ -1,10 +1,5 @@
 
 
-/*
-String id, String username, Country country, LocalDate joinDate,
-List achievements
- */
-
 import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -12,6 +7,8 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
+ * @author Cathal Lawlor - 21325456
+ *
  * The Player class represents a player in the system.
  *
  * Has a unique id, username, country, join date and achievements.

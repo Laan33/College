@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
+ * @author Cathal Lawlor - 21325456
+ *
  * The PlayerTesting class tests the serialisation and deserialisation of the Player class.
  */
 public class PlayerTesting {
