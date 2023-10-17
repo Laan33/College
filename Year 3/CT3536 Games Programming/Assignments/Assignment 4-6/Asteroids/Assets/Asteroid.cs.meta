@@ -5,7 +5,9 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - asteroidObject: {fileID: 2937256257064297503, guid: d3a729f0869abe5498ad0a5d5f0dde00, type: 3}
-  - smallAsteroidPrefab: {fileID: 8782653039527492528, guid: e3708f5df8fee6540b7cc783a5ab8c04, type: 3}
+  - spaceshipPrefab: {fileID: 2389539965252474487, guid: f993a68feeafbf248872ee7837575e33, type: 3}
+  - AsteroidFragment: {fileID: 8782653039527492528, guid: e3708f5df8fee6540b7cc783a5ab8c04, type: 3}
+  - bulletPrefab: {fileID: 1747473386000554954, guid: 67b95fcc31865e7439cc2c18b6ba0d53, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
