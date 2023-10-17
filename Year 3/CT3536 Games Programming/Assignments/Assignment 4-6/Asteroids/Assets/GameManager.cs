@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
 
-
         //Set the current game level to 0
         currentGameLevel = 0;
 
@@ -31,12 +30,6 @@ public class GameManager : MonoBehaviour
         StartNextLevel();
         //Create a new player spaceship
         CreatePlayerSpaceship();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     void StartNextLevel()
@@ -80,17 +73,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    /* Method which instantiates the player ship in the middle of the screen
-    void CreatePlayerSpaceship()
-    {
-        //Create a new player spaceship
-        spacefighter = GameObject.Instantiate(spacefighter);
-        //Set the player spaceship's position to the center of the screen
-        spacefighter.transform.position = new Vector3(0, 0, 0);
-        
-
-    }*/
-
     private static void CreatePlayerSpaceship()
     {
         // instantiate the player's spaceship
@@ -98,5 +80,4 @@ public class GameManager : MonoBehaviour
         go.transform.position = Vector3.zero;
         go.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
     }
-    //Scale the player spaceship to a size of 0.2 -     go.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
 }

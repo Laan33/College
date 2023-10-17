@@ -5,6 +5,7 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - spaceship: {fileID: 1922290240265948794, guid: fbba85dc4fc1e6f4087057bc558a109a, type: 3}
+  - bullet: {fileID: 1747473386000554954, guid: 67b95fcc31865e7439cc2c18b6ba0d53, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

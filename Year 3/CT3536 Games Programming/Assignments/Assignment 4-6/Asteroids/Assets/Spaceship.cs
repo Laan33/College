@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Spaceship class that controls the spaceship movement, shooting, and collision detection.
+/// </summary>
 public class Spaceship : MonoBehaviour
 {
     public GameObject spaceship;
@@ -61,7 +64,10 @@ public class Spaceship : MonoBehaviour
     {
         bulletCount = 0;
     } 
-
+/// <summary>
+/// Detects collision with an asteroid and destroys the spaceship. A new spaceship is spawned in the center of the screen. 
+/// </summary>
+/// <param name="col"></param>
     void OnCollisionEnter(Collision col) {
         if (col.gameObject.tag == "Asteroid") {
             

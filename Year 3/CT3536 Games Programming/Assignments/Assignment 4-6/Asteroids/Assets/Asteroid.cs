@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// Represents an asteroid in the game. Handles spawning, movement, collision detection, and destruction.
+
 public class Asteroid : MonoBehaviour
 {
     public GameObject asteroidObject, spaceshipPrefab, AsteroidFragment, bulletPrefab;
@@ -88,15 +91,6 @@ impact. They should be destroyed shortly afterwards. */
             smallAsteroid.GetComponent<Rigidbody>().AddTorque(new Vector3(Random.Range(-100f, 100f), Random.Range(-100f, 100f), Random.Range(-100f, 100f)));
         }
     }
-
-    /*
-                //Setting position to the collision point and scaling it down
-                smallAsteroid.transform.position = collisionPoint;
-                smallAsteroid.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
-                //Adding a random force and torque to the small asteroids
-                smallAsteroid.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-100f, 100f), 0, Random.Range(-100f, 100f)));
-                smallAsteroid.GetComponent<Rigidbody>().AddTorque(new Vector3(Random.Range(-100f, 100f), Random.Range(-100f, 100f), Random.Range(-100f, 100f)));
-                */
     void SpawnSmallerAsteroids(Vector3 collisionPoint)
     {
         //Spawn between 3-4 small asteroids at the point of collision
@@ -121,8 +115,6 @@ impact. They should be destroyed shortly afterwards. */
     /*Method for calling SpawnCollisionDebris on collisions */
     void OnCollisionEnter(Collision collision)
     {
-        //Debug.Log("Collision object is: " + collision.gameObject.name);
-        //Checking if it is on spawn in, and if so, ignore collisions
         if (ignoreCollisions)
         {
             return;
@@ -160,50 +152,8 @@ impact. They should be destroyed shortly afterwards. */
             default:
                 break;
         }
-
-
-        /*
-        Debug.Log("collision with " + collision.gameObject.tag + " detected");
-        Debug.Log("Collision object is: " + collision.gameObject.name);
-        //If asteroid collides with player, destroy player & recreate player spaceship in middle of screen
-        if (collision.gameObject.name == "spacefighter")
-        {
-            //Destroying the player
-            Destroy(collision.gameObject.transform.parent.gameObject);
-            Destroy(gameObject);
-        } */
-
-
     }
 
 
 }
-
-
-/*
-        //If bullet hits asteroid and the asteroid is large, split asteroid into 3 smaller asteroids
-        //Destroy bullet and large asteroid
-        if (collision.gameObject.tag == "Bullet" && asteroidObject.transform.localScale.x > 0.1f)
-        {
-            //Calling SpawnCollisionDebris with the point of collision
-            SpawnCollisionDebris(collision.contacts[0].point);
-            //Destroying the bullet
-            Destroy(collision.gameObject);
-            //Destroying the asteroid
-            Destroy(asteroidObject);
-        } else if (collision.gameObject.tag == "Bullet" && asteroidObject.transform.localScale.x <= 0.1f)
-        {
-            //Calling SpawnCollisionDebris with the point of collision
-            SpawnCollisionDebris(collision.contacts[0].point);
-            //Destroying the bullet
-            Destroy(collision.gameObject);
-            //Destroying the asteroid
-            Destroy(asteroidObject);
-        } */
-
-
-
-
-
-
 

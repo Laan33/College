@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class wraps the game object around the screen if it goes off-screen.
+/// </summary>
 public class ScreenWrapper : MonoBehaviour
 {
     // Start is called before the first frame update

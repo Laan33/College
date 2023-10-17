@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 4973745653805297327}
   - component: {fileID: 7125464372123916901}
   - component: {fileID: 6807683618943381717}
+  - component: {fileID: -5822167865819432738}
   m_Layer: 0
-  m_Name: SmallAsteroid
+  m_Name: FragmentAsteroid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,3 +101,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
+--- !u!114 &-5822167865819432738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8782653039527492528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d10d56189ddda2469e431cd328ac9a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minLifetime: 1
+  maxLifetime: 2

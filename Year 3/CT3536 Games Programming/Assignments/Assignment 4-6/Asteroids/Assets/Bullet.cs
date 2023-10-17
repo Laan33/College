@@ -2,18 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// This class represents the behavior of a bullet in the game. It checks if the bullet is offscreen every 0.2 seconds and destroys it if so.
+
 public class Bullet : MonoBehaviour
 {
     public GameObject bullet;
     public GameObject spaceship;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         //Check if bullet is offscreen every 0.2 seconds - destroy if so
         InvokeRepeating("DestroyIfOffScreen", 0.2f, 0.2f);
-
     }
 
 
@@ -29,14 +28,5 @@ public class Bullet : MonoBehaviour
         {
             Destroy(bullet);
         }
-        /*
-        Vector3 currentWorldPos = spaceship.transform.position;
-                Vector3 viewPosition = Camera.main.WorldToViewportPoint(currentWorldPos);
-
-        */
     }
-    
-    
-
-
 }
