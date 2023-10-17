@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
-    public GameObject asteroidObject, spaceshipPrefab, smallAsteroidPrefab, bulletPrefab;
+    public GameObject asteroidObject, spaceshipPrefab, AsteroidFragment, bulletPrefab;
     private Vector3 spawnPoint;
     private bool ignoreCollisions = true;
 
     // Start - called before the first frame update
     void Start()
     {
+        //Set tag to Asteroid
+        asteroidObject.tag = "Asteroid";
+
         //Set the asteroid's position at a random position near the edges of the screen
         if (Random.Range(0, 2) == 0)
         {
@@ -72,51 +75,63 @@ impact. They should be destroyed shortly afterwards. */
         //Spawn 3 small asteroids at the point of collision
         for (int i = 0; i < 3 * multiplier; i++)
         {
-            GameObject smallAsteroid = GameObject.Instantiate(smallAsteroidPrefab);
-            //Setting position to the collision point and scaling it down
-            smallAsteroid.transform.position = collisionPoint;
+            GameObject smallAsteroid = GameObject.Instantiate(AsteroidFragment);
+            //Setting position to the collision point with some variance and scaling it down
+            smallAsteroid.transform.position = new Vector3(
+                collisionPoint.x + Random.Range(-0.5f, 0.5f),
+                collisionPoint.y + Random.Range(-0.5f, 0.5f),
+                collisionPoint.z + Random.Range(-0.5f, 0.5f)
+            );
             smallAsteroid.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
             //Adding a random force and torque to the small asteroids
             smallAsteroid.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-100f, 100f), 0, Random.Range(-100f, 100f)));
             smallAsteroid.GetComponent<Rigidbody>().AddTorque(new Vector3(Random.Range(-100f, 100f), Random.Range(-100f, 100f), Random.Range(-100f, 100f)));
-            //Destroying the small asteroids after 1.5 seconds
-            Destroy(smallAsteroid, 1.5f);
         }
     }
 
-    void SpawnSmallerAsteroids(Vector3 collisionPoint) {
+    /*
+                //Setting position to the collision point and scaling it down
+                smallAsteroid.transform.position = collisionPoint;
+                smallAsteroid.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+                //Adding a random force and torque to the small asteroids
+                smallAsteroid.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-100f, 100f), 0, Random.Range(-100f, 100f)));
+                smallAsteroid.GetComponent<Rigidbody>().AddTorque(new Vector3(Random.Range(-100f, 100f), Random.Range(-100f, 100f), Random.Range(-100f, 100f)));
+                */
+    void SpawnSmallerAsteroids(Vector3 collisionPoint)
+    {
         //Spawn between 3-4 small asteroids at the point of collision
 
-        Log.Debug("SpawnSmallerAsteroids called");
+        Debug.Log("SpawnSmallerAsteroids called");
         for (int i = 0; i < Random.Range(3, 5); i++)
         {
-            GameObject smallAsteroid = GameObject.Instantiate(smallAsteroidPrefab);
+            GameObject asteroid = Instantiate(Resources.Load("Asteroid", typeof(GameObject))) as GameObject;
+
+
             //Setting position to the collision point and scaling it down
-            smallAsteroid.transform.position = collisionPoint;
-            smallAsteroid.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+            asteroid.transform.position = collisionPoint;
+
+            asteroid.transform.localScale = new Vector3(Random.Range(0.01f, 0.06f), Random.Range(0.01f, 0.06f), Random.Range(0.01f, 0.06f));
             //Adding a random force and torque to the small asteroids
-            smallAsteroid.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-100f, 100f), 0, Random.Range(-100f, 100f)));
-            smallAsteroid.GetComponent<Rigidbody>().AddTorque(new Vector3(Random.Range(-100f, 100f), Random.Range(-100f, 100f), Random.Range(-100f, 100f)));
+            asteroid.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-100f, 100f), 0, Random.Range(-100f, 100f)));
+            asteroid.GetComponent<Rigidbody>().AddTorque(new Vector3(Random.Range(-100f, 100f), Random.Range(-100f, 100f), Random.Range(-100f, 100f)));
+
         }
     }
 
     /*Method for calling SpawnCollisionDebris on collisions */
     void OnCollisionEnter(Collision collision)
     {
-
-        
-        Debug.Log("Collision object is: " + collision.gameObject.name);
-
-
+        //Debug.Log("Collision object is: " + collision.gameObject.name);
         //Checking if it is on spawn in, and if so, ignore collisions
         if (ignoreCollisions)
         {
             return;
         }
 
-        switch (collision.gameObject.name)
+        Debug.Log("Collision object is: " + collision.gameObject.tag);
+        switch (collision.gameObject.tag)
         {
-            case "Bullet(Clone)":
+            case "Bullet":
                 //Calling SpawnCollisionDebris with the point of collision
                 SpawnCollisionDebris(collision.contacts[0].point, 3F);
                 //Destroying the bullet
@@ -126,16 +141,21 @@ impact. They should be destroyed shortly afterwards. */
 
                 if (asteroidObject.transform.localScale.x > 0.1f)
                 {
+                    SpawnCollisionDebris(collision.contacts[0].point, 1F); //extra debris for larger asteroids (also fun)
                     //Destroying the asteroid
                     SpawnSmallerAsteroids(collision.contacts[0].point);
                 }
+                else if (asteroidObject.transform.localScale.x > 0.05F)
+                {
+                    SpawnCollisionDebris(collision.contacts[0].point, 2F); //extra debris for larger asteroids (also fun)
+                }
                 break;
-            case "spacefighter":
-                //Destroying the player
-                Destroy(collision.gameObject.transform.parent.gameObject);
+            case "SpaceShip":
+                //Destroy & respawn spaceship handled in spaceship script - return
                 break;
-            case "Asteroid(Clone)":
+            case "Asteroid":
                 SpawnCollisionDebris(collision.contacts[0].point, 1.5F);
+
                 break;
             default:
                 break;
@@ -153,7 +173,7 @@ impact. They should be destroyed shortly afterwards. */
             Destroy(gameObject);
         } */
 
-   
+
     }
 
 
@@ -186,4 +206,4 @@ impact. They should be destroyed shortly afterwards. */
 
 
 
-     
+

@@ -62,6 +62,19 @@ public class Spaceship : MonoBehaviour
         bulletCount = 0;
     } 
 
+    void OnCollisionEnter(Collision col) {
+        if (col.gameObject.tag == "Asteroid") {
+            
+            Destroy(gameObject.transform.parent.gameObject);
+
+            Debug.Log("Spaceship destroyed");
+            //Spawn a new spaceship in the center of the screen
+            GameObject spaceship = Instantiate(Resources.Load("Spaceship", typeof(GameObject))) as GameObject;
+            spaceship.transform.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+        }
+        
+    }
+
 
     // Having the player spaceship respond to moving off-screen, in the same way that asteroids already do
     void CheckIfOffScreen()
