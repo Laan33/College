@@ -5,12 +5,19 @@ using UnityEngine;
 public class Spaceship : MonoBehaviour
 {
     public GameObject spaceship;
+    public GameObject bullet;
+    public static int bulletCount = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+
+
         //Wrap spaceship to other side of screen, check every 0.2 seconds. 5 times a second
         InvokeRepeating("CheckIfOffScreen", 0.2f, 0.2f);
+
+        InvokeRepeating("ResetBulletCount", 1f, 1f);
+        
     }
 
     // Update is called once per frame
@@ -33,9 +40,29 @@ public class Spaceship : MonoBehaviour
             GetComponent<Rigidbody>().AddTorque(transform.forward * 4);
         }
         
+        //Fire bullet if spacebar is pressed - spawn at front of spaceship
+        //Position should be positioned and rotated appropriately, with rigidbody given an appropriate velocity
+        //Limit of 4 bullets fired per second spaceship.
+        if (Input.GetKeyDown(KeyCode.Space) && bulletCount < 4)
+        {
+            GameObject bullet = Instantiate(Resources.Load("Bullet", typeof(GameObject))) as GameObject;
+            bullet.transform.position = spaceship.transform.position + spaceship.transform.up * 1.5f;
+            bullet.transform.rotation = spaceship.transform.rotation;
+            bullet.GetComponent<Rigidbody>().velocity = spaceship.transform.up * 20;   
+            bulletCount++;  
+        }
         
         
     }
+
+
+
+    void ResetBulletCount()
+    {
+        bulletCount = 0;
+    } 
+
+
     // Having the player spaceship respond to moving off-screen, in the same way that asteroids already do
     void CheckIfOffScreen()
     {
