@@ -37,6 +37,12 @@ void question2() {
     traverse(l);
     printf("\n");
 
+    // Test enqueue
+    enqueue(&l, "new tail string (4)", 30);
+    printf("After enqueue:\n");
+    traverse(l);
+    printf("\n");
+
     // Test dequeue
     listElement *dequeued = dequeue(l);
     printf("Dequeued element: %s\n", dequeued->data);
