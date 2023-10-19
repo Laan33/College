@@ -29,14 +29,10 @@ void push(listElement **list, char *data, size_t size) {
     listElement *newEl = createEl(data, size);
 
     // Check if memory allocation was successful
-    if (newEl == NULL) {
-        // Handle the error, such as returning or exiting the function
-        return;
+    if (newEl != NULL) {
+        newEl->next = *list;  // Point the new element to the current head
+        *list = newEl;        // Update the list reference to the new element
     }
-
-    newEl->next = *list;
-
-    *list = newEl;
 }
 
 //Pop an element from the head of a list.
