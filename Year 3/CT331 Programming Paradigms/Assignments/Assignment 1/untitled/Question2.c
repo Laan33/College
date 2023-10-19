@@ -6,13 +6,10 @@
 #include "linkedList.h"
 #include "linkedList-1.h"
 
-
 void question2() {
-
-
     printf("Question 2.\n");
 
-// Create the initial list
+    // Create the initial list
     listElement *l = createEl("Test String (1).", 30);
 
     // Test create and traverse
@@ -40,9 +37,15 @@ void question2() {
     traverse(l);
     printf("\n");
 
+    // Test dequeue
+    listElement *dequeued = dequeue(l);
+    printf("Dequeued element: %s\n", dequeued->data);
+    printf("After dequeue:\n");
+    traverse(l);
+    printf("\n");
+
     // Testing length
     printf("Length of the list: %d\n", length(l));
 
     printf("Tests complete.\n");
 }
-

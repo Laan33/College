@@ -51,3 +51,45 @@ listElement *pop(listElement **list) {
     }
     return poppedElement;
 }
+
+//Enqueue a new element onto the head of the list.
+//Update the list reference using side effects.
+void enqueue(listElement** list, char* data, size_t size) {
+    listElement *newEl = createEl(data, size);
+
+    // Check if memory allocation was successful
+    if (newEl == NULL) {
+        // Handle the error, such as returning or exiting the function
+        return;
+    }
+
+    newEl->next = *list;
+
+    *list = newEl;
+}
+
+//Dequeue an element from the tail of the list.
+listElement* dequeue(listElement* list) {
+    listElement *current = list;
+    listElement *prevCurr = NULL;
+
+    // Check if the list is empty
+    if (current == NULL) {
+        return NULL;
+    }
+
+    while (current->next != NULL) {
+        prevCurr = current;
+        current = current->next;
+    }
+
+    // If the previous element exists, remove the last element
+    if (prevCurr != NULL) {
+        prevCurr->next = NULL;
+    } else {
+        // If there's no previous element, the list only had one element
+        list = NULL; // Cast NULL to the correct pointer type
+    }
+
+    return current;
+}
