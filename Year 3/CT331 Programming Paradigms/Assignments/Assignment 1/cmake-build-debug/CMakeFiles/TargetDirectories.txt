@@ -1,3 +1,0 @@
-C:/Users/catha/Documents/GitHub/College/Year 3/CT331 Programming Paradigms/Assignments/Assignment 1/cmake-build-debug/CMakeFiles/Assignment_1.dir
-C:/Users/catha/Documents/GitHub/College/Year 3/CT331 Programming Paradigms/Assignments/Assignment 1/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/catha/Documents/GitHub/College/Year 3/CT331 Programming Paradigms/Assignments/Assignment 1/cmake-build-debug/CMakeFiles/rebuild_cache.dir

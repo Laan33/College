@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(int arg, char *argc[]) {
+void question1() {
     printf("Hello assignment1.\n");
 
     /*
@@ -12,6 +12,8 @@ int main(int arg, char *argc[]) {
   ● double *
   ● char **
      */
+
+    printf("Question 1.\n");
 
     int integer_var;
     int *int_pointer;
