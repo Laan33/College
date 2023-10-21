@@ -7,8 +7,6 @@
 
 #include <stddef.h>
 
-
-
 //Returns the number of elements in a linked list.
 int length(listElement *list) {
     int count = 0;

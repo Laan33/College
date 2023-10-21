@@ -6,8 +6,6 @@
 #include <malloc.h>
 #include "Question3.h"
 #include "genericLinkedList.h"
-
-
 void question3() {
     printf("Question 3.\n\n");
 
@@ -30,21 +28,6 @@ void question3() {
     char charData = 'A';
     listElement *l3 = insertAfterGeneric(l, &charData, printChar);
     printf("After inserting a character:\n");
-    traverseGeneric(l);
-    printf("\n");
-
-//    // Test insertAfterGeneric with a string
-//    char strSample[] = "Sample String 2";
-//    listElement *l4 = insertAfterGeneric(l2, &strSample, printStr);
-//    printf("After inserting a string:\n");
-//    traverseGeneric(l);
-//    printf("\n");
-
-    // Test deleteAfterGeneric
-
-    printf("TRY DELETE:\n");
-    deleteAfterGeneric(l3);
-    printf("After deleting the element after l:\n");
     traverseGeneric(l);
     printf("\n");
 
@@ -79,12 +62,5 @@ void question3() {
     printf("After dequeuing the tail element:\n");
     traverseGeneric(l);
     printf("\n");
-
-    // Clean up - free memory
-    while (l3 != NULL) {
-        listElement *tmp = popGeneric(&l3);
-        free(tmp->data);
-        free(tmp);
-    }
 
 }

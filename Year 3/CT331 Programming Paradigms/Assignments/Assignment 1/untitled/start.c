@@ -5,18 +5,21 @@
 #include <stdio.h>
 #include "Question1.h"
 #include "Question2.h"
+#include "Question3.h"
 
 
 
 int main(int arg, char *argc[]) {
     printf("Hello assignment1.\n");
 
-    question1();
+    //question1();
     printf("\n");
 
-    question2();
+    //question2();
     printf("\n");
 
+    question3();
+    printf("\n");
 
 
 
