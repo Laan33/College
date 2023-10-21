@@ -89,13 +89,14 @@ listElement *insertAfterGeneric(listElement *after, void *data, void (*printfunc
 //Delete the element after the given el
 void deleteAfterGeneric(listElement *after) {
     if (after == NULL || after->next == NULL) {
-        return; // Invalid input or nothing to delete
+        return;
     }
-    listElement* delete = after->next;
-    listElement* newNext = delete->next;
-    after->next = newNext;
-    free(delete->data); // Free the data first
-    free(delete);       // Then free the element itself
+
+    listElement *delete = after->next;
+    after->next = delete->next;
+    delete->next = NULL;
+    free(delete->data);
+    free(delete);
 }
 
 
