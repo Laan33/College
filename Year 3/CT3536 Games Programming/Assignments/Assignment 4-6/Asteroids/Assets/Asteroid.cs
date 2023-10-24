@@ -17,6 +17,13 @@ public class Asteroid : MonoBehaviour
         //Set tag to Asteroid
         asteroidObject.tag = "Asteroid";
 
+        //check the asteroids scale - if it's a small asteroid don't have it spawn at the edge of the screen
+        if(asteroidObject.transform.localScale.x > 0.1f)
+        {
+            Invoke("DisableCollisionIgnore", 0.1f);
+            return;
+        }
+
         //Set the asteroid's position at a random position near the edges of the screen
         if (Random.Range(0, 2) == 0)
         {
@@ -87,8 +94,8 @@ impact. They should be destroyed shortly afterwards. */
             );
             smallAsteroid.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
             //Adding a random force and torque to the small asteroids
-            smallAsteroid.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-100f, 100f), 0, Random.Range(-100f, 100f)));
-            smallAsteroid.GetComponent<Rigidbody>().AddTorque(new Vector3(Random.Range(-100f, 100f), Random.Range(-100f, 100f), Random.Range(-100f, 100f)));
+            smallAsteroid.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-30f, 30f), 0, Random.Range(-30f, 30f)));
+            smallAsteroid.GetComponent<Rigidbody>().AddTorque(new Vector3(Random.Range(-30f, 30f), Random.Range(-30f, 30f), Random.Range(-30f, 30f)));
         }
     }
     void SpawnSmallerAsteroids(Vector3 collisionPoint)

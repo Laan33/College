@@ -7,9 +7,12 @@ using UnityEngine;
 /// </summary>
 public class Spaceship : MonoBehaviour
 {
+    // inspector settings
     public GameObject spaceship;
     public GameObject bullet;
     public static int bulletCount = 0;
+    // public member data
+    [HideInInspector] public bool isInvulnerable = true;
 
     // Start is called before the first frame update
     void Start()
@@ -19,8 +22,18 @@ public class Spaceship : MonoBehaviour
         //Wrap spaceship to other side of screen, check every 0.2 seconds. 5 times a second
         InvokeRepeating("CheckIfOffScreen", 0.2f, 0.2f);
 
+        //Reset bullet count every second
         InvokeRepeating("ResetBulletCount", 1f, 1f);
-        
+
+        //Make spaceship vulnerable after 2 seconds
+        Invoke("MakeVulnerable", 2f);
+
+    }
+
+    private void MakeVulnerable()
+    {
+        isInvulnerable = false;
+        Debug.Log("No longer invulnerable");
     }
 
     // Update is called once per frame
@@ -32,7 +45,7 @@ public class Spaceship : MonoBehaviour
         //Checking if the Up arrow is held, if so check if within velocity limit, if so add force
         if (Input.GetKey(KeyCode.UpArrow) && GetComponent<Rigidbody>().velocity.magnitude < 14)
         {
-            GetComponent<Rigidbody>().AddForce(transform.up * 7);            
+            GetComponent<Rigidbody>().AddForce(transform.up * 7);
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
@@ -42,7 +55,7 @@ public class Spaceship : MonoBehaviour
         {
             GetComponent<Rigidbody>().AddTorque(transform.forward * 4);
         }
-        
+
         //Fire bullet if spacebar is pressed - spawn at front of spaceship
         //Position should be positioned and rotated appropriately, with rigidbody given an appropriate velocity
         //Limit of 4 bullets fired per second spaceship.
@@ -51,11 +64,11 @@ public class Spaceship : MonoBehaviour
             GameObject bullet = Instantiate(Resources.Load("Bullet", typeof(GameObject))) as GameObject;
             bullet.transform.position = spaceship.transform.position + spaceship.transform.up * 1.5f;
             bullet.transform.rotation = spaceship.transform.rotation;
-            bullet.GetComponent<Rigidbody>().velocity = spaceship.transform.up * 20;   
-            bulletCount++;  
+            bullet.GetComponent<Rigidbody>().velocity = spaceship.transform.up * 20;
+            bulletCount++;
         }
-        
-        
+
+
     }
 
 
@@ -63,14 +76,16 @@ public class Spaceship : MonoBehaviour
     void ResetBulletCount()
     {
         bulletCount = 0;
-    } 
-/// <summary>
-/// Detects collision with an asteroid and destroys the spaceship. A new spaceship is spawned in the center of the screen. 
-/// </summary>
-/// <param name="col"></param>
-    void OnCollisionEnter(Collision col) {
-        if (col.gameObject.tag == "Asteroid") {
-            
+    }
+    /// <summary>
+    /// Detects collision with an asteroid and destroys the spaceship. A new spaceship is spawned in the center of the screen. 
+    /// </summary>
+    /// <param name="col"></param>
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.tag == "Asteroid" && !isInvulnerable)
+        {
+
             Destroy(gameObject.transform.parent.gameObject);
 
             Debug.Log("Spaceship destroyed");
@@ -78,7 +93,7 @@ public class Spaceship : MonoBehaviour
             GameObject spaceship = Instantiate(Resources.Load("Spaceship", typeof(GameObject))) as GameObject;
             spaceship.transform.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
         }
-        
+
     }
 
 
@@ -91,7 +106,7 @@ public class Spaceship : MonoBehaviour
         {
             spaceship.transform.position = new Vector3(-currentWorldPos.x + 1, 0, currentWorldPos.z);
         }
-        
+
         if (viewPosition.y < 0f)
         {
             spaceship.transform.position = new Vector3(currentWorldPos.x, 0, -currentWorldPos.z - 1);
@@ -107,7 +122,7 @@ public class Spaceship : MonoBehaviour
             spaceship.transform.position = new Vector3(currentWorldPos.x, 0, -currentWorldPos.z + 1);
         }
 
-        
+
     }
 
 
