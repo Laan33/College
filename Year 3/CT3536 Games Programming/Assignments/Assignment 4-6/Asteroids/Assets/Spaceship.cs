@@ -8,8 +8,8 @@ using UnityEngine;
 public class Spaceship : MonoBehaviour
 {
     // inspector settings
-    public GameObject spaceship;
-    public GameObject bullet;
+    public GameObject spaceship, bullet;
+    public GameObject gameManager;
     public static int bulletCount = 0;
     // public member data
     [HideInInspector] public bool isInvulnerable = true;
@@ -85,6 +85,9 @@ public class Spaceship : MonoBehaviour
     {
         if (col.gameObject.tag == "Asteroid" && !isInvulnerable)
         {
+            //Subtract a life from game manager using SubtractLife()
+            GameManager.instance.SubtractLife();
+            
 
             Destroy(gameObject.transform.parent.gameObject);
 

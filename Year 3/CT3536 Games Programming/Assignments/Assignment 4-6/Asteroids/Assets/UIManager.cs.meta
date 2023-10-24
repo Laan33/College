@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 1a4ef13a6e7d54549a595f23472984be
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - menuPanel: {fileID: 4036225052137720415, guid: 022476c66727ec44e809d8f277ca20d9, type: 3}
+  - playingPanel: {fileID: 5926632455678954183, guid: ec2b519e2b8509948a8d4af95b270140, type: 3}
+  - scoreText: {instanceID: 0}
+  - highScoreText: {instanceID: 0}
+  - livesText: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

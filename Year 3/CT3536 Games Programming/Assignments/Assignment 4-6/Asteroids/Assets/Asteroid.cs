@@ -101,7 +101,6 @@ impact. They should be destroyed shortly afterwards. */
     void SpawnSmallerAsteroids(Vector3 collisionPoint)
     {
         //Spawn between 3-4 small asteroids at the point of collision
-
         Debug.Log("SpawnSmallerAsteroids called");
         for (int i = 0; i < Random.Range(3, 5); i++)
         {
@@ -140,12 +139,18 @@ impact. They should be destroyed shortly afterwards. */
 
                 if (asteroidObject.transform.localScale.x > 0.1f)
                 {
+                    //Add points to score
+                    GameManager.instance.AddScore(12);
+
                     SpawnCollisionDebris(collision.contacts[0].point, 1F); //extra debris for larger asteroids (also fun)
                     //Destroying the asteroid
                     SpawnSmallerAsteroids(collision.contacts[0].point);
                 }
                 else if (asteroidObject.transform.localScale.x > 0.05F)
                 {
+                    //Add points to score
+                    GameManager.instance.AddScore(7);
+
                     SpawnCollisionDebris(collision.contacts[0].point, 2F); //extra debris for larger asteroids (also fun)
                 }
                 break;
@@ -154,7 +159,6 @@ impact. They should be destroyed shortly afterwards. */
                 break;
             case "Asteroid":
                 SpawnCollisionDebris(collision.contacts[0].point, 1.5F);
-
                 break;
             default:
                 break;
