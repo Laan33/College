@@ -22,13 +22,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         instance = this;
-
-
         uiManagerScript = uiManager.GetComponent<UIManager>();
 
         UpdateUI();
-
-
     }
 
     public void UpdateUI()
@@ -134,5 +130,4 @@ public class GameManager : MonoBehaviour
             StartNextLevel();
         }
     }
-
 }
