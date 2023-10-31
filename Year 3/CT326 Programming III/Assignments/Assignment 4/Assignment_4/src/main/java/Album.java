@@ -3,6 +3,9 @@
 /*
 Details of the albums (Artist, album name, cover image file, track listing file) are contained in
 ‘music_library.txt’
+
+The album tracks are contained in their own .txt files in a ‘library’ folder.
+• The cover art images are contained in a ‘covers’ folder.
  */
 public class Album {
     private String artist;
