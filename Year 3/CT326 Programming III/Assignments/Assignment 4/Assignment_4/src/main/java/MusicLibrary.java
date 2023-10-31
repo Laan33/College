@@ -80,34 +80,30 @@ public class MusicLibrary {
     }
 
     private void showTrackListing(Album album) {
+        try {
+            File file = new File(RESOURCES_PATH  + album.getTrackListingFile());
+            Scanner scanner = new Scanner(file);
+            JPanel trackListingPanel = new JPanel();
+            trackListingPanel.setLayout(new GridLayout(0, 1));
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                trackListingPanel.add(new JLabel(line));
+            }
+            scanner.close();
+            trackPanel.add(trackListingPanel, album.getAlbumName());
 
+            cardLayout.show(trackPanel, album.getAlbumName());
+
+            //Clear the frame and add the trackPanel to the frame
+            frame.getContentPane().removeAll();
+            frame.add(trackPanel);
+            frame.revalidate();
+            frame.repaint();
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found");
+        }
     }
 
-
-//    private void showTrackListing(Album album) {
-//        JPanel trackListing = new JPanel();
-//        trackListing.setLayout(new BorderLayout());
-//        JTextArea textArea = new JTextArea(20, 40);
-//
-//        try {
-//            Scanner scanner = new Scanner(new File(RESOURCES_PATH + album.getTrackListingFile()));
-//            while (scanner.hasNextLine()) {
-//                textArea.append(scanner.nextLine() + "\n");
-//            }
-//            scanner.close();
-//        } catch (FileNotFoundException e) {
-//            System.out.println("File not found");
-//        }
-//
-//        JButton backButton = new JButton("Back");
-//        backButton.addActionListener(e -> cardLayout.show(trackPanel, "albumPanel"));
-//
-//        trackListing.add(new JScrollPane(textArea), BorderLayout.CENTER);
-//        trackListing.add(backButton, BorderLayout.SOUTH);
-//
-//        trackPanel.add(trackListing, "trackListing");
-//        cardLayout.show(trackPanel, "trackListing");
-//    }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(MusicLibrary::new);
