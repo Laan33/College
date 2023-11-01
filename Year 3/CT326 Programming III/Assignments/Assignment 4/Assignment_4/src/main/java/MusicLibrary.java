@@ -10,11 +10,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MusicLibrary {
-    private ArrayList<Album> albums;
-    private JFrame frame;
-    private JPanel albumPanel;
-    private JPanel trackPanel;
-    private CardLayout cardLayout;
+    private final ArrayList<Album> albums;
     private static final String RESOURCES_PATH = "src/main/resources/";
 
     public MusicLibrary() {
@@ -44,51 +40,41 @@ public class MusicLibrary {
     }
 
     private void createGUI() {
-        frame = new JFrame("Music Library");
+        JFrame frame = new JFrame("Music Library");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(700, 700);
 
-        albumPanel = new JPanel();
+        JPanel albumPanel = new JPanel();
         albumPanel.setLayout(new FlowLayout());
 
-//        BufferedImage bi = ImageIO.read(new File([a file name here]));
-//        Image dimg = bi.getScaledInstance(200, 200, Image.SCALE_SMOOTH);
-//        ImageIcon i = new ImageIcon(dimg);
-
         // Add the album cover images to the albumPanel - size 300x300 - grid layout 2x2
-        for (int i = 0; i < albums.size(); i++) {
-            Album album = albums.get(i);
+        for (Album album : albums) {
             try {
                 BufferedImage bi = ImageIO.read(new File(RESOURCES_PATH + album.getCoverImageFile()));
 
                 JButton albumButton = new JButton(new ImageIcon(bi.getScaledInstance(200, 200, Image.SCALE_SMOOTH)));
-                albumButton.setActionCommand(Integer.toString(i));
-                albumButton.addActionListener(new AlbumButtonListener());
+
+                //Make a button that just calls the showTrackListing method with the album as a parameter
+                albumButton.addActionListener(e -> showTrackListing(album));
                 albumPanel.add(albumButton);
-            }   catch (IOException e) {
+
+            } catch (IOException e) {
                 System.out.println("File not found");
             }
 
 
         }
 
-        trackPanel = new JPanel();
+        JPanel trackPanel = new JPanel();
         trackPanel.setLayout(new BorderLayout());
-        cardLayout = new CardLayout();
+        CardLayout cardLayout = new CardLayout();
         trackPanel.setLayout(cardLayout);
 
         frame.add(albumPanel, BorderLayout.CENTER);
         frame.setVisible(true);
     }
 
-    private class AlbumButtonListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            int albumIndex = Integer.parseInt(e.getActionCommand());
-            Album album = albums.get(albumIndex);
-            showTrackListing(album);
-        }
-    }
+
 
     //Show a gui with the headers No. , Track name, Length. Use a table
     private void showTrackListing(Album album) {
@@ -107,7 +93,7 @@ public class MusicLibrary {
 
             // Read and parse each line from the file
             while ((line = reader.readLine()) != null) {
-                String[] parts = line.split("\t");
+                String[] parts = line.split(",\t|,\s|,");
                 if (parts.length == 3) {
                     model.addRow(parts);
                 }
@@ -115,10 +101,22 @@ public class MusicLibrary {
 
             reader.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("File not found");
         }
 
-        frame.add(new JScrollPane(table));
+        JPanel panel = new JPanel();
+        panel.setLayout(new BorderLayout());
+
+        panel.add(new JScrollPane(table), BorderLayout.CENTER);
+
+        JButton backButton = new JButton("Back");
+
+        //Make a button that just closes the frame
+        backButton.addActionListener(e -> frame.dispose());
+
+        panel.add(backButton, BorderLayout.SOUTH);
+
+        frame.add(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
