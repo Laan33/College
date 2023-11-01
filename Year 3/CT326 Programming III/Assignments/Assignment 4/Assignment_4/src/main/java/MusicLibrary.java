@@ -34,7 +34,6 @@ public class MusicLibrary {
                 if (parts.length == 4) {
                     albums.add(new Album(parts[0], parts[1], parts[2], parts[3]));
                 }
-                System.out.println(line); // TODO: Remove this line
             }
             scanner.close();
         } catch (FileNotFoundException e) {
@@ -52,8 +51,6 @@ public class MusicLibrary {
 
         for (int i = 0; i < albums.size(); i++) {
             Album album = albums.get(i);
-            // Set the imageIcon to the album cover image file in resources
-            // ImageIcon imageIcon = );
             JButton albumButton = new JButton(new ImageIcon(RESOURCES_PATH + album.getCoverImageFile()));
             albumButton.setActionCommand(Integer.toString(i));
             albumButton.addActionListener(new AlbumButtonListener());
@@ -75,7 +72,6 @@ public class MusicLibrary {
             int albumIndex = Integer.parseInt(e.getActionCommand());
             Album album = albums.get(albumIndex);
             showTrackListing(album);
-            // System.out.println(album);
         }
     }
 
