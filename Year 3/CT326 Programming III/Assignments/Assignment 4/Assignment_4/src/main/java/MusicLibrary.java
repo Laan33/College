@@ -1,9 +1,11 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.awt.image.BufferedImage;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -44,17 +46,30 @@ public class MusicLibrary {
     private void createGUI() {
         frame = new JFrame("Music Library");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 600);
+        frame.setSize(700, 700);
 
         albumPanel = new JPanel();
         albumPanel.setLayout(new FlowLayout());
 
+//        BufferedImage bi = ImageIO.read(new File([a file name here]));
+//        Image dimg = bi.getScaledInstance(200, 200, Image.SCALE_SMOOTH);
+//        ImageIcon i = new ImageIcon(dimg);
+
+        // Add the album cover images to the albumPanel - size 300x300 - grid layout 2x2
         for (int i = 0; i < albums.size(); i++) {
             Album album = albums.get(i);
-            JButton albumButton = new JButton(new ImageIcon(RESOURCES_PATH + album.getCoverImageFile()));
-            albumButton.setActionCommand(Integer.toString(i));
-            albumButton.addActionListener(new AlbumButtonListener());
-            albumPanel.add(albumButton);
+            try {
+                BufferedImage bi = ImageIO.read(new File(RESOURCES_PATH + album.getCoverImageFile()));
+
+                JButton albumButton = new JButton(new ImageIcon(bi.getScaledInstance(200, 200, Image.SCALE_SMOOTH)));
+                albumButton.setActionCommand(Integer.toString(i));
+                albumButton.addActionListener(new AlbumButtonListener());
+                albumPanel.add(albumButton);
+            }   catch (IOException e) {
+                System.out.println("File not found");
+            }
+
+
         }
 
         trackPanel = new JPanel();
@@ -75,30 +90,40 @@ public class MusicLibrary {
         }
     }
 
+    //Show a gui with the headers No. , Track name, Length. Use a table
     private void showTrackListing(Album album) {
+        JFrame frame = new JFrame("Track Listing");
+        JTable table = new JTable();
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+
+        // Add the column headers
+        model.addColumn("No.");
+        model.addColumn("Track name");
+        model.addColumn("Length");
+
         try {
-            File file = new File(RESOURCES_PATH  + album.getTrackListingFile());
-            Scanner scanner = new Scanner(file);
-            JPanel trackListingPanel = new JPanel();
-            trackListingPanel.setLayout(new GridLayout(0, 1));
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                trackListingPanel.add(new JLabel(line));
+            BufferedReader reader = new BufferedReader(new FileReader(RESOURCES_PATH + album.getTrackListingFile()));
+            String line;
+
+            // Read and parse each line from the file
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split("\t");
+                if (parts.length == 3) {
+                    model.addRow(parts);
+                }
             }
-            scanner.close();
-            trackPanel.add(trackListingPanel, album.getAlbumName());
 
-            cardLayout.show(trackPanel, album.getAlbumName());
-
-            //Clear the frame and add the trackPanel to the frame
-            frame.getContentPane().removeAll();
-            frame.add(trackPanel);
-            frame.revalidate();
-            frame.repaint();
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found");
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
+        frame.add(new JScrollPane(table));
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
     }
+
 
 
     public static void main(String[] args) {
