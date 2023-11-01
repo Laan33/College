@@ -11,6 +11,7 @@ import java.util.Scanner;
 
 public class MusicLibrary {
     private final ArrayList<Album> albums;
+    JFrame frame = new JFrame("Music Library");
     private static final String RESOURCES_PATH = "src/main/resources/";
 
     public MusicLibrary() {
@@ -40,7 +41,7 @@ public class MusicLibrary {
     }
 
     private void createGUI() {
-        JFrame frame = new JFrame("Music Library");
+        frame.getContentPane().removeAll();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(700, 700);
 
@@ -75,9 +76,10 @@ public class MusicLibrary {
 
 
 
-    //Show a gui with the headers No. , Track name, Length. Use a table
+    //Show a gui with the headers No. , Track name, Length. Use a table - Use the same frame as createGUI
     private void showTrackListing(Album album) {
-        JFrame frame = new JFrame("Track Listing");
+        frame.getContentPane().removeAll(); //Remove all components from the frame
+
         JTable table = new JTable();
         DefaultTableModel model = (DefaultTableModel) table.getModel();
 
@@ -92,7 +94,7 @@ public class MusicLibrary {
 
             // Read and parse each line from the file
             while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",\t|,\s|,");
+                String[] parts = line.split(",\t|, |,"); //Split on comma, comma and tab, or comma and space
                 if (parts.length == 3) {
                     model.addRow(parts);
                 }
@@ -100,7 +102,7 @@ public class MusicLibrary {
 
             reader.close();
         } catch (IOException e) {
-            System.out.println("File not found");
+            System.out.println("Track-list file not found for " + album.getAlbumName());
         }
 
         JPanel panel = new JPanel();
@@ -111,7 +113,7 @@ public class MusicLibrary {
         JButton backButton = new JButton("Back");
 
         //Make a button that just closes the frame
-        backButton.addActionListener(e -> frame.dispose());
+        backButton.addActionListener(e -> createGUI());
 
         panel.add(backButton, BorderLayout.SOUTH);
 
