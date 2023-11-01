@@ -47,7 +47,6 @@ public class MusicLibrary {
         JPanel albumPanel = new JPanel();
         albumPanel.setLayout(new FlowLayout());
 
-        // Add the album cover images to the albumPanel - size 300x300 - grid layout 2x2
         for (Album album : albums) {
             try {
                 BufferedImage bi = ImageIO.read(new File(RESOURCES_PATH + album.getCoverImageFile()));
