@@ -2,12 +2,12 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+
 
 public class MusicLibrary {
     private final ArrayList<Album> albums;
@@ -52,28 +52,20 @@ public class MusicLibrary {
             try {
                 BufferedImage bi = ImageIO.read(new File(RESOURCES_PATH + album.getCoverImageFile()));
 
-                JButton albumButton = new JButton(new ImageIcon(bi.getScaledInstance(200, 200, Image.SCALE_SMOOTH)));
+                JButton albumButton = new JButton(new ImageIcon(bi.getScaledInstance(250, 250, Image.SCALE_SMOOTH)));
 
-                //Make a button that just calls the showTrackListing method with the album as a parameter
+                //Make a button that calls the showTrackListing
                 albumButton.addActionListener(e -> showTrackListing(album));
                 albumPanel.add(albumButton);
 
             } catch (IOException e) {
                 System.out.println("File not found");
             }
-
-
         }
-
-        JPanel trackPanel = new JPanel();
-        trackPanel.setLayout(new BorderLayout());
-        CardLayout cardLayout = new CardLayout();
-        trackPanel.setLayout(cardLayout);
 
         frame.add(albumPanel, BorderLayout.CENTER);
         frame.setVisible(true);
     }
-
 
 
     //Show a gui with the headers No. , Track name, Length. Use a table - Use the same frame as createGUI
@@ -112,17 +104,14 @@ public class MusicLibrary {
 
         JButton backButton = new JButton("Back");
 
-        //Make a button that just closes the frame
+        //Button to close the frame
         backButton.addActionListener(e -> createGUI());
-
         panel.add(backButton, BorderLayout.SOUTH);
 
         frame.add(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
         frame.setVisible(true);
     }
-
 
 
     public static void main(String[] args) {
