@@ -8,13 +8,19 @@
 <h:head></h:head>
 <h:body>
     <h:form>
-        <p:panel header="Update Book">
+        <p:panel header="Update Todo">
             <p:panelGrid columns="1" layout="grid">
-                <p:outputLabel for="book-title" value="Enter new book title"/>
-                <p:inputText id="book-title" value='#{bookBean.title}'/>
-                <p:commandButton value="Update" action="#{bookBean.update}"/>
+                <p:outputLabel for="todo-category" value="Enter new todo category"/>
+                <p:inputText id="todo-category" value='#{todoBean.category}'/>
+                <p:outputLabel for="todo-description" value="Enter new todo description"/>
+                <p:inputText id="todo-description" value='#{todoBean.description}'/>
+                <p:outputLabel for="todo-priority" value="Enter new todo priority"/>
+                <p:inputText id="todo-priority" value='#{todoBean.priority}'/>
+
+
+                <p:commandButton value="Update" action="#{todoBean.update}"/>
             </p:panelGrid>
-            <input type="hidden" name="bookId" value='#{param.bookId}'/>
+            <input type="hidden" name="bookId" value='#{param.todoId}'/>
         </p:panel>
     </h:form>
 </h:body>

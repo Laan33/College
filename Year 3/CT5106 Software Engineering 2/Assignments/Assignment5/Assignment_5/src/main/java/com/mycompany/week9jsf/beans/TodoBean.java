@@ -77,8 +77,11 @@ public class TodoBean {
     public String add() {
         Todo newTodo = new Todo();
         newTodo.setCategory(category);
+        newTodo.setDescription(description);
+        newTodo.setPriority(priority);
+
         todoFacade.create(newTodo);
-        System.out.println("Added todo category = " + category);
+        System.out.println("Added todo category = " + category + " description = " + description + " priority = " + priority);
         return "success";
     }
 

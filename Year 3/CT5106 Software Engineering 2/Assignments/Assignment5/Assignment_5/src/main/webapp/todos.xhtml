@@ -13,14 +13,16 @@
         <f:facet name="header">
             Todo List
         </f:facet>
+        <h:outputText value="#{todo.category}" />
         <h:outputText value="#{todo.description}" />
+        <h:outputText value="#{todo.priority}" />
         <h:outputText value=" ("/>
         <p:link value="Edit" outcome="edit">
-            <f:param name="bookId" value="#{todo.id}"/>
+            <f:param name="todoId" value="#{todo.id}"/>
         </p:link>
         <h:outputText value=" | "/>
         <p:link value="Delete" outcome="delete">
-            <f:param name="bookId" value="#{todo.id}"/>
+            <f:param name="todoId" value="#{todo.id}"/>
         </p:link>
         <h:outputText value=")"/>
     </p:dataList>

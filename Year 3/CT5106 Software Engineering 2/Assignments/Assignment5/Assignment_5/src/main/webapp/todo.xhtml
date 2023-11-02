@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- File: todo.xhtml -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head></h:head>
+<h:body>
+
+    <h:form>
+        <h2>Create Todo"</h2>
+        <h:panelGrid columns="3">
+            <h:outputLabel for="todo-category" value="Enter todo category"/>
+            <h:inputText id="todo-category" value='#{todoBean.category}'/>
+            <h:outputLabel for="todo-description" value="Enter todo description"/>
+            <h:inputText id="todo-description" value='#{todoBean.description}'/>
+            <h:outputLabel for="todo-priority" value="Enter todo priority"/>
+            <h:inputText id="todo-priority" value='#{todoBean.priority}'/>
+
+            <h:commandButton value="Create" action="#{todoBean.add}"/>
+        </h:panelGrid>
+
+    </h:form>
+</h:body>
+</html>
