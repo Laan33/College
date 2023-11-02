@@ -5,7 +5,7 @@
     <artifactId>ejbAssignment</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
-    <name>ejbAssignment</name>
+    <name>assignment4</name>
     
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>

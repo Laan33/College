@@ -22,7 +22,7 @@
     </servlet-mapping>
     
     <welcome-file-list>
-        <welcome-file>faces/books.xhtml</welcome-file>
+        <welcome-file>faces/todos.xhtml</welcome-file>
     </welcome-file-list>
     
     <mime-mapping>
