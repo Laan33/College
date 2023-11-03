@@ -6,32 +6,22 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui">
 <h:head>
-    <style>
-        table {
-            width: 80%;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid #000;
-            padding: 8px;
-        }
-    </style>
+
 </h:head>
 <h:body>
     <h:form>
-        <p:panel header="Delete Todo?">
+        <p:panel header="Delete Todo">
             <p:panelGrid columns="1" layout="grid">
                 <h:outputText value="Do you want to delete the following todo?" />
-                <table>
-                    <tr>
-                        <th>Category</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td>#{todoBean.getCategory()}</td>
-                        <td>#{todoBean.getDescription()}</td>
-                    </tr>
-                </table>
+
+                <h:outputLabel for="todo-category" value="Category" />
+                <h:inputText id="todo-category" value='#{todoBean.getCategory()}' readonly="true"/>
+
+                <h:outputLabel for="todo-description" value="Description" />
+                <h:inputText id="todo-description" value='#{todoBean.getDescription()}' readonly="true"/>
+
+                <h:outputLabel for="todo-priority" value="Priority" />
+                <h:inputText id="todo-priority" value='#{todoBean.getPriority()}' readonly="true"/>
 
                 <p:commandButton value="Confirm Delete" action="#{todoBean.delete}" ajax="false"/>
             </p:panelGrid>
