@@ -10,11 +10,11 @@
     <h:form>
         <p:panel header="Delete Todo?">
             <p:panelGrid columns="1" layout="grid">
-                <p:outputLabel for="book-title" value="Book title"/>
-                <p:inputText id="book-title" value='#{bookBean.title}' readonly="true"/>
-                <p:commandButton value="Confirm Delete" action="#{bookBean.delete}" ajax="false"/>
+                <p:outputLabel for="todo-description" value="Todo title"/>
+<!--                <p:inputText id="todo-description" value='#{todoBean.description}' readonly="true"/>-->
+                <p:commandButton value="Confirm Delete" action="#{todoBean.delete}" ajax="false"/>
             </p:panelGrid>
-            <input type="hidden" name="bookId" value='#{param.bookId}'/>
+            <input type="hidden" name="todoId" value='#{param.todoId}'/>
         </p:panel>
     </h:form>
 </h:body>
