@@ -5,19 +5,34 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui">
-<h:head></h:head>
+<h:head>
+    <style>
+        table {
+            width: 80%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+        }
+    </style>
+</h:head>
 <h:body>
     <h:form>
         <p:panel header="Delete Todo?">
             <p:panelGrid columns="1" layout="grid">
-                <!-- Display the todo description - only just for showing user what they are deleting -->
-                <h:outputText value="Are you sure you want to delete the following todo?"/>
-                <h:outputText value="#{todoBean.description}"/>
+                <h:outputText value="Do you want to delete the following todo?" />
+                <table>
+                    <tr>
+                        <th>Category</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>#{todoBean.getCategory()}</td>
+                        <td>#{todoBean.getDescription()}</td>
+                    </tr>
+                </table>
 
-<!--                <h:outputText value="#{todoBean.getDescription()}"/>-->
-
-<!--                <p:outputLabel for="todo-description" value="Todo description"/>-->
-<!--                <p:inputText id="todo-description" value='#{todoBean.description}' readonly="true"/>-->
                 <p:commandButton value="Confirm Delete" action="#{todoBean.delete}" ajax="false"/>
             </p:panelGrid>
             <input type="hidden" name="todoId" value='#{param.todoId}'/>

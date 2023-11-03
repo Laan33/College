@@ -28,14 +28,18 @@ public class TodoBean {
     private int priority;
     private long id;
     private Todo todo;
-    
+
     @PostConstruct
     public void postConstruct() {
         String todoIdParam = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("todoId");
         if (todoIdParam != null) {
-            id = Integer.parseInt(todoIdParam);
+            id = Long.parseLong(todoIdParam);
             todo = todoFacade.find(id);
-
+            if (todo != null) {
+                category = todo.getCategory();
+                description = todo.getDescription();
+                priority = todo.getPriority();
+            }
         }
     }
     
