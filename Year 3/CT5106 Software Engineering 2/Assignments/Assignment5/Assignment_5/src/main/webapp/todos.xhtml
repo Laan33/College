@@ -9,22 +9,33 @@
 <h:head></h:head>
 <h:body>
     <h:link outcome="todo" value="Create Todo"/>
-    <p:dataList value="#{todoListBean.todoList}" var="todo" type="ordered">
+    <p:dataTable value="#{todoListBean.todoList}" var="todo" styleClass="table">
         <f:facet name="header">
-            Todo List
+            <p:row>
+                <p:column headerText="Category" />
+                <p:column headerText="Description" />
+                <p:column headerText="Priority" />
+                <p:column headerText="Actions" />
+            </p:row>
         </f:facet>
-        <h:outputText value="#{todo.category}" />
-        <h:outputText value="#{todo.description}" />
-        <h:outputText value="#{todo.priority}" />
-        <h:outputText value=" ("/>
-        <p:link value="Edit" outcome="edit">
-            <f:param name="todoId" value="#{todo.id}"/>
-        </p:link>
-        <h:outputText value=" | "/>
-        <p:link value="Delete" outcome="delete">
-            <f:param name="todoId" value="#{todo.id}"/>
-        </p:link>
-        <h:outputText value=")"/>
-    </p:dataList>
+        <p:column>
+            #{todo.category}
+        </p:column>
+        <p:column>
+            #{todo.description}
+        </p:column>
+        <p:column>
+            #{todo.priority}
+        </p:column>
+        <p:column>
+            <p:link value="Edit" outcome="edit">
+                <f:param name="todoId" value="#{todo.id}"/>
+            </p:link>
+            |
+            <p:link value="Delete" outcome="delete">
+                <f:param name="todoId" value="#{todo.id}"/>
+            </p:link>
+        </p:column>
+    </p:dataTable>
 </h:body>
 </html>
