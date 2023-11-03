@@ -8,14 +8,26 @@
       xmlns:p="http://primefaces.org/ui">
 <h:head></h:head>
 <h:body>
-    <h:link outcome="todo" value="Create Todo"/>
+    <div style="margin: 20px;"> <!-- Add some margin for spacing -->
+        <h:link outcome="todo" value="Create Todo" style="text-decoration: none; background-color: #007BFF; color: #fff; padding: 10px 20px; border-radius: 5px;"/> <!-- Apply some styles for a nicer look -->
+    </div>
     <p:dataTable value="#{todoListBean.todoList}" var="todo" styleClass="table">
         <p:columns value="#{todoListBean.columnModel}" var="column">
             <f:facet name="header">
                 <h:outputText value="#{column.header}" />
             </f:facet>
             <h:outputText value="#{todo[column.property]}" />
+            <f:facet name="footer">
+                <p:link value="Edit" outcome="edit">
+                    <f:param name="todoId" value="#{todo.id}"/>
+                </p:link>
+                |
+                <p:link value="Delete" outcome="delete">
+                <f:param name="todoId" value="#{todo.id}"/>
+                </p:link>
+            </f:facet>
         </p:columns>
     </p:dataTable>
+
 </h:body>
 </html>

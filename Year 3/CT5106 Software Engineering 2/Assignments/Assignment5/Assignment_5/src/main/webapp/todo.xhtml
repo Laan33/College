@@ -10,17 +10,19 @@
 
     <h:form>
         <h2>Create Todo</h2>
-        <h:panelGrid columns="3">
+
+        <h:panelGrid columns="2" style="width: 100%;">
             <h:outputLabel for="todo-category" value="Enter todo category"/>
             <h:inputText id="todo-category" value='#{todoBean.category}'/>
+
             <h:outputLabel for="todo-description" value="Enter todo description"/>
             <h:inputText id="todo-description" value='#{todoBean.description}'/>
+
             <h:outputLabel for="todo-priority" value="Enter todo priority"/>
             <h:inputText id="todo-priority" value='#{todoBean.priority}'/>
-
-            <h:commandButton value="Create" action="#{todoBean.add}"/>
         </h:panelGrid>
-
+        <br/>
+        <h:commandButton value="Create" action="#{todoBean.add}"/>
     </h:form>
 </h:body>
 </html>
