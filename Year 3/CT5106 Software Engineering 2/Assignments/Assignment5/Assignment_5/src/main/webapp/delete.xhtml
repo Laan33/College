@@ -10,7 +10,13 @@
     <h:form>
         <p:panel header="Delete Todo?">
             <p:panelGrid columns="1" layout="grid">
-                <p:outputLabel for="todo-description" value="Todo title"/>
+                <!-- Display the todo description - only just for showing user what they are deleting -->
+                <h:outputText value="Are you sure you want to delete the following todo?"/>
+                <h:outputText value="#{todoBean.description}"/>
+
+<!--                <h:outputText value="#{todoBean.getDescription()}"/>-->
+
+<!--                <p:outputLabel for="todo-description" value="Todo description"/>-->
 <!--                <p:inputText id="todo-description" value='#{todoBean.description}' readonly="true"/>-->
                 <p:commandButton value="Confirm Delete" action="#{todoBean.delete}" ajax="false"/>
             </p:panelGrid>
