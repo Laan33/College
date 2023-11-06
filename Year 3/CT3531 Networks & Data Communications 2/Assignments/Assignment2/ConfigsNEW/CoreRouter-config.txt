@@ -1,0 +1,50 @@
+/routing ospf instance;
+set [ find default=yes ] redistribute-connected=as-type-1;
+/ip address;
+add address=10.0.3.1/24 interface=ether2 network=10.0.3.0; //IT
+add address=10.0.2.1/24 interface=ether3 network=10.0.2.0; //ENG
+
+/interface bridge;
+add name=Loopback;
+/ip address;
+add address=10.10.10.1 interface=Loopback network=10.10.10.1;
+
+/routing ospf instance;
+set [ find default=yes ] distribute-default=if-installed-as-type-1 \
+    redistribute-connected=as-type-1 router-id=10.10.10.1
+	
+
+
+/routing ospf interface;
+add dead-interval=5s hello-interval=1s interface=ether3;
+add dead-interval=5s hello-interval=1s interface=ether2;
+
+
+
+
+
+/routing ospf network;
+add area=backbone network=10.0.2.0/24;
+add area=backbone network=10.0.3.0/24;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+/system identity;
+set name=CoreRouter;
+
+
+
+/ip firewall nat;
+add action=masquerade chain=srcnat out-interface=ether1;
+
+
+NOT NEEDED - AFAIK
+
+/ip pool;
+add name=dhcp_pool0 ranges=192.168.100.2-192.168.100.254;
+/ip dhcp-server;
+add address-pool=dhcp_pool0 disabled=no interface=ether4 name=dhcp1;
+
+/ip address;
+add address=192.168.100.1/24 interface=ether4 network=192.168.100.0;

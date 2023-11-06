@@ -1,0 +1,20 @@
+/ip pool;
+add name=dhcp_pool0 ranges=192.168.100.2-192.168.100.254;
+/ip dhcp-server;
+add address-pool=dhcp_pool0 disabled=no interface=ether4 name=dhcp1;
+/routing ospf instance;
+set [ find default=yes ] redistribute-connected=as-type-1;
+/ip address;
+add address=192.168.100.1/24 interface=ether4 network=192.168.100.0
+add address=10.0.1.1/24 interface=ether2 network=10.0.1.0;
+add address=10.0.3.1/24 interface=ether3 network=10.0.3.0;
+/ip dhcp-server network;
+add address=192.168.100.0/24 dns-server=8.8.8.8 gateway=192.168.100.1;
+/routing ospf interface;
+add dead-interval=4s hello-interval=1s interface=ether3;
+add dead-interval=4s hello-interval=1s interface=ether2;
+/routing ospf network;
+add area=backbone network=10.0.1.0/24;
+add area=backbone network=10.0.3.0/24;
+/system identity;
+set name=Clifden;

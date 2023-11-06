@@ -1,0 +1,9 @@
+/interface bridge;
+add name=Loopback;
+/routing ospf instance;
+set [ find default=yes ] distribute-default=if-installed-as-type-1 \
+    redistribute-connected=as-type-1 router-id=10.10.10.1
+/ip address;
+add address=10.10.10.1 interface=Loopback network=10.10.10.1;
+/ip firewall nat;
+add action=masquerade chain=srcnat out-interface=ether1;

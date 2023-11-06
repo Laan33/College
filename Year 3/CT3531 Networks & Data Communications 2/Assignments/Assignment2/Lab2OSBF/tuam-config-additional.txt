@@ -1,0 +1,7 @@
+/interface bridge
+add name=Loopback
+/routing ospf instance
+set [ find default=yes ] redistribute-connected=as-type-1 router-id=\
+    10.10.10.2
+/ip address
+add address=10.10.10.2 interface=Loopback network=10.10.10.2

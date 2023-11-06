@@ -1,0 +1,11 @@
+/ip address;
+add address=10.0.3.2/24 interface=ether3 network=10.0.3.0;
+add address=10.0.4.1/24 interface=ether2 network=10.0.4.0;
+/routing ospf interface;
+add dead-interval=4s hello-interval=1s interface=ether3;
+add cost=50 dead-interval=4s hello-interval=1s interface=ether2;
+/routing ospf network;
+add area=backbone network=10.0.3.0/24;
+add area=backbone network=10.0.4.0/24;
+/system identity;
+set name=Gort;
