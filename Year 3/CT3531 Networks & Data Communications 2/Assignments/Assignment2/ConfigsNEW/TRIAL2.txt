@@ -1,0 +1,63 @@
+set [ find default=yes ] redistribute-connected=as-type-1 router-id=10.10.10.4
+
+
+ENG IP ADDRESS
+/routing ospf network;
+add area=backbone network=10.0.2.0/24;
+add area=backbone network=10.0.1.0/24;
+
+ITBUILD IP ADDRESS
+/routing ospf network;
+add area=backbone network=10.0.2.0/24;
+add area=backbone network=10.0.3.0/24;
+
+CORE IP ADDRESS
+/routing ospf network;
+add area=backbone network=10.0.3.0/24;
+add area=backbone network=10.0.1.0/24;
+
+-----
+
+
+ENG IP ADDRESS
+/ip address;
+add address=10.0.2.1/24 interface=ether1 network=10.0.2.0;
+add address=10.0.1.1/24 interface=ether3 network=10.0.1.0;
+
+ITBUILD IP ADDRESS
+/ip address;
+add address=10.0.2.1/24 interface=ether1 network=10.0.2.0;
+add address=10.0.3.1/24 interface=ether2 network=10.0.3.0;
+
+CORE IP ADDRESS
+/ip address;
+add address=10.0.3.1/24 interface=ether2 network=10.0.3.0;
+add address=10.0.1.1/24 interface=ether3 network=10.0.1.0;
+
+
+
+
+-----
+
+ENG IP ADDRESS
+/routing ospf interface;
+add dead-interval=5s hello-interval=1s interface=ether1;
+add dead-interval=5s hello-interval=1s interface=ether3;
+
+ITBUILD IP ADDRESS
+/routing ospf interface;
+add dead-interval=5s hello-interval=1s interface=ether1;
+add dead-interval=5s hello-interval=1s interface=ether2;
+
+CORE IP ADDRESS
+/routing ospf interface;
+add dead-interval=5s hello-interval=1s interface=ether2;
+add dead-interval=5s hello-interval=1s interface=ether3;
+
+
+/routing ospf instance
+set [ find default=yes ] distribute-default=if-installed-as-type-1 redistribute-connected=as-type-1 router-id=10.10.10.4
+
+
+add address=192.168.200.0/24 dns-server=8.8.8.8 gateway=192.168.200.1
+add address=192.168.100.0/24 dns-server=8.8.8.8 gateway=192.168.100.1
