@@ -1,0 +1,106 @@
+CoreRouter
+
+/interface bridge
+add name=Loopback
+/interface ethernet
+set [ find default-name=ether1 ] disable-running-check=no
+set [ find default-name=ether2 ] disable-running-check=no
+set [ find default-name=ether3 ] disable-running-check=no
+set [ find default-name=ether4 ] disable-running-check=no
+/interface wireless security-profiles
+set [ find default=yes ] supplicant-identity=MikroTik
+/routing ospf instance
+set [ find default=yes ] distribute-default=if-installed-as-type-1 redistribute-connected=as-type-1 router-id=\
+    10.10.10.3
+/ip address
+add address=10.10.10.3 interface=Loopback network=10.10.10.3
+add address=10.0.3.2/24 interface=ether2 network=10.0.3.0
+add address=10.0.1.2/24 interface=ether3 network=10.0.1.0
+/ip dhcp-client
+add disabled=no interface=ether1
+/ip firewall nat
+add action=masquerade chain=srcnat out-interface=ether1
+add action=masquerade chain=srcnat out-interface=ether1
+/routing ospf interface
+add dead-interval=5s hello-interval=1s interface=ether2
+add dead-interval=5s hello-interval=1s interface=ether3
+/routing ospf network
+add area=backbone network=10.0.3.0/24
+add area=backbone network=10.0.1.0/24
+/system identity
+set name=CoreRouter
+
+ITBuilding
+/interface bridge
+add name=Loopback
+/interface ethernet
+set [ find default-name=ether1 ] disable-running-check=no
+set [ find default-name=ether2 ] disable-running-check=no
+set [ find default-name=ether3 ] disable-running-check=no
+set [ find default-name=ether4 ] disable-running-check=no
+/interface vlan
+add interface=ether4 name=VLAN202 vlan-id=202
+/interface wireless security-profiles
+set [ find default=yes ] supplicant-identity=MikroTik
+/ip pool
+add name=dhcp_pool0 ranges=192.168.200.2-192.168.200.254
+/ip dhcp-server
+add address-pool=dhcp_pool0 disabled=no interface=VLAN202 name=dhcp1
+/routing ospf instance
+set [ find default=yes ] distribute-default=if-installed-as-type-1 redistribute-connected=as-type-1 router-id=\
+    10.10.10.4
+/ip address
+add address=192.168.200.1/24 interface=VLAN202 network=192.168.200.0
+add address=10.10.10.4 interface=Loopback network=10.10.10.4
+add address=10.0.3.1/24 interface=ether2 network=10.0.3.0
+add address=10.0.2.2/24 interface=ether1 network=10.0.2.0
+/ip dhcp-server network
+add address=192.168.200.0/24 dns-server=8.8.8.8 gateway=192.168.200.1
+/routing ospf interface
+add dead-interval=5s hello-interval=1s interface=ether1
+add dead-interval=5s hello-interval=1s interface=ether2
+/routing ospf network
+add area=backbone network=10.0.2.0/24
+add area=backbone network=10.0.3.0/24
+/system identity
+set name=ITBuilding
+
+
+EngBuilding
+/interface bridge
+add name=Loopback
+/interface ethernet
+set [ find default-name=ether1 ] disable-running-check=no
+set [ find default-name=ether2 ] disable-running-check=no
+set [ find default-name=ether3 ] disable-running-check=no
+set [ find default-name=ether4 ] disable-running-check=no
+/interface vlan
+add interface=ether4 name=VLAN101 vlan-id=101
+/interface wireless security-profiles
+set [ find default=yes ] supplicant-identity=MikroTik
+/ip pool
+add name=dhcp_pool0 ranges=192.168.100.2-192.168.100.254
+/ip dhcp-server
+add address-pool=dhcp_pool0 disabled=no interface=VLAN101 name=dhcp1
+/routing ospf instance
+set [ find default=yes ] distribute-default=if-installed-as-type-1 redistribute-connected=as-type-1 router-id=\
+    10.10.10.1
+/ip address
+add address=192.168.100.1/24 interface=VLAN101 network=192.168.100.0
+add address=10.10.10.1 interface=Loopback network=10.10.10.1
+add address=10.0.2.1/24 interface=ether1 network=10.0.2.0
+add address=10.0.1.1/24 interface=ether3 network=10.0.1.0
+/ip dhcp-server network
+add address=192.168.100.0/24 dns-server=8.8.8.8 gateway=192.168.100.1
+/routing ospf interface
+add dead-interval=5s hello-interval=1s interface=ether1
+add dead-interval=5s hello-interval=1s interface=ether3
+/routing ospf network
+add area=backbone network=10.0.1.0/24
+add area=backbone network=10.0.2.0/24
+/system identity
+set name=EngBuilding
+
+
+
+
