@@ -1,15 +1,6 @@
 #lang racket
 
 
-;;
-;;Write a Scheme function named ins_beg which, when passed an element and a list,
-;;inserts the element at the beginning of the list. You can assume only valid
-;;elements and lists.
-;;e.g., if the function is called ins_beg:
-;;a. (ins_beg 'a '(b c d)) returns the list (a b c d)
-;;b. (ins_beg '(a b) '(b c d)) returns the list ((a b) b c d)
-
-
 (provide ins_beg)
 (provide ins_end)
 (provide cout_top_level)
@@ -25,7 +16,7 @@
 
 ;; ins_end: Scheme function that takes an element and a list and returns a new list with the element added to the end of the original list.
 (define (ins_end el lst)
-  (append lst (cons el empty))) ;;Assuming lst is a list, and appending a new list (made using cons) with el to the end of lst
+  (append lst (cons el empty))) ;;Assuming lst is a list, and appending a new list (created using cons) with el to the end of lst
 
 ;; cout_top_level: Scheme function that takes a list and returns the number of top-level items in the list (i.e., items that are not in a sublist).
 (define (cout_top_level lst)
@@ -46,7 +37,7 @@
 )
 
 
-;;E. Write a tail-recursive version of your solution to part D called count_instances_tr
+;; E. Write a tail-recursive version of part D solution called count_instances_tr
 (define (tail_count_instances item lst cnt)
   (cond
     [(null? lst) cnt] ;; Base case - list is empty, finished counting, return count
@@ -57,7 +48,7 @@
       (tail_count_instances item (cdr lst) (+ cnt 1))
     ]
 
-    ;; else - first element isn't equal to the item
+  ;; else - first element isn't equal to the item
   [else 
     ;; recursively count the remainder of the list - count is the same
     (tail_count_instances item (cdr lst) cnt)
@@ -65,16 +56,16 @@
   )
 )
 
-;; Tail recursive function for count of a given item in a list - assumption all items are atomic
+;; Tail recursive function helper for count of a given item in a list - assumption all items are atomic
 (define (tail_count_instances_helper item lst)
-  ;;Calling the helper with starter count - 0 
+  ;;Calling the function with starter count - 0 
   (tail_count_instances item lst 0)
 )
   
 
-;;F. Write a Scheme function named count_instances_deep that counts the number of
-;;times an item occurs in a list of items; note that the list may contain sub-lists and you
-;;should also count occurrences in those lists.
+;; F. Write a Scheme function named count_instances_deep that counts the number of
+;; times an item occurs in a list of items; note that the list may contain sub-lists and you
+;; should also count occurrences in those lists.
 (define (count_instances_deep item lst)
   (cond
     [(null? lst)  ;; Base case - list is empty / finished counting
