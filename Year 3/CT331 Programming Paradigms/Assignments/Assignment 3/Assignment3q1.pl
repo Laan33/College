@@ -15,6 +15,8 @@ instructs(ann, ct345).
 
 
 %# 1. Write a prolog rule called 'teaches' that returns true if a given instructor teaches a given student. 
+teaches(X,Y) :- instructs(X,Z), takes(Y,Z).
+
 
 
 
