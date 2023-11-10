@@ -1,14 +1,11 @@
 #lang racket
-
-
 (provide ins_beg)
 (provide ins_end)
 (provide cout_top_level)
 (provide count_instances)
-(provide tail_count_instances)
-(provide tail_count_instances_helper)
+(provide count_instances_tr)
+(provide count_instances_tr_helper)
 (provide count_instances_deep)
-
 
 ;; ins_beg: Scheme function that takes an element and a list and returns a new list with the element added to the beginning of the original list.
 (define (ins_beg el lst)
@@ -38,28 +35,28 @@
 
 
 ;; E. Write a tail-recursive version of part D solution called count_instances_tr
-(define (tail_count_instances item lst cnt)
+(define (count_instances_tr item lst cnt)
   (cond
     [(null? lst) cnt] ;; Base case - list is empty, finished counting, return count
 
     ;; if first element is equals to the item
     [(eq? (car lst) item)
       ;; increment 1 + recurse remainder of the list
-      (tail_count_instances item (cdr lst) (+ cnt 1))
+      (count_instances_tr item (cdr lst) (+ cnt 1))
     ]
 
   ;; else - first element isn't equal to the item
   [else 
     ;; recursively count the remainder of the list - count is the same
-    (tail_count_instances item (cdr lst) cnt)
+    (count_instances_tr item (cdr lst) cnt)
   ]
   )
 )
 
 ;; Tail recursive function helper for count of a given item in a list - assumption all items are atomic
-(define (tail_count_instances_helper item lst)
+(define (count_instances_tr_helper item lst)
   ;;Calling the function with starter count - 0 
-  (tail_count_instances item lst 0)
+  (count_instances_tr item lst 0)
 )
   
 
