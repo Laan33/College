@@ -34,7 +34,8 @@ True. (5 marks)
 
 isNotElementInList(_ , []). %Base case, no element is in a list if the list is empty
 
-isNotElementInList(El, [H | T]) :- %else, recurse through the remainder of the list
+isNotElementInList(El, [H | T]) :- %Recursive case, if the element is not in the list    
     El \= H, %Checking if el is not equals to the head of the list
-    isNotElementInList(El, T). %
+    isNotElementInList(El, T). %Recurse through the tail of the list
+
 

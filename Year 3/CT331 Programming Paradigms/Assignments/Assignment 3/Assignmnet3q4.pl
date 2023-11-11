@@ -1,40 +1,49 @@
+
+
 /*
-Write a set of prolog facts and rules called isNotElementInList that determine if a
-given element is not in a given list. The element must be the first argument and the
-list must be the second.
-Eg: isNotElementInList(El, List) …
+Write a set of prolog facts and rules called mergeLists that merges (concatenates / appends) three lists. The given lists must be the first three arguments, and the merged
+list must be the fourth argument. Do not use the built in append rule.
+Eg: mergeLists(List1, List2, List3, Merged) …
 Your code should produce the following results:
 */
 
 /*
-?- isNotElementInList(1, []).
-True.
+?- mergeLists([7],[1,2,3],[6,7,8], X).
+X = [7,1,2,3,6,7,8].
 */
 
 /*
-?- isNotElementInList(1, [1]).
-False.
+?- mergeLists([2], [1], [0], X).
+X = [2, 1, 0].
 */
 
 /*
-?- isNotElementInList(1, [2]).
-True.
+?- mergeLists([1], [], [], X).
+X = [1]. (5 marks)
 */
+
+/*Go and recurse list 2 and 3 first and then do list 1 and 23 */
+
+mergeLists(List1, List2, List3, Merged) :-
+    mergeLists(List2, List3, List23),
+    mergeLists(List1, List23, Merged).
+
+% Base case: Merging an empty list with another list results in the same list.
+mergeLists([], List, List).
+
+% Recursive rule: Merge two non-empty lists.
+mergeLists([Head|Tail1], List2, [Head|ResultTail]) :-
+    mergeLists(Tail1, List2, ResultTail).
+
+
 
 /*
-?- isNotElementInList(2, [1, 2, 3]).
-False.
+
+In this example:
+
+    The base case states that merging an empty list with another list results in the second list.
+    The recursive rule says that to merge two non-empty lists, take the head of the first list and then recursively merge the rest of the first list with the second list.
+
+You can use this merge_lists/3 predicate by providing it with two lists and obtaining the merged result.
+
 */
-
-/*
-?- isNotElementInList(7, [1, 2, 9, 4, 5]).
-True. (5 marks)
-*/
-
-
-isNotElementInList(_ , []) :- !. %Base case, no element is in a list if the list is empty
-
-isNotElementInList(El, [H | T]) :- %else, recurse through the remainder of the list
-    El \= H, %Checking if el is not equals to the head of the list
-    isNotElementInList(El, T). %
-
