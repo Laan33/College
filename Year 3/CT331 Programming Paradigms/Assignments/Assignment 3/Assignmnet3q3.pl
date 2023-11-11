@@ -32,7 +32,7 @@ True. (5 marks)
 */
 
 
-isNotElementInList(_ , []) :- !. %Base case, no element is in a list if the list is empty
+isNotElementInList(_ , []). %Base case, no element is in a list if the list is empty
 
 isNotElementInList(El, [H | T]) :- %else, recurse through the remainder of the list
     El \= H, %Checking if el is not equals to the head of the list
