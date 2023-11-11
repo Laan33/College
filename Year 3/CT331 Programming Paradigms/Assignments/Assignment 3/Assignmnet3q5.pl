@@ -23,8 +23,11 @@ reverseList( , , Accumulator)
 reverseList(List, ReversedList) :-
     reverseList([Head|Tail], [Tail|Head]). */
 
+% This is the helper function that will be called by the user. 
 reverseList(List, Reversed) :- reverseList(List, [], Reversed).
 
+% Base case - reversing an empty list results in an empty list.
 reverseList([], Reversed, Reversed).
 
+% Recursive case - add the head of the list to the accumulator and call reverseList on the tail.
 reverseList([H|T], Acc, Reversed) :- reverseList(T, [H|Acc], Reversed).

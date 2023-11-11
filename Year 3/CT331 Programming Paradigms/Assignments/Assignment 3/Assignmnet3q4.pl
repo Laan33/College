@@ -24,15 +24,18 @@ X = [1]. (5 marks)
 
 /*Go and recurse list 2 and 3 first and then do list 1 and 23 */
 
+% Helper predicate: mergeLists/3 
+%Merges two lists by merging the second and third lists and then merging the first list with the result.
 mergeLists(List1, List2, List3, Merged) :-
-    mergeLists(List2, List3, List23),
-    mergeLists(List1, List23, Merged).
+    mergeLists(List2, List3, List23), % Merge the second and third lists.
+    mergeLists(List1, List23, Merged). % Merge the first list with the result.
 
 % Base case: Merging an empty list with another list results in the same list.
 mergeLists([], List, List).
 
 % Recursive rule: Merge two non-empty lists.
-mergeLists([Head|Tail1], List2, [Head|ResultTail]) :-
+mergeLists([Head|Tail1], List2, [Head|ResultTail]) :- 
+    % Take the head of the first list and then recursively merge the rest of the first list with the second list.
     mergeLists(Tail1, List2, ResultTail).
 
 

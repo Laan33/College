@@ -11,7 +11,7 @@ parts of a list, write a prolog query that displays the head and tail of the lis
 
 /*
 2. Similarly, use a nested list to display the head of the list, the head of the tail of the list
-and the tail of the tail of the list [1 ,2,3,4,5]. */ 
+and the tail of the tail of the list [1,2,3,4,5]. */ 
 %?- [H|[TH|TT]] = [1,2,3,4,5].
 
 

@@ -21,11 +21,16 @@ and then going and doing the tail of the first comparison to the rest of the lis
 
 */
 
-insertInOrder(X, [], [X]). %Base case - list is empty, the element is placed in return list
-insertInOrder(X, [H|T], [X,H|T]) :-
-    X =< H.
-insertInOrder(X, [H|T], [H|Rest]) :-
+/*Base case - list is empty, the element is placed in the return list */
+insertInOrder(X, [], [X]). 
+
+/*if the element is less than the head, it is placed at the start of the list */
+insertInOrder(X, [H|T], [X,H|T]) :- 
+    X =< H. 
+
+/*if the element is greater than the head, we recurse through the rest of list - return a list having the head, and the return of the recursive call as the tail */
+insertInOrder(X, [H|T], [H|Rest]) :- 
     X > H, 
-    insertInOrder(X, T, Rest).
+    insertInOrder(X, T, Rest). /*recursively go through the remainder of the list, and return the list with the element inserted in the correct position */
     
 

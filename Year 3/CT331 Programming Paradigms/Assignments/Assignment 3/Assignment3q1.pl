@@ -15,7 +15,7 @@ instructs(ann, ct345).
 
 
 %# 1. Write a prolog rule called 'teaches' that returns true if a given instructor teaches a given student. 
-teaches(X,Y) :- instructs(X,Z), takes(Y,Z).
+teaches(X,Y) :- instructs(X,Z), takes(Y,Z). % Using conjunction as AND operator where both must be in the same class Z
 
 
 
@@ -24,4 +24,4 @@ same course. Demonstrate with suitable queries that this rule works as described
 mark each]
 */
 
-classmates(X,Y) :- takes(X, Z), takes(Y, Z).
+classmates(X,Y) :- takes(X, Z), takes(Y, Z).  % Using conjunction as AND operator where both must be in the same class Z
