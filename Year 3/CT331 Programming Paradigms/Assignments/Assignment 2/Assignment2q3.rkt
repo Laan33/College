@@ -96,13 +96,11 @@
 
 ;; D. Take a list of items and insert them into a binary search tree.
 (define (tree_insert_list lst bst)
-  (cond
-    [(null? lst) ;; if the list is empty, return the tree as is
+  (if (null? lst) ;; if the list is empty, return the tree as is
       bst 
     
       ;; otherwise, recurse through with the remainder of the list & binary tree created from the first element into bst
       (tree_insert_list (cdr lst) (tree_insert (car lst) bst))
-    ]
   )
 )
 
@@ -143,14 +141,12 @@
 
 ;; Function to sort a list using a higher order function
 (define (tree_sort_ho_list lst bst compare-func)
-  (cond
-    ;; if the list is empty, return the tree as is
-    [(null? lst)
-      bst
-
-      ;; otherwise, recurse through with the remainder of the list & binary tree created from the first element into bst
-      (tree_sort_ho_list (cdr lst) (tree_sort_ho (car lst) bst compare-func))
-    ]
+  (if (null? lst) ;; if the list is empty, return the tree as is
+    bst
+    
+    ;; else, recurse through with the remainder of the list & binary tree created from the first element into bst
+    (tree_sort_ho_list (cdr lst) (tree_sort_ho (car lst) bst compare-func) compare-func)
+    
   )
 )
 
