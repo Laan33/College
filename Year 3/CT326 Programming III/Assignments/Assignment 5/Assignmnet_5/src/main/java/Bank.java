@@ -1,19 +1,17 @@
 import java.util.Map;
 import java.util.concurrent.LinkedBlockingQueue;
 
-/**
- *
- *
- * Responsible for a collection of customer bank accounts
- * (Map<Integer, Account> where the integer refers to the account number of the account)
- * and uses a LinkedBlockingQueue object, as described below, to maintain a collection of bank
- * account transactions to be processed on these accounts.
- *
- * You should represent bank accounts using the Account class that is provided to you on Canvas.
- * Note that you’ll need to adapt this class so that it can be used in concurrent applications.
- *
- * You should represent transactions using the Transaction class that is provided to you on Canvas.
- * Note that the bank only deals in the currency EUR.
+/*
+  Responsible for a collection of customer bank accounts
+  (Map<Integer, Account> where the integer refers to the account number of the account)
+  and uses a LinkedBlockingQueue object, as described below, to maintain a collection of bank
+  account transactions to be processed on these accounts.
+
+  You should represent bank accounts using the Account class that is provided to you on Canvas.
+  Note that you’ll need to adapt this class so that it can be used in concurrent applications.
+
+  You should represent transactions using the Transaction class that is provided to you on Canvas.
+  Note that the bank only deals in the currency EUR.
  */
 
 /**
