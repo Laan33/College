@@ -45,7 +45,7 @@ public class Account implements Serializable {
 	 * Make a deposit to the account of the given amount
 	 * @param amount the amount to deposit
 	 */
-	public void makeDeposit(Money amount) {	  
+	public synchronized void makeDeposit(Money amount) {
 		if(amount.isGreaterThan(Money.of(CurrencyUnit.EUR, 0)) ) {
 			balance.plus(amount);
 		}
@@ -56,7 +56,7 @@ public class Account implements Serializable {
 	 * @param amount the amount to withdraw
 	 * @throws InsufficientFundsException if the amount to withdraw is greater than the current balance
 	 */
-	public void makeWithdrawal(Money amount) throws InsufficientFundsException {
+	public synchronized void makeWithdrawal(Money amount) throws InsufficientFundsException {
 		try {
 			setBalance(balance.minus(amount));
 		} catch (NegativeBalanceException e) {
