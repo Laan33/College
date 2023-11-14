@@ -1,3 +1,5 @@
+package application;
+
 /**
  * A class representing an account transaction for the CT326 Assignment 5 (23/24)
  * @author Adrian Clear

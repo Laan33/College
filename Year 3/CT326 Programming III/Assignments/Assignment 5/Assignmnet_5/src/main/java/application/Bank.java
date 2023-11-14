@@ -1,4 +1,7 @@
+package application;
+
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.LinkedBlockingQueue;
 
 /*
@@ -31,15 +34,39 @@ public class Bank {
 
 
 
-    void addAccount() {
-
+    void addAccount(Account account) {
+        accounts.put(account.getAccountNumber(), account);
     }
 
     Account getAccountById(int accountNum) {
-        Account account = new Account();
-
-        return account;
+        return accounts.get(accountNum);
     }
+
+    void submitTransaction(Transaction transaction) {
+        transactions.add(transaction);
+    }
+
+    Transaction getNextTransaction() {
+        return transactions.poll();
+    }
+
+    void printAccounts() {
+        for (Account account : accounts.values()) {
+            System.out.println(account.getAccountNumber() + " " + account.getBalance());
+        }
+    }
+
+    Set<Integer> getAccountNumbers() {
+        return accounts.keySet();
+    }
+
+
+
+
+
+
+
+
 
 
 
