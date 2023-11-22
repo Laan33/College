@@ -1,12 +1,8 @@
 package application;
-/**
- *
- */
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,7 +11,6 @@ import java.util.logging.Logger;
 
 public class RandomTransactionGenerator implements Runnable {
     Bank bank;
-    Random random = new Random();
     private static final Logger logger = Logger.getLogger(RandomTransactionGenerator.class.getName());
 
     private List<Integer> accountNumbers;
@@ -48,11 +43,10 @@ public class RandomTransactionGenerator implements Runnable {
         }
     }
 
-
     /**
-     * Create a RandomTransactionGenerator with the given bank
+     * Generate a random transaction and submit it to the bank
      *
-     * @return a RandomTransactionGenerator with the given bank
+     * @throws InterruptedException if the thread is interrupted
      */
     private void generateRandomTransaction() throws InterruptedException {
         Collections.shuffle(accountNumbers);
