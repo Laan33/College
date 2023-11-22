@@ -1,5 +1,9 @@
 package application;
 
+import exceptions.DuplicateAccountException;
+
+import javax.security.auth.login.AccountNotFoundException;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -29,20 +33,41 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 
 public class Bank {
-    Map<Integer, Account> accounts;
-    LinkedBlockingQueue<Transaction> transactions;
+    Map<Integer, Account> accounts = new HashMap<>();
+    LinkedBlockingQueue<Transaction> transactions = new LinkedBlockingQueue<>();
 
 
+    void addAccount(Account account) throws DuplicateAccountException {
+        if (accounts == null) {
+            throw new NullPointerException();
+        }
 
-    void addAccount(Account account) {
+        if (accounts.containsKey(account.getAccountNumber())) {
+            throw new DuplicateAccountException();
+        }
+
         accounts.put(account.getAccountNumber(), account);
     }
 
-    Account getAccountById(int accountNum) {
-        return accounts.get(accountNum);
+    Account getAccountById(int accountNum) throws AccountNotFoundException {
+        if (accounts == null) {
+            throw new NullPointerException();
+        }
+        Account account = accounts.get(accountNum);
+
+        if (account == null) {
+            throw new AccountNotFoundException("Account not found for account number: " + accountNum);
+        }
+
+        return account;
     }
 
     void submitTransaction(Transaction transaction) {
+        //System.out.println("Submitting transaction: " + transaction);
+        if (transactions == null) {
+            throw new NullPointerException();
+        }
+
         transactions.add(transaction);
     }
 
@@ -61,16 +86,15 @@ public class Bank {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+    public String printAccountsSummary() {
+        StringBuilder summaryString = new StringBuilder();
+        getAccountNumbers().forEach(accountNumber -> {
+            try {
+                summaryString.append(getAccountById(accountNumber)).append("\n");
+            } catch (AccountNotFoundException e) {
+                e.printStackTrace();
+            }
+        });
+        return summaryString.toString();
+    }
 }

@@ -47,7 +47,7 @@ public class Account implements Serializable {
 	 */
 	public synchronized void makeDeposit(Money amount) {
 		if(amount.isGreaterThan(Money.of(CurrencyUnit.EUR, 0)) ) {
-			balance.plus(amount);
+            balance = balance.plus(amount);
 		}
 	}
 
