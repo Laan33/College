@@ -8,22 +8,15 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/**
- * RandomTransactionGenerator:
- * • created with a Bank instance
- * • randomly generates deposit and withdrawal transactions of up to EUR 10,000 for random
- * accounts in the bank and submits them to the bank queue for processing
- * • sleeps for a random amount of time (between 0 and 1 seconds) between the generation of
- * transactions.
- * • once it has been terminated, it inserts an end-of-stream (or “Poison pill”) object to the bank
- * queue to indicate that it is closed.
- */
 
 
 public class RandomTransactionGenerator implements Runnable {
     Bank bank;
     Random random = new Random();
+    private static final Logger logger = Logger.getLogger(RandomTransactionGenerator.class.getName());
 
     private List<Integer> accountNumbers;
 
@@ -45,8 +38,8 @@ public class RandomTransactionGenerator implements Runnable {
         }
         // Catch the InterruptedException
         catch (InterruptedException e) {
-            // Print the stack trace
-            //e.printStackTrace();
+            // Log that the thread has been interrupted
+            logger.log(Level.INFO, "RandomTransactionGenerator thread has been interrupted");
         }
         // Finally, submit the poison pill to the bank
         finally {
@@ -62,7 +55,6 @@ public class RandomTransactionGenerator implements Runnable {
      * @return a RandomTransactionGenerator with the given bank
      */
     private void generateRandomTransaction() throws InterruptedException {
-
         Collections.shuffle(accountNumbers);
 
         int sourceAccountNumber = accountNumbers.get(0);
@@ -82,9 +74,6 @@ public class RandomTransactionGenerator implements Runnable {
         // Push the transactions to the bank
         bank.submitTransaction(transaction1);
         bank.submitTransaction(transaction2);
-
-//        // Sleep for a random amount of time between 0 and 1 second
-//        sleepRandomTime();
     }
 
     /**

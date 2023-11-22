@@ -1,6 +1,4 @@
-package application; /**
- *
- */
+package application;
 
 import exceptions.InsufficientFundsException;
 import org.joda.money.CurrencyUnit;
@@ -10,19 +8,8 @@ import javax.security.auth.login.AccountNotFoundException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.logging.Logger;
 
-/**
- * • created with a name and a Bank instance
- * • takes a transaction from the bank and processes it by depositing/withdrawing from the
- * appropriate account
- * • keeps a tally of how many withdrawals and how many deposits it has made
- * • sleeps for a random amount of time (between 0 and 1 seconds) between the processing of
- * transactions
- * • finishes executing once the queue has been closed or if it has waited 5 seconds for a new
- * transaction from the queue without receiving one.
- * • when it finishes executing, it prints to the console its name and the number of deposits and
- * withdrawals it has processed.
- */
 
 public class TransactionProcessor implements Runnable {
     private final String name;
@@ -30,9 +17,9 @@ public class TransactionProcessor implements Runnable {
     private int depositsCount;
     private int withdrawalsCount;
     private long timeSinceLastTransaction;
+    private static final Logger logger = Logger.getLogger(TransactionProcessor.class.getName());
+    private final int MAX_TIME_SINCE_FIRST_TRANSACTION = 5000; // 5 seconds in milliseconds - max time to wait for a new transaction
 
-    // 5 seconds - max time to wait for a new transaction
-    private final int MAX_TIME_SINCE_FIRST_TRANSACTION = 5000;
 
 
     public TransactionProcessor(String name, Bank bank) {
@@ -65,7 +52,7 @@ public class TransactionProcessor implements Runnable {
                     processTransaction(transaction);
                     sleepRandomTime();
                 } catch (InsufficientFundsException | AccountNotFoundException | InterruptedException e) {
-                    e.printStackTrace();
+                    logger.severe("Error processing transaction: " + e.getMessage());
                 }
             }
             // Get the next transaction from the bank

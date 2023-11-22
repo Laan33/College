@@ -7,26 +7,12 @@ import org.joda.money.Money;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
 
-/**
- *
- */
-
-/*
-Write a class with a main method (or include a main method in the Bank class) that does the
-following:
-• declares and instantiates a Bank object
-• creates and adds three Account instances to the bank with different starting balances
-• declares and instantiates two TransactionProcessor threads and one
-RandomTransactionGenerator thread
-• executes the threads using a thread pool (ExecutorService) and waits for them to
-complete
-• After 10 seconds, explicitly shuts down the RandomTransactionGenerator thread
-• prints out the details of the accounts after the transactions have finished
- */
 
 public class BankApplication {
+    private static final Logger logger = Logger.getLogger(BankApplication.class.getName());
 
     public static void main(String[] args) {
         final int RANDOM_TRANSACTION_RUNNING_TIME = 10_000;
@@ -90,14 +76,10 @@ public class BankApplication {
                     }
                 }
             } catch (InterruptedException e) {
-                System.out.println("Interrupted Exception");
-                e.printStackTrace();
+                logger.severe("Error waiting for threads to complete: " + e.getMessage());
             }
         } catch (NegativeBalanceException | DuplicateAccountException e ) {
             throw new RuntimeException(e);
         }
-
-
     }
-
 }

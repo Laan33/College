@@ -11,8 +11,12 @@
             "id": "5a942426fa82bdf2",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "CT3531 Networks & Data Communications 2/Notes/Exam revision.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "CT3531 Networks & Data Communications 2/Notes/Exam revision.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "CT3531 Networks & Data Communications 2/Notes/Exam revision.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "CT3531 Networks & Data Communications 2/Notes/Exam revision.md"
+              }
             }
           },
           {
@@ -150,18 +158,22 @@
   },
   "active": "5a942426fa82bdf2",
   "lastOpenFiles": [
+    "CT326 Programming III/Assignments/Assignment 5/Output/OutputApplication with Logger.png",
+    "CT326 Programming III/Assignments/Assignment 5/Output/OutputApplication.png",
+    "CT326 Programming III/Assignments/Assignment 5/Assignmnet_5/src/main/java/application/TransactionProcessor.java~",
+    "CT326 Programming III/Assignments/Assignment 5/Assignmnet_5/target/classes/application/TransactionProcessor.class",
+    "CT326 Programming III/Assignments/Assignment 5/Assignmnet_5/target/classes/application/RandomTransactionGenerator.class",
+    "CT326 Programming III/Assignments/Assignment 5/Assignmnet_5/src/main/java/application/RandomTransactionGenerator.java~",
+    "CT326 Programming III/Assignments/Assignment 5/Output/Output.png",
+    "CT326 Programming III/Assignments/Assignment 5/Output",
+    "CT326 Programming III/Assignments/Assignment 5/New folder",
+    "CT326 Programming III/Assignments/Assignment 5/Assignmnet_5/target/classes/application/BankApplication.class",
+    "CT3531 Networks & Data Communications 2/Notes/Exam revision.md",
     "CT3532 Database Systems 2/Notes/Class 5 A - Linear Hashing.md",
     "CT3532 Database Systems 2/Notes/Class 3 B.md",
     "CT5106 Software Engineering 2/Assignments/Assignment1/assignment1/target/test-classes",
     "CT5106 Software Engineering 2/Assignments/Assignment2/assignment2.zip",
     "CT5106 Software Engineering 2/Assignments/Assignment2/assignment2/target/assignment1-1.0-SNAPSHOT.war",
-    "CT5106 Software Engineering 2/Assignments/Assignment2/assignment2/target/assignment1-1.0-SNAPSHOT/WEB-INF/beans.xml",
-    "CT5106 Software Engineering 2/Assignments/Assignment2/assignment2/target/assignment1-1.0-SNAPSHOT/viewArtist.jsp",
-    "CT5106 Software Engineering 2/Assignments/Assignment2/assignment2/target/assignment1-1.0-SNAPSHOT/index.jsp",
-    "CT5106 Software Engineering 2/Assignments/Assignment2/assignment2/target/assignment1-1.0-SNAPSHOT/displayArtists.jsp",
-    "CT5106 Software Engineering 2/Assignments/Assignment2/assignment2/target/assignment1-1.0-SNAPSHOT/addArtist.jsp",
-    "CT5106 Software Engineering 2/Assignments/Assignment2/assignment2/target/assignment1-1.0-SNAPSHOT/META-INF",
-    "CT5106 Software Engineering 2/Assignments/Assignment2/assignment2/target/assignment1-1.0-SNAPSHOT/WEB-INF",
     "CT326 Programming III/Assignments/Assignment 1/Assignment_1/test results.png",
     "CT326 Programming III/Assignments/Assignment 1/Reqs & Process Flow.md",
     "CT3536 Games Programming/Assignments/Assignment 2/Assignment 2/Assets/marsmodel/mars_1k_color.jpg",
@@ -171,8 +183,6 @@
     "CT3536 Games Programming/Assignments/Assignment 2/Assignment 2/Library/PackageCache/com.unity.timeline@1.6.4/Samples~/Customization/Annotation/Editor/Resources/dark/timeline_annotation.png",
     "CT3536 Games Programming/Assignments/Assignment 2/Assignment 2/Library/PackageCache/com.unity.timeline@1.6.4/Samples~/Customization/Annotation/Editor/Resources/dark/timeline_annotation_selected.png",
     "CT3536 Games Programming/Assignments/Assignment 2/Assignment 2/Library/PackageCache/com.unity.timeline@1.6.4/Samples~/Customization/Annotation/Editor/Resources/dark/timeline_annotation_collapsed.png",
-    "CT3536 Games Programming/Assignments/Assignment 2/Assignment 2/Library/PackageCache/com.unity.testtools.codecoverage@1.2.2/Samples~/Tutorial/Asteroids/Visuals/Textures/FX/part_spark_large_dff.png",
-    "CT3536 Games Programming/Assignments/Assignment 2/Assignment 2/Library/PackageCache/com.unity.testtools.codecoverage@1.2.2/Samples~/Tutorial/Asteroids/Visuals/Textures/FX/part_spark_small_dff.png",
     "CT3536 Games Programming/Assignments/Assignment 2/Assignment 2/Library/PackageCache/com.unity.visualscripting@1.8.0/Documentation~/snippets/custom-c-nodes/vs-tasks-note-end.md",
     "CT3536 Games Programming/Assignments/Assignment 2/Assignment 2/Library/PackageCache/com.unity.visualscripting@1.8.0/Documentation~/snippets/custom-c-nodes/vs-open-graph-w-node.md",
     "CT3536 Games Programming/Assignments/Assignment 2/Assignment 2/Library/PackageCache/com.unity.visualscripting@1.8.0/Documentation~/snippets/custom-c-nodes/vs-ff-add-node.md",
@@ -193,8 +203,6 @@
     "CT3536 Games Programming/Assignments/Assignment 2/Assignment 2/Library/PackageCache/com.unity.visualscripting@1.8.0/Documentation~/snippets/vs-open-state-menu.md",
     "CT3536 Games Programming/Assignments/Assignment 2/Assignment 2/Library/PackageCache/com.unity.visualscripting@1.8.0/Documentation~/snippets/vs-open-hierarchy-window.md",
     "CT3536 Games Programming/Assignments/Assignment 2/Assignment 2/Library/PackageCache/com.unity.visualscripting@1.8.0/Documentation~/snippets/vs-open-project-window.md",
-    "CT3536 Games Programming/Assignments/Assignment 2/Assignment 2/Library/PackageCache/com.unity.visualscripting@1.8.0/Documentation~/snippets/vs-open-project-settings.md",
-    "CT3536 Games Programming/Assignments/Assignment 2/Assignment 2/Library/PackageCache/com.unity.visualscripting@1.8.0/Documentation~/snippets/vs-open-new-external-code.md",
-    "CT3536 Games Programming/Assignments/Assignment 2/Assignment 2/Library/PackageCache/com.unity.visualscripting@1.8.0/Documentation~/snippets/vs-open-inspector-window.md"
+    "CT3536 Games Programming/Assignments/Assignment 2/Assignment 2/Library/PackageCache/com.unity.visualscripting@1.8.0/Documentation~/snippets/vs-open-project-settings.md"
   ]
 }
