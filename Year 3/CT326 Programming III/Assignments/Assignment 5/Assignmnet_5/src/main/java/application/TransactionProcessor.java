@@ -1,6 +1,7 @@
 package application;
 
 import exceptions.InsufficientFundsException;
+import exceptions.NegativeBalanceException;
 import org.joda.money.CurrencyUnit;
 import org.joda.money.Money;
 
@@ -51,7 +52,8 @@ public class TransactionProcessor implements Runnable {
                 try {
                     processTransaction(transaction);
                     sleepRandomTime();
-                } catch (InsufficientFundsException | AccountNotFoundException | InterruptedException e) {
+                } catch (InsufficientFundsException | AccountNotFoundException | InterruptedException |
+                         NegativeBalanceException e) {
                     logger.severe("Error processing transaction: " + e.getMessage());
                 }
             }
@@ -79,7 +81,7 @@ public class TransactionProcessor implements Runnable {
 
     //Process a transaction by depositing/withdrawing from the appropriate account
     public void processTransaction(Transaction transaction)
-            throws InsufficientFundsException, AccountNotFoundException, InterruptedException {
+            throws InsufficientFundsException, AccountNotFoundException, InterruptedException, NegativeBalanceException {
 
         Account account = bank.getAccountById(transaction.getAccountNumber());
 

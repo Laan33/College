@@ -13,7 +13,8 @@ import java.time.LocalDateTime;
 
 /**
  * Account class for CT326 Assignment 5 (23/24)
- * @author Adrian Clear
+ * @author Adrian Clear originally
+ * @author Cathal Lawlor - Altered
  */
 public class Account implements Serializable {
 
@@ -43,16 +44,17 @@ public class Account implements Serializable {
 
 	/**
 	 * Make a deposit to the account of the given amount
+	 * Synchronized for concurrency control
 	 * @param amount the amount to deposit
+	 * @throws NegativeBalanceException
 	 */
-	public synchronized void makeDeposit(Money amount) {
-		if(amount.isGreaterThan(Money.of(CurrencyUnit.EUR, 0)) ) {
-            balance = balance.plus(amount);
-		}
+	public synchronized void makeDeposit(Money amount) throws NegativeBalanceException {
+		setBalance(balance.plus(amount));
 	}
 
 	/**
 	 * Make a withdrawal from the account of the given amount
+	 * Synchronized for concurrency control
 	 * @param amount the amount to withdraw
 	 * @throws InsufficientFundsException if the amount to withdraw is greater than the current balance
 	 */
