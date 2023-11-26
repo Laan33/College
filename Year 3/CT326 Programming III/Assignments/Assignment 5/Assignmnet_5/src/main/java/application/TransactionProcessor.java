@@ -1,3 +1,15 @@
+/**
+ * TransactionProcessor class for CT326 Assignment 5 (23/24)
+ * This class is responsible for processing transactions from the bank.
+ * It implements the Runnable interface to be executed in a separate thread.
+ * 
+ * The TransactionProcessor class receives transactions from the Bank class and processes them.
+ * It keeps track of the number of deposits and withdrawals made, as well as the time since the last transaction.
+ * 
+ * The class uses the Joda Money library to handle currency and money operations.
+ * 
+ * @author Cathal Lawlor
+ */
 package application;
 
 import exceptions.InsufficientFundsException;
@@ -12,17 +24,24 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.logging.Logger;
 
 
+/**
+ * The TransactionProcessor class represents a thread that processes transactions for a bank.
+ * It implements the Runnable interface.
+ */
 public class TransactionProcessor implements Runnable {
     private final String name;
     private final Bank bank;
-    private int depositsCount;
-    private int withdrawalsCount;
+    private int depositsCount, withdrawalsCount;
     private long timeSinceLastTransaction;
-    private static final Logger logger = Logger.getLogger(TransactionProcessor.class.getName());
+    private static final Logger logger = Logger.getLogger(TransactionProcessor.class.getName()); // Logger for TransactionProcessor
     private final int MAX_TIME_SINCE_FIRST_TRANSACTION = 5000; // 5 seconds in milliseconds - max time to wait for a new transaction
 
-
-
+    /**
+     * Constructs a TransactionProcessor object with the specified name and bank.
+     *
+     * @param name The name of the transaction processor.
+     * @param bank The bank for which the transactions will be processed.
+     */
     public TransactionProcessor(String name, Bank bank) {
         this.name = name;
         this.bank = bank;
@@ -31,6 +50,11 @@ public class TransactionProcessor implements Runnable {
         this.timeSinceLastTransaction = System.currentTimeMillis();
     }
 
+    /**
+     * Runs the transaction processing logic.
+     * It retrieves transactions from the bank and processes them until a poison pill transaction is encountered
+     * or the time since the last transaction exceeds the maximum time limit.
+     */
     @Override
     public void run() {
         // Get the first transaction from the bank
@@ -65,11 +89,19 @@ public class TransactionProcessor implements Runnable {
         printProcessorSummary();
     }
 
+    /**
+     * Prints a summary of the transaction processor's activity, including the number of deposits and withdrawals processed.
+     */
     private void printProcessorSummary() {
         System.out.println(name + " has processed " + (depositsCount + withdrawalsCount) + " transactions, including "
                 + depositsCount + " deposits, and " + withdrawalsCount + " withdrawals");
     }
 
+    /**
+     * Prints a summary of the given transaction, including the type (deposit or withdrawal), amount, and account number.
+     *
+     * @param transaction The transaction to be summarized.
+     */
     private void printSummary(Transaction transaction) {
         // Print the name of the thread and either "a deposit" or "a withdrawal" of currency and amount from account number
         if (transaction.getAmount() > 0) {
@@ -79,7 +111,15 @@ public class TransactionProcessor implements Runnable {
         }
     }
 
-    //Process a transaction by depositing/withdrawing from the appropriate account
+    /**
+     * Processes a transaction by depositing/withdrawing from the appropriate account.
+     *
+     * @param transaction The transaction to be processed.
+     * @throws InsufficientFundsException If the account has insufficient funds for a withdrawal.
+     * @throws AccountNotFoundException If the account specified in the transaction is not found.
+     * @throws InterruptedException If the thread is interrupted while sleeping.
+     * @throws NegativeBalanceException If the account balance becomes negative after a withdrawal.
+     */
     public void processTransaction(Transaction transaction)
             throws InsufficientFundsException, AccountNotFoundException, InterruptedException, NegativeBalanceException {
 
@@ -105,12 +145,11 @@ public class TransactionProcessor implements Runnable {
     }
 
     /**
-     * Sleep for random amount of time between 0 and 1 second
+     * Sleeps for a random amount of time between 0 and 1 second.
      *
-     * @throws InterruptedException if thread is interrupted
+     * @throws InterruptedException If the thread is interrupted while sleeping.
      */
     private void sleepRandomTime() throws InterruptedException {
         Thread.sleep(ThreadLocalRandom.current().nextLong(0, 1000));
     }
-
 }

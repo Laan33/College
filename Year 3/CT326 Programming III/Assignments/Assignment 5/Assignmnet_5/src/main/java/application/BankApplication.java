@@ -9,19 +9,31 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
-
-
+/**
+ * The BankApplication class represents the main entry point of the bank application.
+ * It creates and manages the bank, accounts, and transaction processing threads.
+ * It also prints out the details of the accounts after the transactions have finished.
+ * It uses the Joda Money library to represent monetary values.
+ * It uses the java.util.logging.Logger class to log messages to the console.
+ * 
+ * @author Cathal Lawlor
+ */
 public class BankApplication {
     private static final Logger logger = Logger.getLogger(BankApplication.class.getName());
 
+    /**
+     * The main method is the entry point of the bank application.
+     * It creates and initializes the bank, accounts, and transaction processing threads.
+     * It also prints out the details of the accounts after the transactions have finished.
+     * 
+     * @param args The command line arguments.
+     */
     public static void main(String[] args) {
         final int RANDOM_TRANSACTION_RUNNING_TIME = 10_000;
         Bank bank = new Bank();
 
-
         // Create and add three Account instances to the bank with different starting balances
         try {
-            // Create and add three Account instances to the bank with different starting balances
             Account account1 = new Account(13453, Money.parse("EUR " + "134670"));
             Account account2 = new Account(72339, Money.parse("EUR " + "100200"));
             Account account3 = new Account(38931, Money.parse("EUR " + "622010"));
@@ -39,11 +51,8 @@ public class BankApplication {
 
             // Declare and instantiate two TransactionProcessor threads and one RandomTransactionGenerator thread
             RandomTransactionGenerator randomTransactionGenerator = new RandomTransactionGenerator(bank);
-
             TransactionProcessor transactionProcessor1 = new TransactionProcessor("Transaction Processor 1", bank);
             TransactionProcessor transactionProcessor2 = new TransactionProcessor("Transaction Processor 2", bank);
-
-
 
             // Execute the threads using a thread pool (ExecutorService) and wait for them to complete
             ExecutorService randomTransactionGeneratorExecutorService = Executors.newFixedThreadPool(1);
@@ -59,10 +68,7 @@ public class BankApplication {
             randomTransactionGeneratorExecutorService.shutdown();
 
             try {
-                // Wait for the threads to complete
-
                 if (!transactionProcessorExecutorService.awaitTermination(RANDOM_TRANSACTION_RUNNING_TIME, TimeUnit.MILLISECONDS)) {
-
                     randomTransactionGeneratorExecutorService.shutdownNow();
 
                     if (transactionProcessorExecutorService.awaitTermination(25_000, TimeUnit.MILLISECONDS)) {

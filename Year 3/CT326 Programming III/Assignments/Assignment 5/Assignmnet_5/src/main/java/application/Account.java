@@ -46,7 +46,7 @@ public class Account implements Serializable {
 	 * Make a deposit to the account of the given amount
 	 * Synchronized for concurrency control
 	 * @param amount the amount to deposit
-	 * @throws NegativeBalanceException
+	 * @throws NegativeBalanceException if the amount to deposit is negative
 	 */
 	public synchronized void makeDeposit(Money amount) throws NegativeBalanceException {
 		setBalance(balance.plus(amount));
