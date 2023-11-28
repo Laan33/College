@@ -1,0 +1,5 @@
+com\mycompany\websockettest\resources\JavaEE8Resource.class
+com\mycompany\websockettest\JAXRSConfiguration.class
+websocket\CommentSessionHandler.class
+websocket\CommentWebSocketServer.class
+model\Comment.class

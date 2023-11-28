@@ -1,0 +1,145 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 7 Nov 2022, 13:31:29
+    Author     : o_molloy
+*/
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 80%;
+    background-color: #1f1f1f;
+}
+
+#wrapper {
+    width: 960px;
+    margin: auto;
+    text-align: left;
+    color: #d9d9d9;
+}
+
+p {
+    text-align: left;
+}
+
+.button {
+    display: inline;
+    color: #fff;
+    background-color: #f2791d;
+    padding: 8px;
+    margin: auto;
+    border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    box-shadow: none;
+    border: none;
+}
+
+.button:hover {
+    background-color: #ffb15e;
+}
+.button a, a:visited, a:hover, a:active {
+    color: #fff;
+    text-decoration: none;
+}
+
+#addComment {
+    text-align: center;
+    width: 960px;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+#addCommentForm {
+    text-align: left;
+    width: 400px;
+    margin: auto;
+    padding: 10px;
+}
+
+#addCommentForm span {
+    display: block;
+}
+
+#content {
+    margin: auto;
+    width: 960px;
+}
+
+.comment {
+    width: 180px;
+    height: 110px;
+    margin: 10px;
+    padding: 16px;
+    color: #fff;
+    vertical-align: top;
+    border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    display: inline-block;
+}
+
+.comment.off {
+    background-color: #c8cccf;
+}
+
+.comment span {
+    display: block;
+}
+
+.commentName {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.removeComment {
+    margin-top: 12px;
+    text-align: center;
+}
+
+.comment.Appliance {
+    background-color: #5eb85e;
+}
+
+.comment.Appliance a:hover {
+    color: #a1ed82;
+}
+
+.comment.Electronics {
+    background-color: #0f90d1;
+}
+
+.comment.Electronics a:hover {
+    color: #4badd1;
+}
+
+.comment.Lights {
+    background-color: #c2a00c;
+}
+
+.comment.Lights a:hover {
+    color: #fad232;
+}
+
+.comment.Other {
+    background-color: #db524d;
+}
+
+.comment.Other a:hover {
+    color: #ff907d;
+}
+
+.comment a {
+    text-decoration: none;
+}
+
+.comment a:visited, a:active, a:hover {
+    color: #fff;
+}
+
+.comment a:hover {
+    text-decoration: underline;
+}

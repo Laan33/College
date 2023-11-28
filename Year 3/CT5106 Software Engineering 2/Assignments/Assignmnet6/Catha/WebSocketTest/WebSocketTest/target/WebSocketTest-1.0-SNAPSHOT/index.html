@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Java Websocket Home</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="websocket.js"></script>
+</head>
+<body>
+
+    <div id="wrapper">
+        <h1>Choose a forum you want to join</h1>
+        <form id="addDeviceForm">
+            <span>Name: <input type="text" name="device_name" id="device_name"></span>
+            <span>Type:
+                <select id="forum_selector" onchange="selectForum(this.value)">
+                    <option name="type" value="Politics">Politics</option>
+                    <option name="type" value="Sport">Sport</option>
+                    <option name="type" value="Nature">Nature</option>
+                    <option name="type" value="Technology">Technology</option>
+                </select>
+            </span>
+            <button type="button" onclick="joinForum()">Join</button>
+        </form>
+
+        <!-- Chat Sections -->
+        <div id="politicsChat" class="chat-section" style="display: none;">
+            <h2>Politics Chat</h2>
+            <form id="politicsChatForm">
+                <input id="politicsMessageField" type="text">
+                <button type="button" onclick="sendMsg('politics')">Send</button>
+            </form>
+            <div id="politicsMsgBox" class="msg-box"></div>
+        </div>
+
+        <div id="sportChat" class="chat-section" style="display: none;">
+            <h2>Sport Chat</h2>
+            <form id="sportChatForm">
+                <input id="sportMessageField" type="text">
+                <button type="button" onclick="sendMsg('sport')">Send</button>
+            </form>
+            <div id="sportMsgBox" class="msg-box"></div>
+        </div>
+
+        <div id="natureChat" class="chat-section" style="display: none;">
+            <h2>Nature Chat</h2>
+            <form id="natureChatForm">
+                <input id="natureMessageField" type="text">
+                <button type="button" onclick="sendMsg('nature')">Send</button>
+            </form>
+            <div id="natureMsgBox" class="nature-box"></div>
+        </div>
+        
+        <div id="technologyChat" class="chat-section" style="display: none;">
+            <h2>Technology Chat</h2>
+            <form id="technologyChatForm">
+                <input id="technologyMessageField" type="text">
+                <button type="button" onclick="sendMsg('technology')">Send</button>
+            </form>
+            <div id="technologyMsgBox" class="technology-box"></div>
+        </div>     
+    </div>
+
+</body>
+</html>

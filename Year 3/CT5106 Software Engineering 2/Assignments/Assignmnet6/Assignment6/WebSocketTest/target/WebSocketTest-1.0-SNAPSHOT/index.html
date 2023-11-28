@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="websocket.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!-- 
+        Once a user has selected a forum and clicked the 'Join' button, the client-side JavaScript initiates a WebSocket connection with the server application.
+        The server application maintains a record of all active sessions using a set.
+
+        If there is a successful connection with the WebSocket server, the onOpen() method is called on the client side. 
+        This method sends a JSON message to the server to request the client's entry to the selected forum. An example of such a message is:
+        {action: "join", forum: "Sport"}
+        -->
+
+
+        <!-- Choose the forum you want to join, with a username 
+            and a button to join the forum from the dropdown menu -->
+        <h1>Choose the forum you want to join:</h1>
+        <form id="forumForm">
+            <span>Username: <input type="text" name="username" id="username"></span>
+            <span>Forum:
+                <select id="forum">
+                    <option name="forum" value="PoliticsForum">Politics</option>
+                    <option name="forum" value="SportForum">Sport</option>
+                    <option name="forum" value="NatureForum">Nature</option>
+                    <option name="forum" value="TechnologyForum">Technology</option>
+                </select></span>
+            <input type="button" class="button" value="Join" onclick=joinForum()>
+        </form>
+        <br />
+        <br />
+    </div>
+
+</body>
+
+</html>

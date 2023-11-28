@@ -18,8 +18,19 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "b048c5af7eb7937b",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.4.16"
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -156,7 +167,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "5a942426fa82bdf2",
+  "active": "b048c5af7eb7937b",
   "lastOpenFiles": [
     "CT326 Programming III/Assignments/Assignment 5/Assignment 5.zip",
     "CT326 Programming III/Assignments/Assignment 5.zip",

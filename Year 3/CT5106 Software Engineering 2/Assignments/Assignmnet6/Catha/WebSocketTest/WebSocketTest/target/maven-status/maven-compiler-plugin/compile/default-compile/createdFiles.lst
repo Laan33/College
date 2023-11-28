@@ -1,0 +1,6 @@
+com\mycompany\websockettest\JAXRSConfiguration.class
+websocket\DeviceSessionHandler.class
+websocket\JsonProvider.class
+com\mycompany\websockettest\resources\JavaEE8Resource.class
+model\Device.class
+websocket\DeviceWebSocketServer.class
